@@ -12,6 +12,7 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { ApplicationContextModule } from './application-context/application-context.module';
 
 @NgModule({
   imports: [
@@ -19,14 +20,14 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     FormsModule,
     HttpModule,
     ComponentsModule,
+    ApplicationContextModule,
     RouterModule,
     AppRoutingModule,
     NgbModule.forRoot()
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-
+    AdminLayoutComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
