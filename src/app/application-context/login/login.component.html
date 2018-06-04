@@ -1,3 +1,30 @@
-<p>
-  login works!
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">iniciar sesión</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="email" class="form-control" [(ngModel)]="model.email">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="">Contraseña</label>
+              <input type="password" class="form-control" [(ngModel)]="model.password">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <button class="btn btn-info" (click)="onLogin()">Iniciar sesión</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

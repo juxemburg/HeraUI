@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from './login.service';
+import { LoginModel } from '../models/autentication.models';
+import { NotificationService } from '../../shared/services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public model: LoginModel;
+
+  constructor(
+    private _cmpService: LoginService
+  ) { }
 
   ngOnInit() {
+    this.reset();
+  }
+
+  public onLogin() {
+    this._cmpService.Login(this.model)
+      .subscribe(
+        data => {
+          // this._notService.showNotification('Login exitoso', 'success');
+        },
+        err => {
+          // this._notService.showNotification('Login fallido', 'error');
+          console.error(err);
+        });
+  }
+
+  private reset() {
+    this.model = new LoginModel('', '', true);
   }
 
 }

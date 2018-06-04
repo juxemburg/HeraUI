@@ -7,12 +7,15 @@ import { LoginLayoutComponent } from './layouts/login-layout/login-layout.compon
 import { RouterModule } from '@angular/router';
 import { ComponentsModule } from '../components/components.module';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     ComponentsModule,
+    FormsModule,
     SharedModule
   ],
   declarations: [LoginComponent, LoginLayoutComponent, DashboardLayoutComponent],

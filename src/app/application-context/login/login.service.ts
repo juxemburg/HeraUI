@@ -8,11 +8,11 @@ import { LoginModel } from '../models/autentication.models';
 })
 export class LoginService {
 
-  private _uri = 'authentication';
+  private _uri = 'Account';
 
   constructor(private _http: HttpService) { }
 
   public Login(model: LoginModel): Observable<any> {
-    return this._http.post(this._uri, model);
+    return this._http.post(`${this._uri}/Login`, model);
   }
 }

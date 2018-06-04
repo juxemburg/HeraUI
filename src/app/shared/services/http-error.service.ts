@@ -9,8 +9,16 @@ export class HttpErrorService {
 
   constructor() { }
 
-  public HandleError(error: HttpErrorResponse) {
+  public HandleError(error: HttpErrorResponse, observable: any) {
     console.log(error);
+    switch (error.status) {
+      case 404:
+        // do something
+        break;
+
+      default:
+        break;
+    }
     return throwError(
       'Something bad happened; please try again later.');
   }

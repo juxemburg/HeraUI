@@ -29,7 +29,11 @@ export class HttpService {
   public post<T, U>(subUri: string, data: T,
     params: Map<string, string> = null): Observable<U> {
     return this._http
-      .post<U>(this.getFullUrl(subUri, params), data);
+      .post<U>(this.getFullUrl(subUri, params), data)
+      .pipe(
+        retry(3),
+        catchError(this._httpError.HandleError)
+      );
   }
 
   private getFullUrl(

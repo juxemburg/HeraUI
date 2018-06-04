@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './services/http.service';
 import { HttpErrorService } from './services/http-error.service';
+import { NotificationService } from './services/notification.service';
 
 @NgModule({
   imports: [
@@ -10,6 +11,10 @@ import { HttpErrorService } from './services/http-error.service';
     HttpClientModule
   ],
   declarations: [],
-  providers: [HttpService, HttpErrorService]
+  providers: [
+    HttpService,
+    HttpErrorService,
+    NotificationService
+  ]
 })
 export class SharedModule { }
