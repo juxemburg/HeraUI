@@ -3,17 +3,19 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+    loadChildren: 'app/layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+  },
+  {
+    path: 'login',
+    loadChildren: 'app/layouts/login-layout/login.module#LoginModule'
   },
   {
     path: '**',
-    redirectTo: 'dashboard'
+    redirectTo: ''
   }
 ];
 
