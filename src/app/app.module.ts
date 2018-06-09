@@ -7,27 +7,26 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { ApplicationContextModule } from './application-context/application-context.module';
+
+import { LoginLayoutComponent } from './layouts/login-layout/layout/login-layout.component';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    ComponentsModule,
-    ApplicationContextModule,
     RouterModule,
+    ComponentsModule,
     AppRoutingModule,
     NgbModule.forRoot()
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    LoginLayoutComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

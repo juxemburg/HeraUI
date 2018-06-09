@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { LoginModel } from '../models/autentication.models';
-import { NotificationService } from '../../shared/services/notification.service';
+
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,7 @@ import { NotificationService } from '../../shared/services/notification.service'
 })
 export class LoginComponent implements OnInit {
 
-  public model: LoginModel;
+  public model: LoginModel;c
 
   constructor(
     private _cmpService: LoginService
