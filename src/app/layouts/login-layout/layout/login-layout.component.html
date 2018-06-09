@@ -1,7 +1,9 @@
 <div class="wrapper">
-  <app-navbar></app-navbar>
-<div class="main-panel">
-  
-  <router-outlet></router-outlet>
-</div>
+  <div class="main-panel panel-full-width">
+    <app-navbar [colorClass]='"bg-primary"'></app-navbar>
+    <div class="panel-header panel-header-sm"></div>
+    <div class="content main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
