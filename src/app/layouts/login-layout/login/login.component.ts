@@ -11,6 +11,7 @@ import { LoginModel } from '../models/autentication.models';
 export class LoginComponent implements OnInit {
 
   public model: LoginModel;
+  public isLoading = false;
 
   constructor(private _cmpService: LoginService) { }
 
@@ -19,12 +20,15 @@ export class LoginComponent implements OnInit {
   }
 
   public onLogin() {
+    this.isLoading = true;
     this._cmpService.Login(this.model)
       .subscribe(
         data => {
+          this.isLoading = false;
           // this._notService.showNotification('Login exitoso', 'success');
         },
         err => {
+          this.isLoading = false;
           // this._notService.showNotification('Login fallido', 'error');
           console.error(err);
         });

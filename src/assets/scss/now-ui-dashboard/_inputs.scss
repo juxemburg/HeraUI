@@ -73,12 +73,14 @@
 }
 
 .has-success .form-control:focus,
+.form-control.ng-dirty.ng-valid:focus,
 .has-success.input-group-focus .input-group-append .input-group-text,
 .has-success.input-group-focus .input-group-prepend .input-group-text{
     border-color: lighten($success-color, 5%);
 }
 
 .has-danger .form-control,
+.form-control.ng-dirty.ng-invalid,
 .has-danger .input-group-append .input-group-text,
 .has-danger .input-group-prepend .input-group-text,
 .has-danger.input-group-focus .input-group-prepend .input-group-text,

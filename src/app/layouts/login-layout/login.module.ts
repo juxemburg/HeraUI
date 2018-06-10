@@ -11,7 +11,6 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
     ComponentsModule,
     SharedModule,
     LoginRoutingModule

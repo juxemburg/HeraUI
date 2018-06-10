@@ -1,0 +1,7 @@
+<div class="form-group" [ngClass]="{'has-success': password.valid, 'has-danger': !input.valid && !input.pristine}">
+  <label for="">
+    <i class="material-icons">{{icon}}</i> {{labelName}}
+  </label>
+  <input #input="ngModel" type="{{type}}" [name]="name" class="form-control" [(ngModel)]="inputValue" required [disabled]="disabled"
+    (change)="textChanged()" (keyup)="textChanged()" required>
+</div>
