@@ -1,5 +1,7 @@
 @include form-control-placeholder($default-color, 1);
 
+
+
 .form-control {
     background-color: $transparent-bg;
     border: 1px solid $light-gray;
@@ -256,6 +258,15 @@
 
     .form-control-static{
         margin-top: 9px;
+    }
+
+    label {
+
+        i.material-icons {
+            position: relative;
+            top: 5px;
+            font-size: 19px;
+        }
     }
 }
 .input-group[disabled]{

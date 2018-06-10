@@ -10,11 +10,9 @@ import { LoginModel } from '../models/autentication.models';
 })
 export class LoginComponent implements OnInit {
 
-  public model: LoginModel;c
+  public model: LoginModel;
 
-  constructor(
-    private _cmpService: LoginService
-  ) { }
+  constructor(private _cmpService: LoginService) { }
 
   ngOnInit() {
     this.reset();

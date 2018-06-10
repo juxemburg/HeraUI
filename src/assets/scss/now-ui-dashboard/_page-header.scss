@@ -4,6 +4,7 @@
     padding: 0;
     color: $white-color;
     position: relative;
+    opacity: 0.9;
 
     .page-header-image{
         position: absolute;
@@ -11,7 +12,12 @@
         background-position: center center;
         width: 100%;
         height: 100%;
-        z-index: -1;
+        z-index: -4;
+        opacity: 1;
+    }
+
+    .container {
+        opacity: 1;
     }
 
     .content-center{
@@ -33,6 +39,7 @@
     footer{
         position: absolute;
         bottom: 0;
+        left:0;
         width: 100%;
     }
 
@@ -66,7 +73,7 @@
     &:after,
     &:before{
         position: absolute;
-        z-index: 0;
+        z-index: -2;
         width: 100%;
         height: 100%;
         display: block;

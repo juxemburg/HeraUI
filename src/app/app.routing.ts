@@ -6,11 +6,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     loadChildren: 'app/layouts/admin-layout/admin-layout.module#AdminLayoutModule'
   },
   {
-    path: 'login',
+    path: '',
     loadChildren: 'app/layouts/login-layout/login.module#LoginModule'
   },
   {
