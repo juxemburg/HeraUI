@@ -11,6 +11,10 @@ const routes: Routes = [
   },
   {
     path: '',
+    loadChildren: 'app/layouts/regular-layout/regular-layout.module#RegularLayoutModule'
+  },
+  {
+    path: 'login',
     loadChildren: 'app/layouts/login-layout/login.module#LoginModule'
   },
   {

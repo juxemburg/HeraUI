@@ -7,11 +7,13 @@ import { NotificationService } from './services/notification.service';
 import { RequiredInputComponent } from './required-input/required-input.component';
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from './loading/loading.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ComponentsModule,
     HttpClientModule
   ],
   declarations: [
@@ -22,7 +24,8 @@ import { LoadingComponent } from './loading/loading.component';
     FormsModule,
     HttpClientModule,
     RequiredInputComponent,
-    LoadingComponent
+    LoadingComponent,
+    ComponentsModule
   ],
   providers: [
     HttpService,
