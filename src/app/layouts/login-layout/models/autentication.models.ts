@@ -4,7 +4,7 @@ export class LoginModel {
         public rememberMe: boolean) { }
 }
 
-export class RegisterViewModel {
+export class RegisterProfesorModel {
     constructor(
         public email: string,
         public password: string,
