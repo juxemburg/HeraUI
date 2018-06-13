@@ -1,3 +1,97 @@
-<p>
-  register-teacher works!
-</p>
+<!-- card -->
+<div class="card">
+  <div class="card-header">
+
+    <h5 class="card-title">
+      <button class="btn btn-round btn-warning btn-icon btn-back">
+        <i class="material-icons">arrow_back_ios</i>
+      </button>
+      Registro de profesor
+    </h5>
+  </div>
+  <!-- card-body -->
+  <div class="card-body">
+    <p class="col-sm-12">
+      Bienvenido. Por favor regálanos algunos de tus datos.
+    </p>
+    <form>
+      <div class="row">
+        <!-- email -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group">
+            <label for="">
+              <i class="material-icons">email</i> Email
+            </label>
+            <input type="email" name="email" class="form-control" required email>
+          </div>
+        </div>
+        <!-- /email -->
+        <!-- email -->
+        <div class="col-sm-5 col-md-4">
+          <div class="form-group">
+            <label for="">
+              <i class="material-icons">timer</i> Edad
+            </label>
+            <input type="number" name="age" class="form-control" required>
+          </div>
+        </div>
+        <!-- /email -->
+      </div>
+      <div class="row">
+        <!-- name -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group">
+            <label for="">
+              <i class="material-icons">person</i> Nombres
+            </label>
+            <input type="text" name="name" class="form-control" required email>
+          </div>
+        </div>
+        <!-- /name -->
+        <!-- last name -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group">
+            <label for="">
+              <i class="material-icons">person</i> Apellidos
+            </label>
+            <input type="text" name="name" class="form-control" required email>
+          </div>
+        </div>
+        <!-- /last name -->
+      </div>
+      <div class="row">
+        <!-- password -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group">
+            <label for="">
+              <i class="material-icons">lock</i> Contraseña
+            </label>
+            <input type="password" type="password" name="password" class="form-control" required>
+          </div>
+        </div>
+        <!-- /password -->
+        <!-- password verify-->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group">
+            <label for="">
+              <i class="material-icons">lock</i> Repite la contraseña
+            </label>
+            <input type="password" type="password" name="password" class="form-control" required>
+          </div>
+        </div>
+        <!-- /password verify-->
+      </div>
+      <!-- submit -->
+      <div class="col-sm-12 mt-4">
+        <div class="form-group text-center">
+          <button class="btn btn-round btn-primary" [disabled]="!loginForm.form.valid">
+            Regístrate
+          </button>
+        </div>
+      </div>
+      <!-- /submit -->
+    </form>
+  </div>
+  <!-- /card-body -->
+</div>
+<!-- /card -->

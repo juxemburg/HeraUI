@@ -24,8 +24,15 @@
       border: 0;
 
       .card-title{
-          margin-top: 10px;
+          
+
+          button.btn-back {
+            margin-top: 0px;
+            margin-right:20px;
+          }
       }
+      
+
     }
 
     .map{
