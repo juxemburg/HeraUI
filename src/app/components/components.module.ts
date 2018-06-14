@@ -7,6 +7,8 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarLoginComponent } from './navbar-login/navbar-login.component';
+import { NavbarPanelComponent } from './navbar-panel/navbar-panel.component';
+import { NavbarPanelService } from './navbar-panel/navbar-panel.service';
 
 @NgModule({
   imports: [
@@ -18,12 +20,15 @@ import { NavbarLoginComponent } from './navbar-login/navbar-login.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    NavbarLoginComponent
+    NavbarLoginComponent,
+    NavbarPanelComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
+    NavbarPanelComponent,
     SidebarComponent
-  ]
+  ],
+  providers: [NavbarPanelService]
 })
 export class ComponentsModule { }

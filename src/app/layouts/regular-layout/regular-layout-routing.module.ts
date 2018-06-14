@@ -4,6 +4,8 @@ import { RegularLayoutComponent } from './layout/regular-layout.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterProfesorComponent } from './register-profesor/register-profesor.component';
 import { RegisterTeacherComponent } from './register-teacher/register-teacher.component';
+import { CourseComponent } from './course/course.component';
+import { CoursesComponent } from './courses/courses.component';
 
 const routes: Routes = [
   {
@@ -16,7 +18,15 @@ const routes: Routes = [
         children: [
           { path: 'teacher', component: RegisterTeacherComponent }
         ]
-      }
+      },
+      {
+        path: 'student', children: [
+          { path: 'courses', component: CoursesComponent },
+          { path: 'course:/id', component: CourseComponent },
+          { path: 'course', component: CourseComponent }
+        ]
+      },
+      {path: '', redirectTo: 'student/course', pathMatch: 'full'}
     ]
   }
 ];
