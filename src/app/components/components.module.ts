@@ -9,26 +9,35 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarLoginComponent } from './navbar-login/navbar-login.component';
 import { NavbarPanelComponent } from './navbar-panel/navbar-panel.component';
 import { NavbarPanelService } from './navbar-panel/navbar-panel.service';
+import { LoginComponent } from './login/login.component';
+import { SharedModule } from '../shared/shared.module';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    SharedModule
   ],
   declarations: [
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
     NavbarLoginComponent,
-    NavbarPanelComponent
+    NavbarPanelComponent,
+    LoginComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
     NavbarPanelComponent,
-    SidebarComponent
+    SidebarComponent,
+    LoginComponent
   ],
-  providers: [NavbarPanelService]
+  providers: [
+    NavbarPanelService,
+    LoginService
+  ]
 })
 export class ComponentsModule { }

@@ -11,13 +11,24 @@ import { SharedModule } from '../../shared/shared.module';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseCardComponent } from './course-card/course-card.component';
 import { CourseComponent } from './course/course.component';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
+    ComponentsModule,
     RegularLayoutRoutingModule
   ],
-  declarations: [RegularLayoutComponent, RegisterComponent, RegisterProfesorComponent, RegisterTeacherComponent, RegisterStudentComponent, CoursesComponent, CourseCardComponent, CourseComponent]
+  declarations: [
+    RegularLayoutComponent,
+    RegisterComponent,
+    RegisterProfesorComponent,
+    RegisterTeacherComponent,
+    RegisterStudentComponent,
+    CoursesComponent,
+    CourseCardComponent,
+    CourseComponent
+  ]
 })
 export class RegularLayoutModule { }
