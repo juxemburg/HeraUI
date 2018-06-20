@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from 'app/shared/services/http.service';
 import { Observable } from 'rxjs';
-import { LoginModel } from 'app/layouts/login-layout/models/autentication.models';
+import { LoginModel } from 'app/models/autentication.models';
 
 @Injectable({
   providedIn: 'root'

@@ -8,6 +8,7 @@ import { RequiredInputComponent } from './required-input/required-input.componen
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from './loading/loading.component';
 
+
 @NgModule({
   imports: [
     CommonModule,

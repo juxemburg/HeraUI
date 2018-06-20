@@ -7,6 +7,7 @@ import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { AdminLayoutComponent } from './admin-layout.component';
+import { TeacherCoursesComponent } from '../../components/teacher-courses/teacher-courses.component';
 
 
 
@@ -15,6 +16,12 @@ export const AdminLayoutRoutes: Routes = [
         path: '',
         component: AdminLayoutComponent,
         children: [
+            {
+                path: 'teacher',
+                children: [
+                    { path: 'courses', component: TeacherCoursesComponent }
+                ]
+            },
             { path: 'dashboard', component: DashboardComponent },
             { path: 'user-profile', component: UserProfileComponent },
             { path: 'table-list', component: TableListComponent },

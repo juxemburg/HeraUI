@@ -12,6 +12,10 @@ import { NavbarPanelService } from './navbar-panel/navbar-panel.service';
 import { LoginComponent } from './login/login.component';
 import { SharedModule } from '../shared/shared.module';
 import { LoginService } from './login/login.service';
+import { TeacherCoursesComponent } from './teacher-courses/teacher-courses.component';
+import { TeacherCoursesListComponent } from './teacher-courses-list/teacher-courses-list.component';
+import { TeacherCoursesSearchComponent } from './teacher-courses-search/teacher-courses-search.component';
+import { PortalCardComponent } from './portal-card/portal-card.component';
 
 @NgModule({
   imports: [
@@ -26,13 +30,18 @@ import { LoginService } from './login/login.service';
     SidebarComponent,
     NavbarLoginComponent,
     NavbarPanelComponent,
-    LoginComponent
+    LoginComponent,
+    TeacherCoursesComponent,
+    TeacherCoursesListComponent,
+    TeacherCoursesSearchComponent,
+    PortalCardComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
     NavbarPanelComponent,
     SidebarComponent,
+    PortalCardComponent,
     LoginComponent
   ],
   providers: [

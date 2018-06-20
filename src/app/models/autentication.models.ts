@@ -4,6 +4,14 @@ export class LoginModel {
         public rememberMe: boolean) { }
 }
 
+export class UserInfoModel {
+    constructor(
+        public username: string,
+        public role: string,
+        public userId: number
+    ) { }
+}
+
 export class RegisterProfesorModel {
     constructor(
         public email: string,

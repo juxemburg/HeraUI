@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginModel } from 'app/layouts/login-layout/models/autentication.models';
 import { LoginService } from 'app/components/login/login.service';
 import { Router } from '@angular/router';
+import { LoginModel, UserInfoModel } from 'app/models/autentication.models';
 
 
 @Component({
@@ -29,14 +29,28 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           this.isLoading = false;
-          // this._notService.showNotification('Login exitoso', 'success');
-          this._router.navigate(['']);
+          this.loginRoute(data);
         },
         err => {
           this.isLoading = false;
           // this._notService.showNotification('Login fallido', 'error');
           console.error(err);
         });
+  }
+
+  private loginRoute(userInfo: UserInfoModel) {
+    let route = '';
+    switch (userInfo.role) {
+      case 'Profesor':
+        route = 'dashboard/teacher/courses';
+        break;
+      case 'student/courses':
+        route = '';
+        break;
+      default:
+        break;
+    }
+    this._router.navigate([route]);
   }
 
   private reset() {
