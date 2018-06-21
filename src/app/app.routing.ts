@@ -10,16 +10,12 @@ const routes: Routes = [
     loadChildren: 'app/layouts/admin-layout/admin-layout.module#AdminLayoutModule'
   },
   {
-    path: '',
-    loadChildren: 'app/layouts/regular-layout/regular-layout.module#RegularLayoutModule'
-  },
-  {
     path: 'login',
     loadChildren: 'app/layouts/login-layout/login.module#LoginModule'
   },
   {
-    path: '**',
-    redirectTo: ''
+    path: '',
+    loadChildren: 'app/layouts/regular-layout/regular-layout.module#RegularLayoutModule'
   }
 ];
 

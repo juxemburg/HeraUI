@@ -6,6 +6,7 @@ import { RegisterProfesorComponent } from './register-profesor/register-profesor
 import { RegisterTeacherComponent } from './register-teacher/register-teacher.component';
 import { CourseComponent } from './course/course.component';
 import { CoursesComponent } from './courses/courses.component';
+import { NotFoundComponent } from '../../components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,8 @@ const routes: Routes = [
           { path: 'course', component: CourseComponent }
         ]
       },
-      {path: '', redirectTo: 'student/course', pathMatch: 'full'}
+      { path: 'not-found', component: NotFoundComponent },
+      { path: '**', redirectTo: 'not-found' }
     ]
   }
 ];

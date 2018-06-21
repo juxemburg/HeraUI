@@ -11,6 +11,10 @@ import { catchError, retry } from 'rxjs/operators';
 export class HttpService {
 
   private _baseUri: string = baseUrl;
+  private _authToken: string;
+  public set token(value: string) {
+    this._authToken = this.token;
+  }
 
   constructor(
     private _http: HttpClient,
@@ -20,10 +24,10 @@ export class HttpService {
   public get<T>(subUri: string,
     params: Map<string, string> = null): Observable<T> {
     return this._http.get<T>(this.getFullUrl(subUri, params))
-    .pipe(
-      retry(3),
-      catchError(this._httpError.HandleError)
-    );
+      .pipe(
+        retry(3),
+        catchError(this._httpError.HandleError)
+      );
   }
 
   public post<T, U>(subUri: string, data: T,
@@ -47,6 +51,10 @@ export class HttpService {
       return `${this._baseUri}/${subUri}?${paramText}`;
     }
     return `${this._baseUri}/${subUri}`;
+  }
+
+  private getHeaders() {
+    
   }
 
 }

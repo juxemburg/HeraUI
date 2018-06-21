@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserInfoModel } from '../../models/autentication.models';
+import { UserInfoModel, UserInfoViewModel } from '../../models/autentication.models';
 
 @Injectable({
   providedIn: 'root'
@@ -13,4 +13,9 @@ export class UserService {
   public setUserInfo(model: UserInfoModel): void {
     this._user = model;
   }
+
+  public getUserInfo(): UserInfoViewModel {
+    return this._user.map();
+  }
+
 }

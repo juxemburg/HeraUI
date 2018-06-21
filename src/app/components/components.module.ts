@@ -16,6 +16,9 @@ import { TeacherCoursesComponent } from './teacher-courses/teacher-courses.compo
 import { TeacherCoursesListComponent } from './teacher-courses-list/teacher-courses-list.component';
 import { TeacherCoursesSearchComponent } from './teacher-courses-search/teacher-courses-search.component';
 import { PortalCardComponent } from './portal-card/portal-card.component';
+import { IsAuthenticatedGuardService } from './services/guards/is-authenticated-guard.service';
+import { IsInRoleGuardService } from './services/guards/is-in-role-guard.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports: [
@@ -34,7 +37,8 @@ import { PortalCardComponent } from './portal-card/portal-card.component';
     TeacherCoursesComponent,
     TeacherCoursesListComponent,
     TeacherCoursesSearchComponent,
-    PortalCardComponent
+    PortalCardComponent,
+    NotFoundComponent
   ],
   exports: [
     FooterComponent,
@@ -42,11 +46,14 @@ import { PortalCardComponent } from './portal-card/portal-card.component';
     NavbarPanelComponent,
     SidebarComponent,
     PortalCardComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent
   ],
   providers: [
     NavbarPanelService,
-    LoginService
+    LoginService,
+    IsAuthenticatedGuardService,
+    IsInRoleGuardService
   ]
 })
 export class ComponentsModule { }

@@ -8,6 +8,20 @@ export class UserInfoModel {
     constructor(
         public username: string,
         public role: string,
+        public userId: number,
+        public userToken: string
+    ) { }
+
+    public map(): UserInfoViewModel {
+        return new UserInfoViewModel(this.username,
+            this.role, this.userId);
+    }
+}
+
+export class UserInfoViewModel {
+    constructor(
+        public username: string,
+        public role: string,
         public userId: number
     ) { }
 }

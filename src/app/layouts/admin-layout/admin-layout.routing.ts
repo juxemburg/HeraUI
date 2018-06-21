@@ -8,6 +8,7 @@ import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { AdminLayoutComponent } from './admin-layout.component';
 import { TeacherCoursesComponent } from '../../components/teacher-courses/teacher-courses.component';
+import { NotFoundComponent } from '../../components/not-found/not-found.component';
 
 
 
@@ -30,6 +31,8 @@ export const AdminLayoutRoutes: Routes = [
             { path: 'maps', component: MapsComponent },
             { path: 'notifications', component: NotificationsComponent },
             { path: '', redirectTo: 'dashboard' },
+            { path: 'not-found', component: NotFoundComponent },
+            { path: '**', redirectTo: 'not-found' }
         ]
     }
 ];
