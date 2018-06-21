@@ -23,12 +23,13 @@ export class LoginService {
     return this._http
       .post<LoginModel, UserInfoModel>(`${this._uri}/Login`, model)
       .pipe(
-        tap(data => this._userService.setUserInfo(data))
+        tap(data => this.doLogin(data))
       );
   }
 
   private doLogin(userInfo: UserInfoModel) {
     this._userService.setUserInfo(userInfo);
+    this._http.token = userInfo.userToken;
     this.loginRoute(userInfo);
   }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { baseUrl } from 'assets/config/http.config';
 import { HttpErrorService } from './http-error.service';
 import { Observable } from 'rxjs/internal/Observable';
@@ -23,7 +23,8 @@ export class HttpService {
 
   public get<T>(subUri: string,
     params: Map<string, string> = null): Observable<T> {
-    return this._http.get<T>(this.getFullUrl(subUri, params))
+    return this._http
+      .get<T>(this.getFullUrl(subUri, params), { headers: this.getHeaders() })
       .pipe(
         retry(3),
         catchError(this._httpError.HandleError)
@@ -33,7 +34,7 @@ export class HttpService {
   public post<T, U>(subUri: string, data: T,
     params: Map<string, string> = null): Observable<U> {
     return this._http
-      .post<U>(this.getFullUrl(subUri, params), data)
+      .post<U>(this.getFullUrl(subUri, params), data, { headers: this.getHeaders() })
       .pipe(
         retry(3),
         catchError(this._httpError.HandleError)
@@ -53,8 +54,12 @@ export class HttpService {
     return `${this._baseUri}/${subUri}`;
   }
 
-  private getHeaders() {
-    
+  private getHeaders(): HttpHeaders {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    if (this._authToken) {
+      headers.set('Authentication', `Bearer: ${this._authToken}`);
+    }
+    return headers;
   }
 
 }
