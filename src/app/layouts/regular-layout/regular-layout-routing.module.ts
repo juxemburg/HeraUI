@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegularLayoutComponent } from './layout/regular-layout.component';
-import { RegisterComponent } from './register/register.component';
-import { RegisterProfesorComponent } from './register-profesor/register-profesor.component';
-import { RegisterTeacherComponent } from './register-teacher/register-teacher.component';
-import { CourseComponent } from './course/course.component';
-import { CoursesComponent } from './courses/courses.component';
-import { NotFoundComponent } from '../../components/not-found/not-found.component';
+import { RegisterComponent } from '../../account-module/register/register.component';
+import { CoursesComponent } from '../../student-module/courses/courses.component';
+import { RegisterTeacherComponent } from '../../account-module/register-teacher/register-teacher.component';
+import { CourseComponent } from '../../student-module/course/course.component';
+import { NotFoundComponent } from '../../shared/not-found/not-found.component';
+
+
 
 const routes: Routes = [
   {

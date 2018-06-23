@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Course } from 'app/models/application.models';
-import { NavbarPanelService } from '../../../components/navbar-panel/navbar-panel.service';
+import { NavbarPanelService } from 'app/shared/navbar-panel/navbar-panel.service';
+
 
 @Component({
   selector: 'app-course',

@@ -1,8 +1,7 @@
-import { Component, OnInit, ElementRef, Output, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-import Chart from 'chart.js';
 
 @Component({
     selector: 'app-navbar',
@@ -34,7 +33,7 @@ export class NavbarComponent implements OnInit {
         this.listTitles = ROUTES.filter(listTitle => listTitle);
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
-        this.router.events.subscribe((event) => {
+        this.router.events.subscribe(() => {
             this.sidebarClose();
             const $layer: any = document.getElementsByClassName('close-layer')[0];
             if ($layer) {

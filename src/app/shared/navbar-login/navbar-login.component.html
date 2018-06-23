@@ -1,0 +1,20 @@
+<li class="nav-item" ngbDropdown>
+  <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
+    <i class="material-icons">account_circle</i>
+    <p>
+      <span class="d-lg-none d-md-block">Some Actions</span>
+    </p>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <div *ngIf="isLoggedIn">
+        <a class="dropdown-item" href="#">Bienvenido</a>
+      <a class="dropdown-item" href="#">Cerrar sesión</a>
+    </div>
+    <div *ngIf="!isLoggedIn">
+      <a routerLink="/login" class="dropdown-item">
+        Iniciar sesión
+      </a>
+      <a class="dropdown-item" href="#">Registrarse</a>
+    </div>
+  </div>
+</li>

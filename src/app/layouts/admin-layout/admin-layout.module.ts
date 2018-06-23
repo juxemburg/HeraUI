@@ -14,20 +14,20 @@ import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { AdminLayoutComponent } from './admin-layout.component';
-import { ComponentsModule } from '../../components/components.module';
 import { SharedModule } from '../../shared/shared.module';
+import { TeacherModule } from 'app/teacher-module/teacher.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(AdminLayoutRoutes),
+    TeacherModule,
     FormsModule,
     ChartsModule,
     NgbModule,
-    ComponentsModule,
     SharedModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    RouterModule.forChild(AdminLayoutRoutes)
   ],
   declarations: [
     AdminLayoutComponent,
