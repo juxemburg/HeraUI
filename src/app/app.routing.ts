@@ -10,7 +10,7 @@ const routes: Routes = [
     loadChildren: 'app/layouts/admin-layout/admin-layout.module#AdminLayoutModule'
   },
   {
-    path: 'login',
+    path: 'account',
     loadChildren: 'app/layouts/login-layout/login.module#LoginModule'
   },
   {

@@ -11,7 +11,7 @@
     <!-- email -->
     <div class="col-sm-12">
       <div class="form-group" [ngClass]="{'has-success': email.valid, 'has-danger': !email.valid && !email.pristine}">
-        <label for="">
+        <label class="control-label" for="email">
           <i class="material-icons">email</i> Email
         </label>
         <input type="email" #email="ngModel" name="email" [(ngModel)]="model.email" class="form-control form-control-success" required

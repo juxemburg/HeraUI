@@ -24,6 +24,12 @@
          outline: 0 !important;
     }
 
+    i.material-icons {
+        font-size: 18px;
+        position: relative; 
+        top:3px;
+    }
+
     .badge{
       margin: 0;
     }
@@ -79,6 +85,12 @@
             transform: translate(-12px, -12px);
             line-height: 1.5626rem;
             width: 24px;
+        }
+
+        i.material-icons {
+            font-size: 24px;
+            top: 6px;
+            left: 3px;
         }
 
     }

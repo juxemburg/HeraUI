@@ -8,6 +8,8 @@ import { RegisterTeacherComponent } from './register-teacher/register-teacher.co
 import { IsInRoleGuardService } from './services/guards/is-in-role-guard.service';
 import { IsAuthenticatedGuardService } from './services/guards/is-authenticated-guard.service';
 import { SharedModule } from '../shared/shared.module';
+import { RegisterSelectionComponent } from './register-selection/register-selection.component';
+import { RegisterCardComponent } from './register-card/register-card.component';
 
 @NgModule({
   imports: [
@@ -19,7 +21,9 @@ import { SharedModule } from '../shared/shared.module';
     LoginCardComponent,
     RegisterComponent,
     RegisterStudentComponent,
-    RegisterTeacherComponent
+    RegisterTeacherComponent,
+    RegisterSelectionComponent,
+    RegisterCardComponent
   ],
   exports: [
     LoginComponent,

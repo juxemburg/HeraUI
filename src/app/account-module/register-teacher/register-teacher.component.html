@@ -1,97 +1,107 @@
-<!-- card -->
-<div class="card">
-  <div class="card-header">
+<div class="card-header">
 
-    <h5 class="card-title">
-      <button class="btn btn-round btn-warning btn-icon btn-back">
-        <i class="material-icons">arrow_back_ios</i>
-      </button>
-      Registro de profesor
-    </h5>
-  </div>
-  <!-- card-body -->
-  <div class="card-body">
-    <p class="col-sm-12">
-      Bienvenido. Por favor regálanos algunos de tus datos.
-    </p>
-    <form>
-      <div class="row">
-        <!-- email -->
-        <div class="col-sm-12 col-md-6">
-          <div class="form-group">
-            <label for="">
-              <i class="material-icons">email</i> Email
-            </label>
-            <input type="email" name="email" class="form-control" required email>
-          </div>
-        </div>
-        <!-- /email -->
-        <!-- email -->
-        <div class="col-sm-5 col-md-4">
-          <div class="form-group">
-            <label for="">
-              <i class="material-icons">timer</i> Edad
-            </label>
-            <input type="number" name="age" class="form-control" required>
-          </div>
-        </div>
-        <!-- /email -->
-      </div>
-      <div class="row">
-        <!-- name -->
-        <div class="col-sm-12 col-md-6">
-          <div class="form-group">
-            <label for="">
-              <i class="material-icons">person</i> Nombres
-            </label>
-            <input type="text" name="name" class="form-control" required email>
-          </div>
-        </div>
-        <!-- /name -->
-        <!-- last name -->
-        <div class="col-sm-12 col-md-6">
-          <div class="form-group">
-            <label for="">
-              <i class="material-icons">person</i> Apellidos
-            </label>
-            <input type="text" name="name" class="form-control" required email>
-          </div>
-        </div>
-        <!-- /last name -->
-      </div>
-      <div class="row">
-        <!-- password -->
-        <div class="col-sm-12 col-md-6">
-          <div class="form-group">
-            <label for="">
-              <i class="material-icons">lock</i> Contraseña
-            </label>
-            <input type="password" type="password" name="password" class="form-control" required>
-          </div>
-        </div>
-        <!-- /password -->
-        <!-- password verify-->
-        <div class="col-sm-12 col-md-6">
-          <div class="form-group">
-            <label for="">
-              <i class="material-icons">lock</i> Repite la contraseña
-            </label>
-            <input type="password" type="password" name="password" class="form-control" required>
-          </div>
-        </div>
-        <!-- /password verify-->
-      </div>
-      <!-- submit -->
-      <div class="col-sm-12 mt-4">
-        <div class="form-group text-center">
-          <button class="btn btn-round btn-primary" [disabled]="!loginForm.form.valid">
-            Regístrate
-          </button>
-        </div>
-      </div>
-      <!-- /submit -->
-    </form>
-  </div>
-  <!-- /card-body -->
+  <h5 class="card-title">
+    <a routerLink="/account/register" class="btn btn-round btn-warning btn-icon btn-back">
+      <i class="material-icons">arrow_back_ios</i>
+    </a>
+    Registro de profesor
+  </h5>
 </div>
-<!-- /card -->
+<!-- card-body -->
+<div class="card-body" *ngIf="!isLoading">
+  <p class="col-sm-12">
+    Bienvenido. Por favor regálanos algunos de tus datos.
+  </p>
+  <form #registerForm="ngForm">
+    <div class="row">
+      <!-- email -->
+      <div class="col-sm-12 col-md-6">
+        <div class="form-group" [ngClass]="{'has-success': email.valid, 'has-danger': !email.valid && !email.pristine}">
+          <label for="">
+            <i class="material-icons">email</i> Email
+          </label>
+          <input type="email" #email="ngModel" [(ngModel)]="model.email" name="email" class="form-control" required email>
+        </div>
+      </div>
+      <!-- /email -->
+    </div>
+    <div class="row">
+      <!-- password -->
+      <div class="col-sm-12 col-md-6">
+        <div class="form-group" [ngClass]="{'has-success': password.valid, 'has-danger': !password.valid && !password.pristine}">
+          <label for="">
+            <i class="material-icons">lock</i> Contraseña
+          </label>
+          <input type="password" #password="ngModel" [(ngModel)]="model.password" type="password" name="password" class="form-control" required>
+        </div>
+      </div>
+      <!-- /password -->
+      <!-- password verify-->
+      <div class="col-sm-12 col-md-6">
+        <div class="form-group" [ngClass]="{'has-success': confirmPassword.valid, 'has-danger': !confirmPassword.valid && !confirmPassword.pristine}">
+          <label for="">
+            <i class="material-icons">lock</i> Repite la contraseña
+          </label>
+          <input type="password" #confirmPassword="ngModel" [(ngModel)]="model.confirmPassword" name="ConfirmPassword" class="form-control" required>
+        </div>
+      </div>
+      <!-- /password verify-->
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <hr>
+      </div>
+      <!-- name -->
+      <div class="col-sm-12 col-md-4">
+        <div class="form-group" [ngClass]="{'has-success': name.valid, 'has-danger': !name.valid && !name.pristine}">
+          <label for="">
+            <i class="material-icons">person</i> Nombres
+          </label>
+          <input type="text" #name="ngModel" [(ngModel)]="model.nombres" name="name" class="form-control" required>
+        </div>
+      </div>
+      <!-- /name -->
+      <!-- last name -->
+      <div class="col-sm-12 col-md-4">
+        <div class="form-group" [ngClass]="{'has-success': lastName.valid, 'has-danger': !lastName.valid && !lastName.pristine}">
+          <label for="">
+            <i class="material-icons">person</i> Apellidos
+          </label>
+          <input type="text" #lastName="ngModel" [(ngModel)]="model.apellidos" name="lastName" class="form-control" required>
+        </div>
+      </div>
+      <!-- /last name -->
+      <!-- age -->
+      <div class="col-sm-12 col-md-4">
+        <div class="form-group" [ngClass]="{'has-success': age.valid, 'has-danger': !age.valid && !age.pristine}">
+          <label for="">
+            <i class="material-icons">timer</i> Edad
+          </label>
+          <input type="number" #age="ngModel" [(ngModel)]="model.edad" name="age" class="form-control" required>
+        </div>
+      </div>
+      <!-- /age -->
+    </div>
+
+    <!-- submit -->
+    <div class="col-sm-12 mt-4">
+      <div class="form-group text-center">
+        <button class="btn btn-round btn-primary" [disabled]="!registerForm.form.valid" (click)="do_Registation()">
+          Regístrate
+        </button>
+      </div>
+    </div>
+    <!-- /submit -->
+  </form>
+</div>
+<!-- /card-body -->
+
+<!-- card-body-loading -->
+<div class="card-body" *ngIf="isLoading">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <app-loading></app-loading>
+    </div>
+  </div>
+</div>
+<!-- /card-body-loading -->

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from 'app/shared/services/http.service';
 import { Observable } from 'rxjs';
-import { LoginModel, UserInfoModel } from 'app/models/autentication.models';
+import { LoginModel, UserInfoModel, RegisterProfesorModel } from 'app/models/autentication.models';
 import { UserService } from '../../shared/services/user.service';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -22,6 +22,16 @@ export class LoginService {
   public Login(model: LoginModel): Observable<any> {
     return this._http
       .post<LoginModel, UserInfoModel>(`${this._uri}/Login`, model)
+      .pipe(
+        tap(data => this.doLogin(data))
+      );
+  }
+
+  public RegisterTeacher(model: RegisterProfesorModel) {
+    return this._http
+      .post<RegisterProfesorModel, UserInfoModel>(
+        `${this._uri}/RegisterTeacher`,
+        model)
       .pipe(
         tap(data => this.doLogin(data))
       );
