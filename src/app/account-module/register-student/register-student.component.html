@@ -8,19 +8,19 @@
   </h5>
 </div>
 <!-- card-body -->
-<div class="card-body">
+<div class="card-body" *ngIf="!isLoading">
   <p class="col-sm-12">
     Bienvenido. Por favor regálanos algunos de tus datos.
   </p>
-  <form>
+  <form #registerForm="ngForm">
     <div class="row">
       <!-- email -->
       <div class="col-sm-12 col-md-6">
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-success': email.valid, 'has-danger': !email.valid && !email.pristine}">
           <label for="">
             <i class="material-icons">email</i> Email
           </label>
-          <input type="email" name="email" class="form-control" required email>
+          <input [(ngModel)]="model.email" #email="ngModel" type="email" name="email" class="form-control" required email>
         </div>
       </div>
       <!-- /email -->
@@ -28,21 +28,23 @@
     <div class="row">
       <!-- password -->
       <div class="col-sm-12 col-md-6">
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-success': password.valid, 'has-danger': !password.valid && !password.pristine}">
           <label for="">
             <i class="material-icons">lock</i> Contraseña
           </label>
-          <input type="password" type="password" name="password" class="form-control" required>
+          <input [(ngModel)]="model.password" #password="ngModel" type="password" type="password" name="password" class="form-control"
+            required>
         </div>
       </div>
       <!-- /password -->
       <!-- password verify-->
       <div class="col-sm-12 col-md-6">
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-success': confirmPassword.valid, 'has-danger': !confirmPassword.valid && !confirmPassword.pristine}">
           <label for="">
             <i class="material-icons">lock</i> Repite la contraseña
           </label>
-          <input type="password" type="password" name="password" class="form-control" required>
+          <input [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" type="password" name="confirmPassword" class="form-control"
+            required>
         </div>
       </div>
       <!-- /password verify-->
@@ -53,22 +55,22 @@
       </div>
       <!-- name -->
       <div class="col-sm-12 col-md-6">
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-success': name.valid, 'has-danger': !name.valid && !name.pristine}">
           <label for="">
             <i class="material-icons">person</i> Nombres
           </label>
-          <input type="text" name="name" class="form-control" required email>
+          <input [(ngModel)]="model.nombres" #name="ngModel" type="text" name="name" class="form-control" required>
         </div>
       </div>
       <!-- /name -->
 
       <!-- last name -->
       <div class="col-sm-12 col-md-6">
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-success': lastName.valid, 'has-danger': !lastName.valid && !lastName.pristine}">
           <label for="">
             <i class="material-icons">person</i> Apellidos
           </label>
-          <input type="text" name="name" class="form-control" required email>
+          <input [(ngModel)]="model.apellidos" #lastName="ngModel" type="text" name="name" class="form-control" required>
         </div>
       </div>
       <!-- /last name -->
@@ -79,7 +81,7 @@
           <label for="">
             <i class="material-icons">timer</i> Edad
           </label>
-          <input type="number" name="age" class="form-control" required>
+          <input [(ngModel)]="model.edad" type="number" name="age" class="form-control" required>
         </div>
       </div>
       <!-- /age -->
@@ -90,7 +92,7 @@
             <i class="material-icons">timer</i>
             grado
           </label>
-          <input type="number" name="age" class="form-control" required>
+          <input [(ngModel)]="model.grado" type="number" name="age" class="form-control" required>
         </div>
       </div>
       <!-- /course -->
@@ -102,9 +104,8 @@
             <i class="material-icons">face</i>
             Género
           </label>
-          <select name="" id="" class="form-control">
-            <option value="0">Femenino</option>
-            <option value="1">Masculino</option>
+          <select [(ngModel)]="model.genero" name="gender" class="form-control">
+            <option value="{{option.value}}" *ngFor="let option of metadata.genderOptions">{{option.text}}</option>
           </select>
         </div>
       </div>
@@ -117,8 +118,8 @@
             <i class="material-icons">class</i>
             Materia favorita
           </label>
-          <select name="" id="" class="form-control">
-            <option value="0">opcion defecto</option>
+          <select [(ngModel)]="model.materiaFavorita" name="favoriteSubject" class="form-control">
+            <option value="{{option.value}}" *ngFor="let option of metadata.favoriteSubjectOptions">{{option.text}}</option>
           </select>
         </div>
       </div>
@@ -131,8 +132,8 @@
             <i class="material-icons">computer</i>
             Actividad favorita del pc
           </label>
-          <select name="" id="" class="form-control">
-            <option value="0">opcion defecto</option>
+          <select [(ngModel)]="model.actividadesPc" name="pcActivity"  class="form-control">
+            <option value="{{option.value}}" *ngFor="let option of metadata.pcActivitiesOptions">{{option.text}}</option>
           </select>
         </div>
       </div>
@@ -145,8 +146,8 @@
             <i class="material-icons">computer</i>
             Frecuencia del uso del pc
           </label>
-          <select name="" id="" class="form-control">
-            <option value="0">opcion defecto</option>
+          <select [(ngModel)]="model.frecuenciaPc" name="pcFrecuency"  class="form-control">
+            <option value="{{option.value}}" *ngFor="let option of metadata.pcFrecuencyOptions">{{option.text}}</option>
           </select>
         </div>
       </div>
@@ -159,7 +160,7 @@
             <i class="material-icons">computer</i>
             Manejo del pc
           </label>
-          <input type="number" class="form-control">
+          <input name="manejoComputador" [(ngModel)]="model.manejoComputador" type="number" class="form-control" required>
         </div>
       </div>
       <!-- /pcUsage -->
@@ -171,7 +172,7 @@
             <i class="material-icons">computer</i>
             Manejo del pc
           </label>
-          <input type="number" class="form-control">
+          <input name="conocimientoComputador" [(ngModel)]="model.conocimientoComputador" type="number" class="form-control" required>
         </div>
       </div>
       <!-- /psKnowledge -->
@@ -185,7 +186,7 @@
     <!-- submit -->
     <div class="col-sm-12 mt-4">
       <div class="form-group text-center">
-        <button class="btn btn-round btn-primary" [disabled]="!loginForm.form.valid">
+        <button class="btn btn-round btn-primary" [disabled]="!registerForm.form.valid" (click)="do_Registration()">
           Regístrate
         </button>
       </div>
@@ -194,3 +195,13 @@
   </form>
 </div>
 <!-- /card-body -->
+
+<!-- card-body-loading -->
+<div class="card-body" *ngIf="isLoading">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <app-loading></app-loading>
+    </div>
+  </div>
+</div>
+<!-- /card-body-loading -->

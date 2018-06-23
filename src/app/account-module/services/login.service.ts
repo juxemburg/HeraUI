@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from 'app/shared/services/http.service';
 import { Observable } from 'rxjs';
-import { LoginModel, UserInfoModel, RegisterProfesorModel } from 'app/models/autentication.models';
+import { LoginModel, UserInfoModel, RegisterProfesorModel, StudentRegistrationMetadata, RegisterStudentModel } from 'app/models/autentication.models';
 import { UserService } from '../../shared/services/user.service';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -27,7 +27,7 @@ export class LoginService {
       );
   }
 
-  public RegisterTeacher(model: RegisterProfesorModel) {
+  public RegisterTeacher(model: RegisterProfesorModel): Observable<UserInfoModel> {
     return this._http
       .post<RegisterProfesorModel, UserInfoModel>(
         `${this._uri}/RegisterTeacher`,
@@ -35,6 +35,21 @@ export class LoginService {
       .pipe(
         tap(data => this.doLogin(data))
       );
+  }
+
+  public RegisterStudent(model: RegisterStudentModel): Observable<UserInfoModel> {
+    return this._http
+      .post<RegisterStudentModel, UserInfoModel>(
+        `${this._uri}/RegisterStudent`,
+        model)
+      .pipe(
+        tap(data => this.doLogin(data))
+      );
+  }
+
+  public GetStudentRegistrationMetadata(): Observable<StudentRegistrationMetadata> {
+    return this._http.get<StudentRegistrationMetadata>(
+      `${this._uri}/GetStudentRegistrationMetadata`);
   }
 
   private doLogin(userInfo: UserInfoModel) {
@@ -49,8 +64,8 @@ export class LoginService {
       case 'Profesor':
         route = 'dashboard/teacher/courses';
         break;
-      case 'student/courses':
-        route = '';
+      case 'Estudiante':
+        route = '/student/courses';
         break;
       default:
         break;
