@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from 'app/shared/services/http.service';
 import { HttpErrorService } from 'app/shared/services/http-error.service';
 import { NotificationService } from 'app/shared/services/notification.service';
-import { RequiredInputComponent } from 'app/shared/required-input/required-input.component';
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from 'app/shared/loading/loading.component';
 import { FooterComponent } from 'app/shared/footer/footer.component';
@@ -29,7 +28,6 @@ import { RouterModule } from '@angular/router';
     HttpClientModule
   ],
   declarations: [
-    RequiredInputComponent,
     LoadingComponent,
     FooterComponent,
     NavbarComponent,
@@ -41,7 +39,6 @@ import { RouterModule } from '@angular/router';
   exports: [
     FormsModule,
     RouterModule,
-    RequiredInputComponent,
     LoadingComponent,
     FooterComponent,
     NavbarComponent,

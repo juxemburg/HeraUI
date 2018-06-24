@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from 'app/shared/services/http.service';
 import { Observable } from 'rxjs';
-import { LoginModel, UserInfoModel, RegisterProfesorModel, StudentRegistrationMetadata, RegisterStudentModel } from 'app/models/autentication.models';
+import {
+  LoginModel,
+  UserInfoModel,
+  RegisterProfesorModel,
+  StudentRegistrationMetadata,
+  RegisterStudentModel
+} from 'app/models/autentication.models';
 import { UserService } from '../../shared/services/user.service';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';

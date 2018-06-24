@@ -350,6 +350,15 @@
   @include panel-gradient($primary-color);
   position: relative;
   overflow: hidden;
+
+  &.primary{
+    @include panel-gradient($primary-color);
+  }
+
+  &.black{
+    @include panel-gradient($black-color);
+  }
+  
   
 
   .header{
