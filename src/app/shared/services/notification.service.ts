@@ -8,14 +8,18 @@ export class NotificationService {
 
   constructor(private _toastr: ToastrService) { }
 
+  public showError(message: string) {
+    this.showNotification(message, 'error');
+  }
+
   showNotification(message: string, color: string, from = 'top', align = 'right') {
-
-
 
     switch (color) {
       case 'info':
         this._toastr.info(
-          message,
+          `<span class="now-ui-icons ui-1_bell-53"></span>
+           ${message}
+           `,
           '',
           {
             timeOut: 8000,
@@ -27,38 +31,44 @@ export class NotificationService {
         break;
       case 'success':
         this._toastr.success(
-          message,
+          `<span class="now-ui-icons ui-1_bell-53"></span>
+           ${message}
+           `,
           '',
           {
             timeOut: 8000,
             closeButton: true,
             enableHtml: true,
-            toastClass: 'alert alert-info alert-with-icon',
+            toastClass: 'alert alert-success alert-with-icon',
             positionClass: 'toast-' + from + '-' + align
           }
         );
         break;
       case 'warning':
         this._toastr.warning(
-          message,
+          `<span class="now-ui-icons ui-1_bell-53"></span>
+           ${message}
+           `,
           '',
           {
             timeOut: 8000,
             closeButton: true,
             enableHtml: true,
-            toastClass: 'alert alert-info alert-with-icon',
+            toastClass: 'alert alert-warning alert-with-icon',
             positionClass: 'toast-' + from + '-' + align
           });
         break;
       case 'error':
         this._toastr.error(
-          message,
+          `<span class="now-ui-icons ui-1_bell-53"></span>
+           ${message}
+           `,
           '',
           {
             timeOut: 8000,
             closeButton: true,
             enableHtml: true,
-            toastClass: 'alert alert-info alert-with-icon',
+            toastClass: 'alert alert-error alert-with-icon',
             positionClass: 'toast-' + from + '-' + align
           });
         break;

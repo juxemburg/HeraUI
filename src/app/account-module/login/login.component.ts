@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginModel } from 'app/models/autentication.models';
 import { LoginService } from '../services/login.service';
+import { NotificationService } from '../../shared/services/notification.service';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   public isLoading = false;
 
   constructor(
-    private _cmpService: LoginService
+    private _cmpService: LoginService,
+    private _notService: NotificationService
   ) { }
 
   ngOnInit() {
@@ -26,11 +28,11 @@ export class LoginComponent implements OnInit {
     this._cmpService.Login(this.model)
       .subscribe(
         () => {
-          this.isLoading = false;
+          this._notService.showNotification('Login exitoso', 'success');
         },
         err => {
           this.isLoading = false;
-          // this._notService.showNotification('Login fallido', 'error');
+          this._notService.showError('Login fallido');
           console.error(err);
         });
   }
