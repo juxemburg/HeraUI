@@ -5,6 +5,10 @@ import { TeacherCoursesListComponent } from 'app/teacher-module/teacher-courses-
 import { TeacherCoursesSearchComponent } from 'app/teacher-module/teacher-courses-search/teacher-courses-search.component';
 import { TeacherCoursesService } from './services/teacher-courses.service';
 import { SharedModule } from '../shared/shared.module';
+import { ChallengesComponent } from './challenges/challenges.component';
+import { ChallengesListComponent } from './challenges-list/challenges-list.component';
+import { ChallengesSearchComponent } from './challenges-search/challenges-search.component';
+import { CreateChallengeComponent } from './create-challenge/create-challenge.component';
 
 @NgModule({
   imports: [
@@ -14,7 +18,11 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     TeacherCoursesComponent,
     TeacherCoursesListComponent,
-    TeacherCoursesSearchComponent
+    TeacherCoursesSearchComponent,
+    ChallengesComponent,
+    ChallengesListComponent,
+    ChallengesSearchComponent,
+    CreateChallengeComponent
   ],
   exports: [
     TeacherCoursesComponent,

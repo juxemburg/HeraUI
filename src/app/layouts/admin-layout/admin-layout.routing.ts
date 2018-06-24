@@ -9,6 +9,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { AdminLayoutComponent } from './admin-layout.component';
 import { TeacherCoursesComponent } from 'app/teacher-module/teacher-courses/teacher-courses.component';
 import { NotFoundComponent } from 'app/shared/not-found/not-found.component';
+import { ChallengesComponent } from '../../teacher-module/challenges/challenges.component';
+import { CreateChallengeComponent } from '../../teacher-module/create-challenge/create-challenge.component';
 
 
 
@@ -22,7 +24,9 @@ export const AdminLayoutRoutes: Routes = [
             {
                 path: 'teacher',
                 children: [
-                    { path: 'courses', component: TeacherCoursesComponent }
+                    { path: 'courses', component: TeacherCoursesComponent },
+                    { path: 'challenges', component: ChallengesComponent },
+                    { path: 'challenge-create', component: CreateChallengeComponent }
                 ]
             },
             { path: 'dashboard', component: DashboardComponent },
