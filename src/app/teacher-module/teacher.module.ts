@@ -9,6 +9,7 @@ import { ChallengesComponent } from './challenges/challenges.component';
 import { ChallengesListComponent } from './challenges-list/challenges-list.component';
 import { ChallengesSearchComponent } from './challenges-search/challenges-search.component';
 import { CreateChallengeComponent } from './create-challenge/create-challenge.component';
+import { CreateChallengeFormComponent } from './create-challenge-form/create-challenge-form.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { CreateChallengeComponent } from './create-challenge/create-challenge.co
     ChallengesComponent,
     ChallengesListComponent,
     ChallengesSearchComponent,
-    CreateChallengeComponent
+    CreateChallengeComponent,
+    CreateChallengeFormComponent
   ],
   exports: [
     TeacherCoursesComponent,

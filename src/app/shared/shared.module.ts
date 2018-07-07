@@ -14,6 +14,7 @@ import { NavbarPanelComponent } from 'app/shared/navbar-panel/navbar-panel.compo
 import { NavbarComponent } from 'app/shared/navbar/navbar.component';
 import { NavbarLoginComponent } from './navbar-login/navbar-login.component';
 import { RouterModule } from '@angular/router';
+import { JWBootstrapSwitchModule } from 'jw-bootstrap-switch-ng2';
 
 
 
@@ -22,10 +23,11 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    JWBootstrapSwitchModule,
+    HttpClientModule,
+    RouterModule,
   ],
   declarations: [
     LoadingComponent,
@@ -39,6 +41,7 @@ import { RouterModule } from '@angular/router';
   exports: [
     FormsModule,
     RouterModule,
+    JWBootstrapSwitchModule,
     LoadingComponent,
     FooterComponent,
     NavbarComponent,
