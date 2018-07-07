@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+import { _throw } from 'rxjs/observable/throw';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,17 +12,20 @@ export class HttpErrorService {
   constructor(private _router: Router) { }
 
   public HandleError(error: HttpErrorResponse, observable: any) {
-    console.log(error);
+    console.log(error.status);
     switch (error.status) {
       case 401: // Unauthorized
-        this._router.navigate(['']);
+
+        // tslint:disable-next-line:no-debugger
+        debugger;
+        this._router.navigate(['/account/login']);
         break;
-      case 401: // Forbidden
-        this._router.navigate(['']);
+      case 403: // Forbidden
+        this._router.navigate(['account/login']);
         break;
       default:
         break;
     }
-    return throwError(error.error);
+    return _throw(error.error);
   }
 }

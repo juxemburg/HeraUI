@@ -83,4 +83,53 @@ export class CreateChallengeModel extends IChallengeInfo {
             nestedOperators
         );
     }
+
+    public mapInfo(info: ChallengeInfo) {
+        this.multipleSpriteEvents = info.multipleSpriteEvents;
+    }
+}
+
+export class ChallengeInfo extends IChallengeInfo {
+    constructor(
+        multipleSpriteEvents: boolean,
+        variableUse: boolean,
+        messageUse: boolean,
+        listUse: boolean,
+        nonUnusedBlocks: boolean,
+        userDefinedBlocks: boolean,
+        cloneUse: boolean,
+        secuenceUse: boolean,
+        multipleThreads: boolean,
+        twoGreenFlagThread: boolean,
+        advancedEventUse: boolean,
+        useSimpleBlocks: boolean,
+        useMediumBlocks: boolean,
+        useNestedControl: boolean,
+        basicInputUse: boolean,
+        nonCreatedVariableUse: boolean,
+        spriteSensisng: boolean,
+        basicOperators: boolean,
+        mediumOperators: boolean,
+        nestedOperators: boolean) {
+        super(multipleSpriteEvents,
+            variableUse,
+            messageUse,
+            listUse,
+            nonUnusedBlocks,
+            userDefinedBlocks,
+            cloneUse,
+            secuenceUse,
+            multipleThreads,
+            twoGreenFlagThread,
+            advancedEventUse,
+            useSimpleBlocks,
+            useMediumBlocks,
+            useNestedControl,
+            basicInputUse,
+            nonCreatedVariableUse,
+            spriteSensisng,
+            basicOperators,
+            mediumOperators,
+            nestedOperators);
+    }
 }

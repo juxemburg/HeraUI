@@ -12,7 +12,7 @@ export class UserInfoModel {
         public username: string,
         public role: string,
         public userId: number,
-        public userToken: string
+        public token: string
     ) { }
 
     public map(): UserInfoViewModel {

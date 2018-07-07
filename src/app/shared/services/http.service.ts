@@ -13,7 +13,7 @@ export class HttpService {
   private _baseUri: string = baseUrl;
   private _authToken: string;
   public set token(value: string) {
-    this._authToken = this.token;
+    this._authToken = value;
   }
 
   constructor(
@@ -55,9 +55,9 @@ export class HttpService {
   }
 
   private getHeaders(): HttpHeaders {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
     if (this._authToken) {
-      headers.set('Authentication', `Bearer: ${this._authToken}`);
+      headers = headers.set('Authorization', `Bearer ${this._authToken}`);
     }
     return headers;
   }

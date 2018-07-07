@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateChallengeModel } from '../../models/application.models';
+import { ChallengeService } from '../services/challenge.service';
+import { NotificationService } from '../../shared/services/notification.service';
 
 @Component({
   selector: 'app-create-challenge-form',
@@ -11,13 +13,15 @@ export class CreateChallengeFormComponent implements OnInit {
   public model: CreateChallengeModel;
   public isLoading = false;
 
-  constructor() { }
+  constructor(
+    private _cmpService: ChallengeService,
+    private _notService: NotificationService) { }
 
   ngOnInit() {
     this.resetModel();
   }
 
-  public resetModel() {
+  private resetModel() {
     this.model = new CreateChallengeModel('',
       '',
       0,
@@ -44,6 +48,24 @@ export class CreateChallengeFormComponent implements OnInit {
       false,
       false,
       false);
+  }
+
+  public onProjectIdChanged() {
+    this.loadValoration(this.model.idSolucion);
+  }
+
+  private loadValoration(projectId: number) {
+    this.isLoading = true;
+    this._cmpService.getValoration(projectId)
+      .subscribe(data => this.model.mapInfo(data),
+        _ => {
+          this._notService.showError('id de projecto inválido');
+          this.isLoading = false;
+        },
+        () => {
+          this.isLoading = false;
+          console.log('finished');
+        });
   }
 
 }

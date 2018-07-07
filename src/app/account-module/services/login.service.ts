@@ -60,7 +60,7 @@ export class LoginService {
 
   private doLogin(userInfo: UserInfoModel) {
     this._userService.setUserInfo(userInfo);
-    this._http.token = userInfo.userToken;
+    this._http.token = userInfo.token;
     this.loginRoute(userInfo);
   }
 

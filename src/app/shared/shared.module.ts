@@ -50,8 +50,8 @@ import { JWBootstrapSwitchModule } from 'jw-bootstrap-switch-ng2';
     SidebarComponent
   ],
   providers: [
-    HttpService,
     HttpErrorService,
+    HttpService,
     NotificationService
   ]
 })
