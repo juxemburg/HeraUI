@@ -12,6 +12,10 @@ export class NotificationService {
     this.showNotification(message, 'error');
   }
 
+  public showSuccess(message: string) {
+    this.showNotification(message, 'success');
+  }
+
   showNotification(message: string, color: string, from = 'top', align = 'right') {
 
     switch (color) {

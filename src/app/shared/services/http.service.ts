@@ -23,11 +23,12 @@ export class HttpService {
 
   public get<T>(subUri: string,
     params: Map<string, string> = null): Observable<T> {
+
     return this._http
       .get<T>(this.getFullUrl(subUri, params), { headers: this.getHeaders() })
       .pipe(
         retry(3),
-        catchError(this._httpError.HandleError)
+        catchError(this._httpError.HandleError())
       );
   }
 
@@ -37,7 +38,7 @@ export class HttpService {
       .post<U>(this.getFullUrl(subUri, params), data, { headers: this.getHeaders() })
       .pipe(
         retry(3),
-        catchError(this._httpError.HandleError)
+        catchError(this._httpError.HandleError())
       );
   }
 

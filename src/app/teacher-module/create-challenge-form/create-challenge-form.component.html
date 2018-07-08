@@ -1,10 +1,10 @@
-<form>
+<form #createChallengeForm="ngForm">
   <div class="row">
     <!-- challenge name -->
     <div class="col-sm-12 col-md-4 col-lg-6">
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{'has-success': nombre.valid, 'has-danger': !nombre.valid && !nombre.pristine}">
         <label for="">Nombre del desafío:</label>
-        <input type="text" name="name" [(ngModel)]="model.nombre" class="form-control" required>
+        <input type="text" name="name" [(ngModel)]="model.nombre" #nombre="ngModel" class="form-control" required>
       </div>
     </div>
     <!-- /challenge name -->
@@ -21,21 +21,23 @@
   <div class="row">
     <!-- scenario url -->
     <div class="col-sm-12 col-md-6 col-lg-4">
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{'has-success': urlEscenarioInicial.valid, 'has-danger': !urlEscenarioInicial.valid && !urlEscenarioInicial.pristine}">
         <label for="" class="control-label">
           Url escenario inicial
         </label>
-        <input [(ngModel)]="model.urlEscenarioInicial" name="urlEscenarioInicial" url type="text" class="form-control" required>
+        <input [(ngModel)]="model.urlEscenarioInicial" #urlEscenarioInicial="ngModel" name="urlEscenarioInicial" url type="text"
+          pattern="https?://.+" class="form-control" required>
       </div>
     </div>
     <!-- /scenario url -->
     <!-- solution url -->
     <div class="col-sm-12 col-md-6 col-lg-4">
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{'has-success': urlSolucion.valid, 'has-danger': !urlSolucion.valid && !urlSolucion.pristine}">
         <label for="" class="control-label">
           Url solución
         </label>
-        <input [(ngModel)]="model.urlSolucion" name="urlSolucion" type="text" class="form-control" url required>
+        <input [(ngModel)]="model.urlSolucion" #urlSolucion="ngModel" name="urlSolucion" type="text" class="form-control" pattern="https?://.+"
+          required (change)="onProjectUrlChanged()">
       </div>
     </div>
     <!-- solution url -->
@@ -43,7 +45,7 @@
     <div class="col-sm-12 col-md-6 col-lg-4">
       <div class="form-group">
         <label for="" class="control-label">Id solución</label>
-        <input [(ngModel)]="model.idSolucion" name="idSolucion" type="number" class="form-control" required (change)="onProjectIdChanged()">
+        <input [(ngModel)]="model.idSolucion" name="idSolucion" type="number" class="form-control" required min="10" required disabled>
       </div>
     </div>
     <!-- /solution id -->
@@ -59,12 +61,24 @@
 
   <!-- check-content -->
   <div *ngIf="!isLoading">
-    <!-- row-1 -->
+    <!-- title-row -->
     <div class="row">
       <div class="col-sm-12">
         <hr>
       </div>
+      <div class="col-sm-12">
+        <h4 class="text-center title">
+          Valoración de la solución
+        </h4>
+      </div>
+    </div>
+    <!-- /title-row -->
+    <!-- row-1 -->
+    <div class="row">
       <div class="col-sm-6 col-md-6">
+        <h5 class="title">
+
+        </h5>
         <div class="form-group">
           <!-- check-multipleSpriteEvents -->
           <div class="form-check">
@@ -272,7 +286,7 @@
     <div class="row mt-4">
       <div class="col-sm-12">
         <div class="form-group text-center">
-          <button class="btn btn-success">
+          <button type="button" class="btn btn-success" [disabled]="!createChallengeForm.form.valid" (click)="onFormSubmit()">
             ¡Crear desafío!
             <i class="material-icons">check</i>
           </button>

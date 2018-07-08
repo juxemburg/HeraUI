@@ -22,11 +22,12 @@ export class CreateChallengeFormComponent implements OnInit {
   }
 
   private resetModel() {
-    this.model = new CreateChallengeModel('',
+    this.model = new CreateChallengeModel(
+      '',
       '',
       0,
       '',
-      '',
+      'dir',
       '',
       false,
       false,
@@ -50,8 +51,33 @@ export class CreateChallengeFormComponent implements OnInit {
       false);
   }
 
-  public onProjectIdChanged() {
-    this.loadValoration(this.model.idSolucion);
+  public onProjectUrlChanged() {
+    const projectId: any = this.model.urlSolucion.match('[^/]+(?=/$|$)');
+    if (!isNaN(projectId[0])) {
+      this.model.idSolucion = <number>projectId[0];
+      this.loadValoration(this.model.idSolucion);
+    } else {
+      this.model.idSolucion = 0;
+      this.model.urlSolucion = '';
+    }
+  }
+
+  public onFormSubmit() {
+    this.createChallenge();
+  }
+
+  private createChallenge() {
+    this.isLoading = true;
+    this._cmpService.createChallenge(this.model)
+      .subscribe( _ => {
+        this.resetModel();
+        this.isLoading = false;
+        this._notService.showSuccess('Desafío creado exitosamente');
+      }, err => {
+        this.isLoading = false;
+        console.log(err);
+        this._notService.showError(err);
+      });
   }
 
   private loadValoration(projectId: number) {
@@ -60,6 +86,8 @@ export class CreateChallengeFormComponent implements OnInit {
       .subscribe(data => this.model.mapInfo(data),
         _ => {
           this._notService.showError('id de projecto inválido');
+          this.model.idSolucion = 0;
+          this.model.urlSolucion = '';
           this.isLoading = false;
         },
         () => {

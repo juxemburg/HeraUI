@@ -86,6 +86,25 @@ export class CreateChallengeModel extends IChallengeInfo {
 
     public mapInfo(info: ChallengeInfo) {
         this.multipleSpriteEvents = info.multipleSpriteEvents;
+        this.variableUse = info.variableUse;
+        this.messageUse = info.messageUse;
+        this.listUse = info.listUse;
+        this.nonUnusedBlocks = info.nonUnusedBlocks;
+        this.userDefinedBlocks = info.userDefinedBlocks;
+        this.cloneUse = info.cloneUse;
+        this.secuenceUse = info.secuenceUse;
+        this.multipleThreads = info.multipleThreads;
+        this.twoGreenFlagThread = info.twoGreenFlagThread;
+        this.advancedEventUse = info.advancedEventUse;
+        this.useSimpleBlocks = info.useSimpleBlocks;
+        this.useMediumBlocks = info.useMediumBlocks;
+        this.useNestedControl = info.useNestedControl;
+        this.basicInputUse = info.basicInputUse;
+        this.nonCreatedVariableUse = info.nonCreatedVariableUse;
+        this.spriteSensisng = info.spriteSensisng;
+        this.basicOperators = info.basicOperators;
+        this.mediumOperators = info.mediumOperators;
+        this.nestedOperators = info.nestedOperators;
     }
 }
 

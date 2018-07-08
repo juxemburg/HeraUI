@@ -11,21 +11,21 @@ export class HttpErrorService {
 
   constructor(private _router: Router) { }
 
-  public HandleError(error: HttpErrorResponse, observable: any) {
-    console.log(error.status);
-    switch (error.status) {
-      case 401: // Unauthorized
+  public HandleError() {
+    return (error: HttpErrorResponse, _: any) => {
+      switch (error.status) {
+        case 401: // Unauthorized
 
-        // tslint:disable-next-line:no-debugger
-        debugger;
-        this._router.navigate(['/account/login']);
-        break;
-      case 403: // Forbidden
-        this._router.navigate(['account/login']);
-        break;
-      default:
-        break;
+          console.log(this._router);
+          this._router.navigate(['/account/login']);
+          break;
+        case 403: // Forbidden
+          this._router.navigate(['account/login']);
+          break;
+        default:
+          break;
+      }
+      return _throw(error.error);
     }
-    return _throw(error.error);
   }
 }
