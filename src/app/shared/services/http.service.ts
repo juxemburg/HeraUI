@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { baseUrl } from 'assets/config/http.config';
+import { baseUrl, configVariables } from 'assets/config/http.config';
 import { HttpErrorService } from './http-error.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, retry } from 'rxjs/operators';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,15 @@ export class HttpService {
   private _authToken: string;
   public set token(value: string) {
     this._authToken = value;
+    this._cookieService.set('authCookie', value);
   }
 
   constructor(
     private _http: HttpClient,
-    private _httpError: HttpErrorService
-  ) { }
+    private _httpError: HttpErrorService,
+    private _cookieService: CookieService) {
+    this._authToken = configVariables.authToken;
+  }
 
   public get<T>(subUri: string,
     params: Map<string, string> = null): Observable<T> {

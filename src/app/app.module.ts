@@ -6,10 +6,13 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';
+import { CookieService } from 'ngx-cookie-service';
+import { BootstrapModule } from './bootstrap/bootstrap.module';
 
 @NgModule({
   imports: [
     SharedModule,
+    BootstrapModule,
     BrowserAnimationsModule,
     NgbModule.forRoot(),
     ToastrModule.forRoot(),
@@ -19,7 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
   declarations: [
     AppComponent
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
