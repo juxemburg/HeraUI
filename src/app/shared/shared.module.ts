@@ -15,6 +15,9 @@ import { NavbarComponent } from 'app/shared/navbar/navbar.component';
 import { NavbarLoginComponent } from './navbar-login/navbar-login.component';
 import { RouterModule } from '@angular/router';
 import { JWBootstrapSwitchModule } from 'jw-bootstrap-switch-ng2';
+import { IsEstudianteRoleGuardService } from './services/guards/is-estudiante-role-guard.service';
+import { IsProfesorRoleGuardService } from './services/guards/is-profesor-role-guard.service';
+import { IsAuthenticatedGuardService } from './services/guards/is-authenticated-guard.service';
 
 
 
@@ -52,7 +55,10 @@ import { JWBootstrapSwitchModule } from 'jw-bootstrap-switch-ng2';
   providers: [
     HttpErrorService,
     HttpService,
-    NotificationService
+    NotificationService,
+    IsAuthenticatedGuardService,
+    IsEstudianteRoleGuardService,
+    IsProfesorRoleGuardService
   ]
 })
 export class SharedModule { }

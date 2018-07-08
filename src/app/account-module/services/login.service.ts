@@ -58,6 +58,14 @@ export class LoginService {
       `${this._uri}/GetStudentRegistrationMetadata`);
   }
 
+  public IsAuthenticated(): Observable<boolean> {
+    return this._http.get(`${this._uri}/IsAuthenticated`);
+  }
+
+  public IsInRole(role: string): Observable<boolean> {
+    return this._http.get(`${this._uri}/IsInRole/${role}`);
+  }
+
   private doLogin(userInfo: UserInfoModel) {
     this._userService.setUserInfo(userInfo);
     this._http.token = userInfo.token;

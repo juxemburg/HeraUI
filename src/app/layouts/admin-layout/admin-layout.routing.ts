@@ -11,6 +11,8 @@ import { TeacherCoursesComponent } from 'app/teacher-module/teacher-courses/teac
 import { NotFoundComponent } from 'app/shared/not-found/not-found.component';
 import { ChallengesComponent } from '../../teacher-module/challenges/challenges.component';
 import { CreateChallengeComponent } from '../../teacher-module/create-challenge/create-challenge.component';
+import { IsAuthenticatedGuardService } from '../../shared/services/guards/is-authenticated-guard.service';
+import { IsProfesorRoleGuardService } from '../../shared/services/guards/is-profesor-role-guard.service';
 
 
 
@@ -20,6 +22,7 @@ export const AdminLayoutRoutes: Routes = [
     {
         path: '',
         component: AdminLayoutComponent,
+        canActivate: [IsAuthenticatedGuardService, IsProfesorRoleGuardService],
         children: [
             {
                 path: 'teacher',

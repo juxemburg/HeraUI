@@ -5,8 +5,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterStudentComponent } from './register-student/register-student.component';
 import { RegisterTeacherComponent } from './register-teacher/register-teacher.component';
-import { IsInRoleGuardService } from './services/guards/is-in-role-guard.service';
-import { IsAuthenticatedGuardService } from './services/guards/is-authenticated-guard.service';
 import { SharedModule } from '../shared/shared.module';
 import { RegisterSelectionComponent } from './register-selection/register-selection.component';
 import { RegisterCardComponent } from './register-card/register-card.component';
@@ -32,9 +30,6 @@ import { RegisterCardComponent } from './register-card/register-card.component';
     RegisterStudentComponent,
     RegisterTeacherComponent
   ],
-  providers: [
-    IsAuthenticatedGuardService,
-    IsInRoleGuardService
-  ]
+  providers: []
 })
 export class AccountModule { }
