@@ -1,0 +1,74 @@
+<div *ngIf="isLoading">
+  <app-loading></app-loading>
+</div>
+<div *ngIf="!isLoading">
+    <form #createCourseForm="ngForm">
+        <!-- course-data-row -->
+        <div class="row mt-4">
+          <div class="col-sm-12">
+            <h6>Datos del curso</h6>
+          </div>
+          <!-- course-name -->
+          <div class="col-sm-12 col-md-4 col-lg-3">
+            <div class="form-group" [ngClass]="{'has-success': nombre.valid, 'has-danger': !nombre.valid && !nombre.pristine}">
+              <label for="">Nombre</label>
+              <input name="nombre" [(ngModel)]="model.nombre" #nombre="ngModel" type="text" class="form-control" required>
+            </div>
+          </div>
+          <!-- course-name -->
+          <!-- course-description -->
+          <div class="col-sm-12 col-md-4 col-lg-3">
+            <div class="form-group" [ngClass]="{'has-success': descripcion.valid, 'has-danger': !descripcion.valid && !descripcion.pristine}">
+              <label for="">Descripción</label>
+              <input name="descripcion" [(ngModel)]="model.descripcion" #descripcion="ngModel" type="text" class="form-control" required>
+            </div>
+          </div>
+          <!-- course-description -->
+          <!-- course-password -->
+          <div class="col-sm-12 col-md-4 col-lg-3" [ngClass]="{'has-success': password.valid, 'has-danger': !password.valid && !password.pristine}">
+            <div class="form-group">
+              <label for="">Contraseña</label>
+              <input name="password" [(ngModel)]="model.password" #password="ngModel" type="password"  class="form-control" required>
+            </div>
+          </div>
+          <!-- /course-password -->
+          <!-- course-password-confirm -->
+          <div class="col-sm-12 col-md-4 col-lg-3" [ngClass]="{'has-success': confirmPassword.valid, 'has-danger': !confirmPassword.valid && !confirmPassword.pristine}">
+            <div class="form-group">
+              <label for="">Confirmar contraseña</label>
+              <input name="confirmPassword" [(ngModel)]="model.confirmPassword"  #confirmPassword="ngModel" type="password" class="form-control" required>
+            </div>
+          </div>
+          <!-- /course-password-confirm -->
+        </div>
+        <!-- /course-data-row -->
+        <!-- challenge-data-row -->
+        <div class="row">
+          <div class="col-sm-12">
+            <hr>
+          </div>
+          <div class="col-sm-12">
+            <h6>Datos del desafío</h6>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group" [ngClass]="{'has-success': desafioId.valid, 'has-danger': !desafioId.valid && !desafioId.pristine}">
+              <label for="" class="control-label">Id del desafío</label>
+              <input name="desafioId" [(ngModel)]="model.desafioId" #desafioId="ngModel" type="number" class="form-control" min="1" required>
+            </div>
+          </div>
+        </div>
+        <!-- /challenge-data-row -->
+        <!-- submit-row -->
+        <div class="row mt-4">
+          <div class="col-sm-12">
+            <div class="form-group text-center">
+              <button class="btn btn-success" [disabled]="!createCourseForm.form.valid" (click)="onFormSubmit()">
+                <i class="material-icons">check</i>
+                Agregar curso!
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- submit-row -->
+      </form>
+</div>

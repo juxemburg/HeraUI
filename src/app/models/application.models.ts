@@ -7,6 +7,15 @@ export class Course {
     ) { }
 }
 
+export class CreateCourseModel {
+    constructor(
+        public nombre: string,
+        public descripcion: string,
+        public password: string,
+        public confirmPassword: string,
+        public desafioId: number) { }
+}
+
 class IChallengeInfo {
     constructor(
         public multipleSpriteEvents: boolean,

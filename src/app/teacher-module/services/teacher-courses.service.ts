@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Course } from 'app/models/application.models';
+import { Course, CreateCourseModel } from 'app/models/application.models';
 import { HttpService } from '../../shared/services/http.service';
 
 @Injectable({
@@ -24,4 +24,9 @@ export class TeacherCoursesService {
 
     return this._http.get(this._uri, params);
   }
+
+  public CreateCourse(model: CreateCourseModel): Observable<boolean> {
+    return this._http.post('Course/AddCourse', model);
+  }
+
 }

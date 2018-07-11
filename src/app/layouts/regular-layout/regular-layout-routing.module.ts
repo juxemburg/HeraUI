@@ -7,7 +7,7 @@ import { RegisterTeacherComponent } from '../../account-module/register-teacher/
 import { CourseComponent } from '../../student-module/course/course.component';
 import { NotFoundComponent } from '../../shared/not-found/not-found.component';
 import { IsAuthenticatedGuardService } from '../../shared/services/guards/is-authenticated-guard.service';
-import { IsProfesorRoleGuardService } from '../../shared/services/guards/is-profesor-role-guard.service';
+import { IsEstudianteRoleGuardService } from '../../shared/services/guards/is-estudiante-role-guard.service';
 
 
 
@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: '',
     component: RegularLayoutComponent,
-    canActivate: [IsAuthenticatedGuardService, IsProfesorRoleGuardService],
+    canActivate: [IsAuthenticatedGuardService, IsEstudianteRoleGuardService],
     children: [
       {
         path: 'account/register',
