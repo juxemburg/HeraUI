@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../../shared/services/http.service';
 import { Observable } from 'rxjs';
-import { ChallengeInfo, CreateChallengeModel } from '../../models/application.models';
-import { TouchSequence } from 'selenium-webdriver';
+import { ChallengeInfo, CreateChallengeModel, AutocompleteChallengeModel } from '../../models/application.models';
+import { IAutocompleteService } from '../../shared/models/shared.models';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChallengeService {
+export class ChallengeService
+  implements IAutocompleteService<AutocompleteChallengeModel> {
 
   private _uri = 'Challenge';
 
@@ -19,5 +20,11 @@ export class ChallengeService {
 
   public createChallenge(model: CreateChallengeModel): Observable<any> {
     return this._http.post(`${this._uri}/AddChallenge`, model);
+  }
+
+  public search(searchString: string): Observable<AutocompleteChallengeModel[]> {
+    const params = new Map<string, string>()
+      .set('searchString', searchString);
+    return this._http.get(`${this._uri}/GetAutocomplete`, params);
   }
 }

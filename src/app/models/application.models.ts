@@ -1,3 +1,5 @@
+import { IAutocompletable } from "../shared/models/shared.models";
+
 export class Course {
 
     constructor(
@@ -160,4 +162,17 @@ export class ChallengeInfo extends IChallengeInfo {
             mediumOperators,
             nestedOperators);
     }
+}
+
+export class AutocompleteChallengeModel implements IAutocompletable {
+
+    public get AutocompleteId(): any {
+        return this.id;
+    }
+
+    constructor(
+        public id: number,
+        public nombre: string,
+        public descripcion: string,
+        public autor: string) { }
 }

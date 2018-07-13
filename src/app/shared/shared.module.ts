@@ -18,6 +18,8 @@ import { JWBootstrapSwitchModule } from 'jw-bootstrap-switch-ng2';
 import { IsEstudianteRoleGuardService } from './services/guards/is-estudiante-role-guard.service';
 import { IsProfesorRoleGuardService } from './services/guards/is-profesor-role-guard.service';
 import { IsAuthenticatedGuardService } from './services/guards/is-authenticated-guard.service';
+import { AutocompleteInputComponent } from './autocomplete-input/autocomplete-input.component';
+import { AutocompleteListComponent } from './autocomplete-list/autocomplete-list.component';
 
 
 
@@ -39,7 +41,9 @@ import { IsAuthenticatedGuardService } from './services/guards/is-authenticated-
     NavbarLoginComponent,
     NavbarPanelComponent,
     NotFoundComponent,
-    SidebarComponent
+    SidebarComponent,
+    AutocompleteInputComponent,
+    AutocompleteListComponent
   ],
   exports: [
     FormsModule,
@@ -50,7 +54,8 @@ import { IsAuthenticatedGuardService } from './services/guards/is-authenticated-
     NavbarComponent,
     NavbarPanelComponent,
     NotFoundComponent,
-    SidebarComponent
+    SidebarComponent,
+    AutocompleteInputComponent
   ],
   providers: [
     HttpErrorService,

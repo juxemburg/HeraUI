@@ -15,13 +15,18 @@ export class HttpService {
   private _authToken: string;
   public set token(value: string) {
     this._authToken = value;
-    this._cookieService.set('authCookie', value);
+    configVariables.authToken = value;
+    this._cookieService.set('authCookie', this._authToken);
   }
 
   constructor(
     private _http: HttpClient,
     private _httpError: HttpErrorService,
     private _cookieService: CookieService) {
+    this.init();
+  }
+
+  public init() {
     this._authToken = configVariables.authToken;
   }
 
@@ -60,11 +65,12 @@ export class HttpService {
   }
 
   private getHeaders(): HttpHeaders {
-    let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    if (this._authToken) {
-      headers = headers.set('Authorization', `Bearer ${this._authToken}`);
-    }
-    return headers;
+    const headerJson = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${this._authToken}`
+    };
+    return new HttpHeaders(headerJson);
   }
 
 }

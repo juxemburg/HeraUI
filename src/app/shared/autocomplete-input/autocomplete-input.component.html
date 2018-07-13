@@ -1,0 +1,9 @@
+<input type="text" [ngClass]='inputClass' (keyup)='onInputChanged($event)'>
+<div class="text-center" *ngIf="isLoading">
+    <app-loading></app-loading>
+</div>
+<ul *ngIf="!isLoading">
+    <li *ngFor="let item of modelList">
+        {{item | json}}
+    </li>
+</ul>
