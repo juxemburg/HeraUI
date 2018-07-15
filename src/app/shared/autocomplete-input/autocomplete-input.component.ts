@@ -1,7 +1,5 @@
-import { Component, OnInit, Input, Injector } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Input, Injector, Output, EventEmitter } from '@angular/core';
 import { IAutocompleteService, IAutocompletable } from '../models/shared.models';
-import { ChallengeService } from 'app/teacher-module/services/challenge.service';
 
 @Component({
   selector: 'app-autocomplete-input',
@@ -11,6 +9,16 @@ import { ChallengeService } from 'app/teacher-module/services/challenge.service'
 export class AutocompleteInputComponent implements OnInit {
 
   public isLoading = false;
+  public isFocused = false;
+
+  public modelList: IAutocompletable[];
+  private _searchService: IAutocompleteService<IAutocompletable>;
+
+  public selectedValue: IAutocompletable;
+  public inputText = '';
+
+  @Output()
+  public onSelected = new EventEmitter<IAutocompletable>();
 
   @Input()
   public inputClass = '';
@@ -18,9 +26,8 @@ export class AutocompleteInputComponent implements OnInit {
   @Input()
   public searchServiceType: IAutocompletable;
 
-  public modelList: IAutocompletable[];
-
-  private _searchService: IAutocompleteService<IAutocompletable>;
+  @Input()
+  public displayFn: (item: any) => string;
 
   // @Input()
   // public searchObservable: Observable<any>;
@@ -55,6 +62,21 @@ export class AutocompleteInputComponent implements OnInit {
     if (this.searchServiceType) {
       this._searchService = this._injector.get(this.searchServiceType);
     }
+  }
+
+  public onBlur() {
+    setTimeout(() => {
+      this.isFocused = false;
+      if (!this.selectedValue) {
+        this.inputText = '';
+      }
+    }, 200);
+  }
+
+  public onItemSelected(item: any) {
+    this.inputText = this.displayFn(item);
+    this.selectedValue = item;
+    this.onSelected.emit(this.selectedValue);
   }
 
 }

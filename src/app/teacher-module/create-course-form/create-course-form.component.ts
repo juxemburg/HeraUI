@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TeacherCoursesService } from '../services/teacher-courses.service';
 import { NotificationService } from '../../shared/services/notification.service';
-import { CreateCourseModel } from '../../models/application.models';
+import { CreateCourseModel, AutocompleteChallengeModel } from '../../models/application.models';
 import { ChallengeService } from '../services/challenge.service';
 
 @Component({
@@ -13,8 +13,6 @@ export class CreateCourseFormComponent implements OnInit {
 
   public model: CreateCourseModel;
   public isLoading = false;
-
-  public searchType: any = ChallengeService;
 
   constructor(
     private _cmpService: TeacherCoursesService,

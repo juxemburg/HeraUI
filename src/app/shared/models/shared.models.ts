@@ -5,5 +5,6 @@ export interface IAutocompleteService<T> {
 }
 
 export interface IAutocompletable {
-    AutocompleteId: any;
+    AutocompleteId(): any;
+    DisplayText(): string;
 }

@@ -48,25 +48,12 @@
       <div class="col-sm-12">
         <hr>
       </div>
-      <div class="col-sm-12">
-        <h6>Datos del desafío</h6>
-      </div>
-      <div class="col-sm-12">
-        <div class="form-group" [ngClass]="{'has-success': desafioId.valid, 'has-danger': !desafioId.valid && !desafioId.pristine}">
-          <label for="" class="control-label">Id del desafío</label>
-          <input name="desafioId" [(ngModel)]="model.desafioId" #desafioId="ngModel" type="number" class="form-control" min="1" required>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-4">
-        <div class="form-group">
-          <label for="" class="control-label">Nombre del desafío inicial</label>
-          <app-autocomplete-input [inputClass]='"form-control"' [searchServiceType]='searchType'> 
-          </app-autocomplete-input>
-        </div>
-        
-      </div>
     </div>
     <!-- /challenge-data-row -->
+    <div>
+      <app-challenge-selector name="desafioId" [(ngModel)]="model.desafioId">
+      </app-challenge-selector>
+    </div>
     <!-- submit-row -->
     <div class="row mt-4">
       <div class="col-sm-12">

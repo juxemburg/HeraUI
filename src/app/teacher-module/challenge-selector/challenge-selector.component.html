@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h6>Datos del desafío</h6>
+  </div>
+  <div class="col-sm-12 col-md-4">
+    <div class="form-group">
+      <label for="" class="control-label">Nombre del desafío inicial</label>
+      <app-autocomplete-input [inputClass]='"form-control"' [searchServiceType]='searchType' [displayFn]='displayChallengeFn' (onSelected)='onItemSelected($event)'>
+      </app-autocomplete-input>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-4">
+    <div class="form-group">
+      <label for="" class="control-label">Autor del desafío</label>
+      <input [(ngModel)]="value.autor" type="text" class="form-control" disabled>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-4">
+    <div class="form-group">
+      <label for="" class="control-label">Descripción del desafío</label>
+      <input [(ngModel)]="value.descripcion" type="text" class="form-control" disabled>
+    </div>
+  </div>
+</div>

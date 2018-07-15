@@ -1,4 +1,4 @@
-import { IAutocompletable } from "../shared/models/shared.models";
+import { IAutocompletable } from '../shared/models/shared.models';
 
 export class Course {
 
@@ -166,13 +166,17 @@ export class ChallengeInfo extends IChallengeInfo {
 
 export class AutocompleteChallengeModel implements IAutocompletable {
 
-    public get AutocompleteId(): any {
-        return this.id;
-    }
-
     constructor(
         public id: number,
         public nombre: string,
         public descripcion: string,
         public autor: string) { }
+
+    public AutocompleteId(): any {
+        return this.id;
+    }
+
+    public DisplayText(): string {
+        return `${this.nombre} - Autor: ${this.autor}`;
+    }
 }

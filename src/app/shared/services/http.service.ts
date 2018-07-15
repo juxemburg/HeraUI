@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { baseUrl, configVariables } from 'assets/config/http.config';
 import { HttpErrorService } from './http-error.service';
 import { Observable } from 'rxjs/internal/Observable';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, retry, map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
@@ -56,7 +56,7 @@ export class HttpService {
     params: Map<string, string> = null): string {
     let paramText = '';
     if (params) {
-      params.forEach((value, key, map) => {
+      params.forEach((value, key) => {
         paramText += `${key}=${value}`;
       });
       return `${this._baseUri}/${subUri}?${paramText}`;

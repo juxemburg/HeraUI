@@ -1,9 +1,15 @@
-<input type="text" [ngClass]='inputClass' (keyup)='onInputChanged($event)'>
-<div class="text-center" *ngIf="isLoading">
-    <app-loading></app-loading>
+<div class="input-container">
+    <input [(ngModel)]="inputText" name="inputText" type="text" autocomplete="off" [ngClass]='inputClass' (keyup)='onInputChanged($event)' (blur)="onBlur()" (focus)="isFocused = true">
+    <ul *ngIf="isLoading && isFocused">
+        <li>
+            <div class="text-center">
+                <app-loading></app-loading>
+            </div>
+        </li>
+    </ul>
+    <ul *ngIf="!isLoading && isFocused">
+        <li *ngFor="let item of modelList" (click)="onItemSelected(item)">
+            {{displayFn(item)}}
+        </li>
+    </ul>
 </div>
-<ul *ngIf="!isLoading">
-    <li *ngFor="let item of modelList">
-        {{item | json}}
-    </li>
-</ul>

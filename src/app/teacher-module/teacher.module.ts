@@ -13,6 +13,7 @@ import { CreateChallengeFormComponent } from './create-challenge-form/create-cha
 import { CreateCourseComponent } from './create-course/create-course.component';
 import { CreateCourseFormComponent } from './create-course-form/create-course-form.component';
 import { ChallengeService } from './services/challenge.service';
+import { ChallengeSelectorComponent } from './challenge-selector/challenge-selector.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { ChallengeService } from './services/challenge.service';
     CreateChallengeComponent,
     CreateChallengeFormComponent,
     CreateCourseComponent,
-    CreateCourseFormComponent
+    CreateCourseFormComponent,
+    ChallengeSelectorComponent
   ],
   exports: [
     TeacherCoursesComponent,

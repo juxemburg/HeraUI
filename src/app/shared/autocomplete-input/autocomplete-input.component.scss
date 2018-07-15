@@ -1,12 +1,17 @@
 ul {
-    background-color: rgba(0,0,0,0.3);
+    list-style-type: none;
+    list-style-position: outside;
+    background-color: rgba(0,0,0,0.6);
     border-radius: 20px 20px 10px 10px;
     color: #FFF;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    padding: 0px 15px;
 
     li {
-
-        margin: 20px 10px;
-
+        width: 100%;
+        margin: 20px 5px;
         &:hover {
             background-color: #ccc;
             color: #555;
