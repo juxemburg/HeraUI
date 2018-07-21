@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { baseUrl, configVariables } from 'assets/config/http.config';
 import { HttpErrorService } from './http-error.service';
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable } from 'rxjs/Observable';
 import { catchError, retry, map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 

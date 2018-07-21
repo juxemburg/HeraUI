@@ -1,7 +1,8 @@
 .wrapper{
     position: relative;
     top: 0;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
 
     &.wrapper-full-page{
         min-height: 100vh;

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-sm-12" *ngIf="isLoading">
+    <div class="card card-plain">
+      <div class="card-body text-center">
+        <app-loading></app-loading>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12" *ngIf="!isLoading">
+    <!-- no-content-card -->
+    <div class="col-sm-12" *ngIf="!model.length">
+      <div class="card card-plain">
+        <div class="card-body text-center">
+          <p class="text-muted">
+            No existen cursos disponibles. :(
+          </p>
+        </div>
+        <!-- /card-body -->
+      </div>
+      <!-- /card-plain -->
+    </div>
+    <!-- no-content-card -->
+    <!-- content-div -->
+    <div class="card-columns">
+      <!-- course-card -->
+      <app-course-search-card [model]='item' *ngFor="let item of model">
+      </app-course-search-card>
+      <!-- /course-card -->
+    </div>
+    <!-- /content-div -->
+  </div>
+</div>

@@ -8,6 +8,7 @@ import { CourseComponent } from '../../student-module/course/course.component';
 import { NotFoundComponent } from '../../shared/not-found/not-found.component';
 import { IsAuthenticatedGuardService } from '../../shared/services/guards/is-authenticated-guard.service';
 import { IsEstudianteRoleGuardService } from '../../shared/services/guards/is-estudiante-role-guard.service';
+import { CoursesSearchComponent } from '../../student-module/courses-search/courses-search.component';
 
 
 
@@ -28,7 +29,8 @@ const routes: Routes = [
         path: 'student', children: [
           { path: 'courses', component: CoursesComponent },
           { path: 'course:/id', component: CourseComponent },
-          { path: 'course', component: CourseComponent }
+          { path: 'course', component: CourseComponent },
+          { path: 'courses-search', component: CoursesSearchComponent }
         ]
       },
       { path: 'not-found', component: NotFoundComponent },

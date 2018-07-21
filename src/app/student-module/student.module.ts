@@ -5,6 +5,9 @@ import { CourseCardComponent } from 'app/student-module/course-card/course-card.
 import { CoursesComponent } from 'app/student-module/courses/courses.component';
 import { PortalCardComponent } from 'app/student-module/portal-card/portal-card.component';
 import { SharedModule } from '../shared/shared.module';
+import { CoursesSearchComponent } from './courses-search/courses-search.component';
+import { CourseSearchCardComponent } from './course-search-card/course-search-card.component';
+import { CourseSearchListComponent } from './course-search-list/course-search-list.component';
 
 
 @NgModule({
@@ -16,7 +19,10 @@ import { SharedModule } from '../shared/shared.module';
     CourseComponent,
     CourseCardComponent,
     CoursesComponent,
-    PortalCardComponent
+    PortalCardComponent,
+    CoursesSearchComponent,
+    CourseSearchCardComponent,
+    CourseSearchListComponent
   ],
   exports: [
     CourseComponent,
