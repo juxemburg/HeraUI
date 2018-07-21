@@ -57,7 +57,9 @@ export class HttpService {
     let paramText = '';
     if (params) {
       params.forEach((value, key) => {
-        paramText += `${key}=${value}`;
+        if (value) {
+          paramText += `${key}=${value}`;
+        }
       });
       return `${this._baseUri}/${subUri}?${paramText}`;
     }

@@ -1,3 +1,41 @@
-<p>
-  teacher-courses-list works!
-</p>
+<div class="row">
+  <!-- loading-card -->
+  <div class="col-sm-12" *ngIf="isLoading">
+    <div class="card card-plain">
+      <div class="card-body text-center">
+        <app-loading></app-loading>
+      </div>
+    </div>
+  </div>
+  <!-- /loading-card -->
+  <!-- cmp-content -->
+  <div class="col-sm-12" *ngIf="!isLoading">
+    <!-- no-content-row -->
+    <div class="col-sm-12" *ngIf="!model.length">
+      <div class="card card-plain">
+        <div class="card-body text-center">
+          <p class="text-muted">
+            No tienes cursos registrados, sin embargo puedes crear uno
+            <a href="">nuevo</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- no-content-row -->
+    <!-- course-row -->
+    <div class="col-sm-12" *ngFor="let item of model">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="title">{{item.nombre}}</h4>
+        </div>
+        <div class="card-body">
+          <p>
+            {{item.descripcion}}
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- /course-row -->
+  </div>
+  <!-- /cmp-content -->
+</div>

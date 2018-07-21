@@ -1,26 +1,33 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { TeacherCoursesService } from '../../services/teacher-courses.service';
-import { Course } from 'app/models/application.models';
+import { CourseViewModel } from 'app/models/application.models';
+import { NotificationService } from '../../../shared/services/notification.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseManagerService {
 
-  private model: Course[] = [];
+  private model: CourseViewModel[] = [];
 
-  public onModelChanged = new EventEmitter<Course[]>();
+  public onModelChanged = new EventEmitter<CourseViewModel[]>();
+  public onLoading = new EventEmitter<boolean>();
 
-  constructor(private _coursesService: TeacherCoursesService) { }
+  constructor(
+    private _coursesService: TeacherCoursesService,
+    private _notService: NotificationService) { }
 
   public SearchCourse(searchString: string) {
+    this.onLoading.emit(true);
     this._coursesService.GetCourses(searchString)
       .subscribe(data => {
         this.model = data;
         this.onModelChanged.emit(this.model);
+        this.onLoading.emit(false);
       },
         err => {
-          // Notify error
+          this._notService.showError(err);
+          this.onLoading.emit(false);
         });
   }
 }

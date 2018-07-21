@@ -1,11 +1,16 @@
 import { IAutocompletable } from '../shared/models/shared.models';
 
-export class Course {
+export class CourseViewModel {
 
     constructor(
         public id: number,
-        public name: string,
-        public description: string
+        public nombre: string,
+        public descripcion: string,
+        public activo: string,
+        public color: string,
+        public colorName: string,
+        public profesorId: number,
+        public profesorNombre: string
     ) { }
 }
 

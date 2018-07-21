@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from 'app/models/application.models';
+import { CourseViewModel } from 'app/models/application.models';
 import { NavbarPanelService } from 'app/shared/navbar-panel/navbar-panel.service';
 
 
@@ -10,18 +10,13 @@ import { NavbarPanelService } from 'app/shared/navbar-panel/navbar-panel.service
 })
 export class CoursesComponent implements OnInit {
 
-  public modelList: Course[] = [];
+  public modelList: CourseViewModel[] = [];
 
   constructor(private _panelService: NavbarPanelService) { }
 
   ngOnInit() {
     this._panelService.setTitle('Mis cursos');
     this.modelList = [
-      {
-        id: 1,
-        name: 'Scratch beginers',
-        description: 'Curso de bloques condicionales en scratch'
-      }
     ];
   }
 
