@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { CourseViewModel } from '../../models/application.models';
+import { CourseViewModel, EnrollStudentModel } from '../../models/application.models';
 import { HttpService } from '../../shared/services/http.service';
 import { Observable } from 'rxjs/Observable';
-import { map } from '../../../../node_modules/rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +20,9 @@ export class StudentCoursesService {
     params.set('take', take.toString());
 
     return this._http.get('Course/GetCourses', params);
+  }
+
+  public EnrollStudent(model: EnrollStudentModel): Observable<boolean> {
+    return this._http.post(`${this._uri}/EnrollStudent`, model);
   }
 }

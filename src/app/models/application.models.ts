@@ -185,3 +185,9 @@ export class AutocompleteChallengeModel implements IAutocompletable {
         return `${this.nombre} - Autor: ${this.autor}`;
     }
 }
+
+export class EnrollStudentModel {
+    constructor(
+        public cursoId: number,
+        public password: string) { }
+}

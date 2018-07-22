@@ -1,16 +1,56 @@
 <div class="card">
-    <div class="card-header">
-      <label for="">
-        <i class="material-icons">book</i>
-        Curso
-      </label>
-      <h4 class="title">{{model.nombre}}</h4>
-      <h5 class="card-subtitle">Profesor: Profesor girafales</h5>
-    </div>
-    <div class="card-body">
-      <p class="card-text">{{model.descripcion}}</p>
-      <div class="col-sm-12 text-center">
-        <a [routerLink]="'/student/course'" class="btn btn-info btn-round">Ir al curso</a>
-      </div>
+  <!-- card-header -->
+  <div class="card-header">
+    <h4 class="title mt-0">{{model.nombre}}</h4>
+    <h6 class="card-subtitle">Profesor: Profesor girafales</h6>
+  </div>
+  <!-- /card-header -->
+  <!-- description-body -->
+  <div class="card-body">
+    <p class="card-text">{{model.descripcion}}</p>
+    <div class="col-sm-12 text-center mt-5" *ngIf="!inputVisible">
+      <button class="btn btn-info btn-round" (click)="onEnrollShow()">
+        <i class="material-icons">low_priority</i>
+        Matricular
+      </button>
     </div>
   </div>
+  <!-- /description-body -->
+  <!-- input-body -->
+  <div class="card-body" *ngIf="inputVisible">
+    <!-- content-row -->
+    <div class="row" *ngIf="!isLoading">
+      <!-- password-input -->
+      <div class="col-sm-9">
+        <div class="form-group">
+          <label for="" class="control-label">
+            <i class="material-icons">lock</i> Contraseña del curso
+          </label>
+          <input [(ngModel)]="password" type="password" class="form-control">
+        </div>
+      </div>
+      <!-- /password-input -->
+      <!-- submit-button -->
+      <div class="col-sm-3">
+        <div class="mt-4">
+          <button class="btn btn-sm btn-icon btn-success btn-round" [disabled]="!password" (click)="onEnroll()">
+            <i class="material-icons">done_all</i>
+          </button>
+          <button class="btn btn-sm btn-icon btn-danger btn-round float-right" (click)="onEnrollHide()">
+            <i class="material-icons">close</i>
+          </button>
+        </div>
+      </div>
+      <!-- /submit-button -->
+    </div>
+    <!-- /content-row -->
+    <!-- loading-row -->
+    <div class="row" *ngIf="isLoading">
+      <div class="col-sm-12 text-center">
+        <app-loading></app-loading>
+      </div>
+    </div>
+    <!-- /loading-row -->
+  </div>
+  <!-- /input-body -->
+</div>
