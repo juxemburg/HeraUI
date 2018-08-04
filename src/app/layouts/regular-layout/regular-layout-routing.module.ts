@@ -9,6 +9,7 @@ import { NotFoundComponent } from '../../shared/not-found/not-found.component';
 import { IsAuthenticatedGuardService } from '../../shared/services/guards/is-authenticated-guard.service';
 import { IsEstudianteRoleGuardService } from '../../shared/services/guards/is-estudiante-role-guard.service';
 import { CoursesSearchComponent } from '../../student-module/courses-search/courses-search.component';
+import { CourseChallengeComponent } from '../../student-module/course-challenge/course-challenge.component';
 
 
 
@@ -27,10 +28,10 @@ const routes: Routes = [
       },
       {
         path: 'student', children: [
+          { path: 'courses-search', component: CoursesSearchComponent },
           { path: 'courses', component: CoursesComponent },
-          { path: 'course:/id', component: CourseComponent },
-          { path: 'course', component: CourseComponent },
-          { path: 'courses-search', component: CoursesSearchComponent }
+          { path: 'course/:courseId', component: CourseComponent },
+          { path: 'course/:courseId/challenge/:challengeId', component: CourseChallengeComponent }
         ]
       },
       { path: 'not-found', component: NotFoundComponent },

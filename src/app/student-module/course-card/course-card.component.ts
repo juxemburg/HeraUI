@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CourseViewModel } from 'app/models/application.models';
+import { CourseListModel } from 'app/models/application.models';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { CourseViewModel } from 'app/models/application.models';
 export class CourseCardComponent implements OnInit {
 
   @Input()
-  public model: CourseViewModel;
+  public model: CourseListModel;
 
   constructor() { }
 

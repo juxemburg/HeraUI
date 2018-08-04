@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { TeacherCoursesService } from '../../services/teacher-courses.service';
-import { CourseViewModel } from 'app/models/application.models';
+import { CourseListModel } from 'app/models/application.models';
 import { NotificationService } from '../../../shared/services/notification.service';
 
 @Injectable({
@@ -8,9 +8,9 @@ import { NotificationService } from '../../../shared/services/notification.servi
 })
 export class CourseManagerService {
 
-  private model: CourseViewModel[] = [];
+  private model: CourseListModel[] = [];
 
-  public onModelChanged = new EventEmitter<CourseViewModel[]>();
+  public onModelChanged = new EventEmitter<CourseListModel[]>();
   public onLoading = new EventEmitter<boolean>();
 
   constructor(

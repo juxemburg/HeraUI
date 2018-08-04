@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentCoursesSearchManagerService } from '../courses-search/student-courses-search-manager.service';
-import { CourseViewModel } from '../../models/application.models';
+import { CourseListModel } from '../../models/application.models';
 
 @Component({
   selector: 'app-course-search-list',
@@ -10,7 +10,7 @@ import { CourseViewModel } from '../../models/application.models';
 export class CourseSearchListComponent implements OnInit {
 
   public isLoading = true;
-  public model: CourseViewModel[] = [];
+  public model: CourseListModel[] = [];
 
   constructor(private _mgrService: StudentCoursesSearchManagerService) { }
 

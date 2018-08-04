@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { CourseViewModel } from '../../models/application.models';
+import { CourseListModel } from '../../models/application.models';
 import { StudentCoursesService } from '../services/student-courses.service';
 import { NotificationService } from '../../shared/services/notification.service';
 
@@ -8,14 +8,14 @@ import { NotificationService } from '../../shared/services/notification.service'
 })
 export class StudentCoursesSearchManagerService {
 
-  private _model: CourseViewModel[];
-  private set model(value: CourseViewModel[]) {
+  private _model: CourseListModel[];
+  private set model(value: CourseListModel[]) {
     this._model = value;
     this.onModelChanged.emit(this._model);
   }
 
   public onLoading = new EventEmitter<boolean>();
-  public onModelChanged = new EventEmitter<CourseViewModel[]>();
+  public onModelChanged = new EventEmitter<CourseListModel[]>();
 
   constructor(
     private _courseService: StudentCoursesService,

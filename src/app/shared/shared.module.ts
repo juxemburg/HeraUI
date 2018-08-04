@@ -20,6 +20,7 @@ import { IsProfesorRoleGuardService } from './services/guards/is-profesor-role-g
 import { IsAuthenticatedGuardService } from './services/guards/is-authenticated-guard.service';
 import { AutocompleteInputComponent } from './autocomplete-input/autocomplete-input.component';
 import { AutocompleteListComponent } from './autocomplete-list/autocomplete-list.component';
+import { IconsModule } from './icons-module/icons.module';
 
 
 
@@ -33,6 +34,7 @@ import { AutocompleteListComponent } from './autocomplete-list/autocomplete-list
     JWBootstrapSwitchModule,
     HttpClientModule,
     RouterModule,
+    IconsModule
   ],
   declarations: [
     LoadingComponent,
@@ -55,7 +57,8 @@ import { AutocompleteListComponent } from './autocomplete-list/autocomplete-list
     NavbarPanelComponent,
     NotFoundComponent,
     SidebarComponent,
-    AutocompleteInputComponent
+    AutocompleteInputComponent,
+    IconsModule
   ],
   providers: [
     HttpErrorService,

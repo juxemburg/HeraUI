@@ -1,6 +1,6 @@
 import { IAutocompletable } from '../shared/models/shared.models';
 
-export class CourseViewModel {
+export class CourseListModel {
 
     constructor(
         public id: number,
@@ -12,6 +12,27 @@ export class CourseViewModel {
         public profesorId: number,
         public profesorNombre: string
     ) { }
+}
+
+export class StudentCourseDetailModel {
+    constructor(
+        public id: number,
+        public nombre: string,
+        public descripcion: string,
+        public nombreProfesor: string,
+        public desafiosRealizados: StudentChallengeListModel[],
+        public desafiosNoCompletados: StudentChallengeListModel[],
+        public desafioPendiente: StudentChallengeListModel
+
+    ) { }
+}
+
+export class StudentChallengeListModel {
+    constructor(
+        public id: number,
+        public nombre: string,
+        public descripcion: string,
+        public completado: boolean) { }
 }
 
 export class CreateCourseModel {

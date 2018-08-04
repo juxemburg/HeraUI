@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CoursesSearchComponent } from './courses-search/courses-search.component';
 import { CourseSearchCardComponent } from './course-search-card/course-search-card.component';
 import { CourseSearchListComponent } from './course-search-list/course-search-list.component';
+import { CourseChallengeComponent } from './course-challenge/course-challenge.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CourseSearchListComponent } from './course-search-list/course-search-li
     PortalCardComponent,
     CoursesSearchComponent,
     CourseSearchCardComponent,
-    CourseSearchListComponent
+    CourseSearchListComponent,
+    CourseChallengeComponent
   ],
   exports: [
     CourseComponent,

@@ -1,6 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CourseViewModel } from 'app/models/application.models';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { CourseListModel, StudentCourseDetailModel } from 'app/models/application.models';
 import { NavbarPanelService } from 'app/shared/navbar-panel/navbar-panel.service';
+import { StudentCoursesService } from '../services/student-courses.service';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -10,13 +13,30 @@ import { NavbarPanelService } from 'app/shared/navbar-panel/navbar-panel.service
 })
 export class CourseComponent implements OnInit {
 
-  public model: CourseViewModel;
+  public model: StudentCourseDetailModel;
+  public isLoading = true;
 
-  constructor(private _panelService: NavbarPanelService) { }
+  constructor(
+    private _panelService: NavbarPanelService,
+    private _courseService: StudentCoursesService,
+    private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.model = new CourseViewModel(0, '', '', '', '', '', 0, '');
-    this._panelService.setTitle(`Portales del curso: ${this.model.nombre}`);
+    this.isLoading = true;
+    this._panelService.setTitle('');
+    this._route.params.subscribe(params => {
+      this.loadModel(+params['courseId']);
+    });
+  }
+
+  private loadModel(courseId: number) {
+    this.isLoading = true;
+    this._courseService.GetCourse(courseId)
+      .subscribe(data => {
+        this.isLoading = false;
+        this.model = data;
+        this._panelService.setTitle(`Curso: ${this.model.nombre}`);
+      });
   }
 
 }

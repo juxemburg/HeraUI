@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { StudentChallengeListModel } from '../../models/application.models';
 
 @Component({
   selector: 'app-portal-card',
@@ -26,7 +27,16 @@ export class PortalCardComponent implements OnInit {
   @Input()
   public subtitle: string;
 
+  @Input()
+  public set challenge(val: StudentChallengeListModel) {
+    this.model = val;
+    this.isLoading = false;
+  }
+
+  public model: StudentChallengeListModel;
+
   public animationState: string;
+  public isLoading = true;
 
   constructor() { }
 

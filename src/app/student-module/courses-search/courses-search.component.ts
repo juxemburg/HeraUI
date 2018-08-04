@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarPanelService } from 'app/shared/navbar-panel/navbar-panel.service';
 import { StudentCoursesSearchManagerService } from './student-courses-search-manager.service';
-import { CourseViewModel } from '../../models/application.models';
+import { CourseListModel } from '../../models/application.models';
 
 @Component({
   selector: 'app-courses-search',

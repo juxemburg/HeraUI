@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CourseViewModel, CreateCourseModel } from 'app/models/application.models';
+import { CourseListModel, CreateCourseModel } from 'app/models/application.models';
 import { HttpService } from '../../shared/services/http.service';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class TeacherCoursesService {
   public GetCourses(
     searchString: string = '',
     skip: number = 0,
-    take: number = 10): Observable<CourseViewModel[]> {
+    take: number = 10): Observable<CourseListModel[]> {
 
     const params = new Map<string, string>();
     params.set('searchString', searchString);

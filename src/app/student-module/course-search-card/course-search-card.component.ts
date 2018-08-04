@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { CourseViewModel, EnrollStudentModel } from '../../models/application.models';
+import { CourseListModel, EnrollStudentModel } from '../../models/application.models';
 import { StudentCoursesService } from '../services/student-courses.service';
 import { NotificationService } from '../../shared/services/notification.service';
 
@@ -13,7 +13,7 @@ import { NotificationService } from '../../shared/services/notification.service'
 export class CourseSearchCardComponent implements OnInit {
 
   @Input()
-  public model: CourseViewModel;
+  public model: CourseListModel;
 
   public password = '';
   public inputVisible = false;

@@ -2,9 +2,9 @@
 <div class="card" [@animationState]="animationState">
   <div class="card-header text-center">
     <h3 class="card-title">
-      {{title}}
+      {{model.nombre}}
     </h3>
-    <h6 class="card-subtitle">{{subtitle}}</h6>
+    <h6 class="card-subtitle">{{model.descripcion}}</h6>
   </div>
   <div class="card-body">
     <div class="image">
@@ -16,9 +16,10 @@
       <i class="material-icons">star</i>
     </div>
     <div class="col-sm-12 text-center">
-      <button class="btn btn-primary btn-round">
-        Iniciar desafío
-      </button>
+      <a [routerLink]="['challenge/', model.id]" class="btn btn-primary btn-round">
+        <fa-icon icon="play"></fa-icon>
+        <span class="ml-2">Iniciar desafío</span>
+      </a>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CourseViewModel } from '../../models/application.models';
+import { CourseListModel } from '../../models/application.models';
 import { CourseManagerService } from '../teacher-courses/services/course-manager.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { CourseManagerService } from '../teacher-courses/services/course-manager
 })
 export class TeacherCoursesListComponent implements OnInit {
 
-  public model: CourseViewModel[] = [];
+  public model: CourseListModel[] = [];
   public isLoading = true;
 
 
