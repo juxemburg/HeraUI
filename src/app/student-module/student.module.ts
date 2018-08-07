@@ -9,6 +9,9 @@ import { CoursesSearchComponent } from './courses-search/courses-search.componen
 import { CourseSearchCardComponent } from './course-search-card/course-search-card.component';
 import { CourseSearchListComponent } from './course-search-list/course-search-list.component';
 import { CourseChallengeComponent } from './course-challenge/course-challenge.component';
+import { StudentChallengeService } from './services/student-challenge.service';
+import { CourseChallengeHistoryComponent } from './course-challenge-history/course-challenge-history.component';
+import { CourseChallengeGradeComponent } from './course-challenge-grade/course-challenge-grade.component';
 
 
 @NgModule({
@@ -24,13 +27,16 @@ import { CourseChallengeComponent } from './course-challenge/course-challenge.co
     CoursesSearchComponent,
     CourseSearchCardComponent,
     CourseSearchListComponent,
-    CourseChallengeComponent
+    CourseChallengeComponent,
+    CourseChallengeHistoryComponent,
+    CourseChallengeGradeComponent
   ],
   exports: [
     CourseComponent,
     CourseCardComponent,
     CoursesComponent,
     PortalCardComponent
-  ]
+  ],
+  providers: [StudentChallengeService]
 })
 export class StudentModule { }

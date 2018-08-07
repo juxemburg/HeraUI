@@ -1,0 +1,52 @@
+<!-- loading-div -->
+<div class="text-center" *ngIf="isLoading">
+  <app-loading></app-loading>
+</div>
+<!-- /loading-div -->
+<!-- create-div -->
+<div *ngIf="!model && !isLoading; else contentTemplate">
+  <p class="text-muted text-center">No tienes calificaciones pendientes</p>
+  <div class="text-center">
+    <button class="btn btn-info btn-round" (click)="onaddGrade()">
+      Nueva calificación
+      <fa-icon icon="plus-square"></fa-icon>
+    </button>
+  </div>
+</div>
+<!-- /create-div -->
+
+<ng-template #contentTemplate>
+  <!-- start-div -->
+  <div *ngIf="!model.iniciada && !isLoading">
+    <h6 class="title text-center">Comenzar desafío</h6>
+    <div class="text-center">
+      <button class="btn btn-primary btn-round" (click)="onStartGrade()">
+        <fa-icon icon="play"></fa-icon>
+      </button>
+    </div>
+  </div>
+  <!-- /start-div -->
+  <!-- end-div -->
+  <div *ngIf="model.iniciada && !isLoading">
+    <h6 class="title">Desafío en curso</h6>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="" class="control-label">Id del projecto scratch</label>
+          <div class="input-group">
+            <div class="col-sm-8">
+              <input type="number" [(ngModel)]="projectId" class="form-control">
+            </div>
+            <div class="col-sm-4">
+              <button class="btn btn-sm btn-success btn-round" [disabled]="projectId <= 0" (click)="onEndGrade()">
+                <fa-icon icon="check"></fa-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /end-div -->
+</ng-template>

@@ -41,7 +41,7 @@ export class HttpService {
       );
   }
 
-  public post<T, U>(subUri: string, data: T,
+  public post<T, U>(subUri: string, data: T = null,
     params: Map<string, string> = null): Observable<U> {
     return this._http
       .post<U>(this.getFullUrl(subUri, params), data, { headers: this.getHeaders() })

@@ -1,7 +1,59 @@
-<div class="card">
-  <div class="card-body">
-    <p>
-      course-challenge works!
-    </p>
+<!-- loading-row -->
+<div class="row">
+  <div class="col-sm-12">
+    <!-- loading-card -->
+    <div class="card" *ngIf="isLoading">
+      <div class="card-body">
+        <app-loading></app-loading>
+      </div>
+    </div>
+    <!-- /loading-card -->
   </div>
 </div>
+<!-- /loading-row -->
+<!-- content-row -->
+<div class="row" *ngIf="!isLoading">
+  <div class="col-sm-12">
+    <!-- /content-card -->
+    <div class="card">
+      <div class="card-body">
+        <!-- row -->
+        <div class="row">
+          <!-- description-div -->
+          <div class="col-sm-8">
+            <h4 class="title mt-0">
+              ¿Como completar el desafío?
+              <hr>
+            </h4>
+            <p class="text-justify">
+              {{model.descripcion}}
+            </p>
+          </div>
+          <!-- /description-div -->
+          <!-- grade-div -->
+          <div class="col-sm-4">
+            <h4 class="title mt-0">
+              Calificación pendiente
+              <hr>
+            </h4>
+            <app-course-challenge-grade [model]="model.calificacionPendiente">
+            </app-course-challenge-grade>
+          </div>
+          <!-- /grade-div -->
+        </div>
+        <!-- /row -->
+      </div>
+    </div>
+    <!-- /content-card -->
+  </div>
+</div>
+<!-- /content-row -->
+
+<!-- history-row -->
+<div class="row" *ngIf="!isLoading">
+  <div class="col-sm-12">
+    <app-course-challenge-history>
+    </app-course-challenge-history>
+  </div>
+</div>
+<!-- history-row -->
