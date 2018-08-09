@@ -1,3 +1,57 @@
-<p>
-  course-challenge-history works!
-</p>
+<div class="card">
+  <div class="card-header">
+    <h4 class="title mt-0">
+      <fa-icon icon="history"></fa-icon>
+      Historial de calificaciones
+    </h4>
+  </div>
+  <div class="card-body">
+    <!-- loading-row -->
+    <div class="row" *ngIf="isLoading">
+      <div class="col-sm-12">
+        <app-loading></app-loading>
+      </div>
+    </div>
+    <!-- /loading-row -->
+    <!-- content-row -->
+    <div class="row" *ngIf="!isLoading">
+      <div class="col-sm-12" *ngFor="let item of model; let i = index">
+        <div class="row">
+          <div class="col-sm-8">
+            <p> Intento #{{model.length - i}} </p>
+            <!-- timespan-div -->
+            <div class="form-group" *ngIf="item.duracion">
+              <label for="" class="control-label">
+                <fa-icon icon="clock"></fa-icon>
+                Duración:
+              </label>
+              <p>
+                {{item.duracion}}
+              </p>
+            </div>
+            <!-- /timespan-div -->
+            <!-- finished-div -->
+            <div class="form-group">
+              <label for="" class="control-label">
+                <fa-icon icon="finish"></fa-icon>
+                Terminado el:
+              </label>
+              <p>{{item.tiempoFinal | date:'mediumDate'}}</p>
+            </div>
+            <!-- /finished-div -->
+          </div>
+          <div class="col-sm-4">
+            <a href="" class="btn btn-primary btn-round ">
+              Ver resultados
+              <fa-icon icon="external-link-square-alt"></fa-icon>
+            </a>
+          </div>
+          <div class="col-sm-12">
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /content-row -->
+  </div>
+</div>

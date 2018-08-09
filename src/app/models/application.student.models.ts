@@ -7,6 +7,7 @@ export class CalificacionesDesafioModel {
         public descripcion: string,
         public iniciada: boolean,
         public terminada: boolean,
+        public urlEscenarioInicial: string,
         public calificaciones: CalificacionInfoModel[],
         public calificacionPendiente: CalificacionInfoModel) { }
 }

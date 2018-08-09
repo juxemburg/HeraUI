@@ -12,10 +12,14 @@ import { NotificationService } from '../../shared/services/notification.service'
 export class CourseChallengeManagerService {
 
   private _model: CalificacionesDesafioModel;
-  private set model(val: CalificacionesDesafioModel) {
+  public set model(val: CalificacionesDesafioModel) {
     this._model = val;
     this.onModelChangedSource.next(this._model);
     this.onIsLoading.emit(false);
+  }
+
+  public get model(): CalificacionesDesafioModel {
+    return this._model;
   }
 
   private onModelChangedSource = new Subject<CalificacionesDesafioModel>();
