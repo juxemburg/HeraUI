@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../../shared/services/http.service';
 import { Observable } from '../../../../node_modules/rxjs';
-import { CalificacionesDesafioModel, CalificacionInfoModel } from '../../models/application.student.models';
+import { CalificacionesDesafioModel, CalificacionInfoModel, CalificacionResultadoModel } from '../../models/application.student.models';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +39,13 @@ export class StudentChallengeService {
     noteId: number, projId: string): Observable<CalificacionInfoModel> {
     return this._http.post<any, CalificacionInfoModel>(
       `${this.uri(courseId, challengeId)}/End/${noteId}?projId=${projId}`
+    );
+  }
+
+  public GetResult(courseId: number, challengeId: number,
+    noteId: number): Observable<CalificacionResultadoModel> {
+    return this._http.get<CalificacionResultadoModel>(
+      `${this.uri(courseId, challengeId)}/GetResults/${noteId}`
     );
   }
 

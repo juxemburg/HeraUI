@@ -10,6 +10,7 @@ import { IsAuthenticatedGuardService } from '../../shared/services/guards/is-aut
 import { IsEstudianteRoleGuardService } from '../../shared/services/guards/is-estudiante-role-guard.service';
 import { CoursesSearchComponent } from '../../student-module/courses-search/courses-search.component';
 import { CourseChallengeComponent } from '../../student-module/course-challenge/course-challenge.component';
+import { CourseChallengeResultComponent } from '../../student-module/course-challenge-result/course-challenge-result.component';
 
 
 
@@ -31,7 +32,8 @@ const routes: Routes = [
           { path: 'courses-search', component: CoursesSearchComponent },
           { path: 'courses', component: CoursesComponent },
           { path: 'course/:courseId', component: CourseComponent },
-          { path: 'course/:courseId/challenge/:challengeId', component: CourseChallengeComponent }
+          { path: 'course/:courseId/challenge/:challengeId', component: CourseChallengeComponent },
+          { path: 'course/:courseId/challenge/:challengeId/result/:gradeId', component: CourseChallengeResultComponent }
         ]
       },
       { path: 'not-found', component: NotFoundComponent },

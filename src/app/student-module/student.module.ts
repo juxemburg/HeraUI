@@ -12,6 +12,7 @@ import { CourseChallengeComponent } from './course-challenge/course-challenge.co
 import { StudentChallengeService } from './services/student-challenge.service';
 import { CourseChallengeHistoryComponent } from './course-challenge-history/course-challenge-history.component';
 import { CourseChallengeGradeComponent } from './course-challenge-grade/course-challenge-grade.component';
+import { CourseChallengeResultComponent } from './course-challenge-result/course-challenge-result.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CourseChallengeGradeComponent } from './course-challenge-grade/course-c
     CourseSearchListComponent,
     CourseChallengeComponent,
     CourseChallengeHistoryComponent,
-    CourseChallengeGradeComponent
+    CourseChallengeGradeComponent,
+    CourseChallengeResultComponent
   ],
   exports: [
     CourseComponent,
