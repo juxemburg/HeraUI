@@ -14,7 +14,7 @@ import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminLayoutComponent } from './admin-layout.component';
 import { SharedModule } from '../../shared/shared.module';
-import { TeacherModule } from 'app/teacher-module/teacher.module';
+import { TeacherModule } from '../../teacher-module/teacher.module';
 
 
 @NgModule({

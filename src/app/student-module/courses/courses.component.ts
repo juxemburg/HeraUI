@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CourseListModel } from 'app/models/application.models';
-import { NavbarPanelService } from 'app/shared/navbar-panel/navbar-panel.service';
+import { CourseListModel } from '../../models/application.models';
+import { NavbarPanelService } from '../../shared/navbar-panel/navbar-panel.service';
 import { StudentCoursesService } from '../services/student-courses.service';
 import { NotificationService } from '../../shared/services/notification.service';
 

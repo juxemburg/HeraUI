@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarPanelService } from 'app/shared/navbar-panel/navbar-panel.service';
+import { NavbarPanelService } from '../../shared/navbar-panel/navbar-panel.service';
 import { StudentCoursesSearchManagerService } from './student-courses-search-manager.service';
 import { CourseListModel } from '../../models/application.models';
 

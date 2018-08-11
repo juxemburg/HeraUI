@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CalificacionInfoModel } from 'app/models/application.student.models';
+import { CalificacionInfoModel } from '../../models/application.student.models';
 import { CourseChallengeManagerService } from '../course-challenge/course-challenge-manager.service';
 
 @Component({

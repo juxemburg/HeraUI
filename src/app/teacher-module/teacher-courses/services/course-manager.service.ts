@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { TeacherCoursesService } from '../../services/teacher-courses.service';
-import { CourseListModel } from 'app/models/application.models';
+import { CourseListModel } from '../../../models/application.models';
 import { NotificationService } from '../../../shared/services/notification.service';
 
 @Injectable({

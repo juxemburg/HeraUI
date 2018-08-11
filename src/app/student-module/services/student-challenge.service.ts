@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../../shared/services/http.service';
-import { Observable } from '../../../../node_modules/rxjs';
+import { Observable } from 'rxjs';
 import { CalificacionesDesafioModel, CalificacionInfoModel, CalificacionResultadoModel } from '../../models/application.student.models';
 
 @Injectable({

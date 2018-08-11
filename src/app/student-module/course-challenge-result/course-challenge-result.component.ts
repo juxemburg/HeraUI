@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentChallengeService } from '../services/student-challenge.service';
 import { CalificacionResultadoModel } from '../../models/application.student.models';
-import { ActivatedRoute } from '../../../../node_modules/@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { NavbarPanelService } from '../../shared/navbar-panel/navbar-panel.service';
 
 @Component({

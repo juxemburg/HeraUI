@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginModel } from 'app/models/autentication.models';
+import { LoginModel } from '../../models/autentication.models';
 import { LoginService } from '../services/login.service';
 import { NotificationService } from '../../shared/services/notification.service';
 

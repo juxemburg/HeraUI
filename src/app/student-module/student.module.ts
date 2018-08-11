@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CourseComponent } from 'app/student-module/course/course.component';
-import { CourseCardComponent } from 'app/student-module/course-card/course-card.component';
-import { CoursesComponent } from 'app/student-module/courses/courses.component';
-import { PortalCardComponent } from 'app/student-module/portal-card/portal-card.component';
+import { CourseComponent } from './course/course.component';
+import { CourseCardComponent } from './course-card/course-card.component';
+import { CoursesComponent } from './courses/courses.component';
+import { PortalCardComponent } from './portal-card/portal-card.component';
 import { SharedModule } from '../shared/shared.module';
 import { CoursesSearchComponent } from './courses-search/courses-search.component';
 import { CourseSearchCardComponent } from './course-search-card/course-search-card.component';
@@ -13,11 +13,13 @@ import { StudentChallengeService } from './services/student-challenge.service';
 import { CourseChallengeHistoryComponent } from './course-challenge-history/course-challenge-history.component';
 import { CourseChallengeGradeComponent } from './course-challenge-grade/course-challenge-grade.component';
 import { CourseChallengeResultComponent } from './course-challenge-result/course-challenge-result.component';
+import { DemeterModule } from '../demeter-module/demeter.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
+    DemeterModule,
     SharedModule
   ],
   declarations: [

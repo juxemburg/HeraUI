@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { CourseListModel, StudentCourseDetailModel } from 'app/models/application.models';
-import { NavbarPanelService } from 'app/shared/navbar-panel/navbar-panel.service';
+import { CourseListModel, StudentCourseDetailModel } from '../../models/application.models';
+import { NavbarPanelService } from '../../shared/navbar-panel/navbar-panel.service';
 import { StudentCoursesService } from '../services/student-courses.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';

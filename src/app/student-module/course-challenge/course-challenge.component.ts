@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseChallengeManagerService } from './course-challenge-manager.service';
-import { ActivatedRoute } from '../../../../node_modules/@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CalificacionesDesafioModel } from '../../models/application.student.models';
 import { NavbarPanelService } from '../../shared/navbar-panel/navbar-panel.service';
 

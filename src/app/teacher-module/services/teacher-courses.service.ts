@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CourseListModel, CreateCourseModel } from 'app/models/application.models';
+import { CourseListModel, CreateCourseModel } from '../../models/application.models';
 import { HttpService } from '../../shared/services/http.service';
 
 @Injectable({

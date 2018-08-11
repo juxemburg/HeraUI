@@ -1,8 +1,8 @@
 import { Component, OnInit, forwardRef } from '@angular/core';
 import { ChallengeService } from '../services/challenge.service';
 import { AutocompleteChallengeModel } from '../../models/application.models';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '../../../../node_modules/@angular/forms';
-import { validateConfig } from '../../../../node_modules/@angular/router/src/config';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { validateConfig } from '@angular/router/src/config';
 
 @Component({
   selector: 'app-challenge-selector',
