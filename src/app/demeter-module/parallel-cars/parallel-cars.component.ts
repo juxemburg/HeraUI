@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { ParallelCarsGame } from '../games/parallel-cars/parallel-cars.game';
+import { ParallelCarsGame } from '../game-engine/games/parallel-cars/parallel-cars.game';
+
 
 
 

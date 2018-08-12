@@ -1,5 +1,6 @@
 import { Subject, forkJoin } from 'rxjs';
-import { IGameItem } from './game-item.interface';
+import { IGameItem } from './game-objects/game-item.interface';
+
 
 export abstract class Game {
     private _canvas: any;
@@ -38,6 +39,7 @@ export abstract class Game {
     protected Draw(): void {
         this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
         this._context.beginPath();
+        this._context.fill();
         this._gameObjects.forEach(item => item.Draw(this._context));
     }
 
@@ -46,7 +48,6 @@ export abstract class Game {
             this.Update();
             this.Draw();
         }, this._frameRate)
-
     }
 
     public End(): void {
