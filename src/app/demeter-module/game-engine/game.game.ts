@@ -1,5 +1,6 @@
-import { Subject, forkJoin } from 'rxjs';
+import { Subject, forkJoin, Observable, of, zip } from 'rxjs';
 import { IGameItem } from './game-objects/game-item.interface';
+import { delay } from 'rxjs/operators';
 
 
 export abstract class Game {
@@ -9,7 +10,7 @@ export abstract class Game {
     private _frameRate = 1000 / 60;
     private _gameInterval: any;
 
-    private _onLoadSource = new Subject<boolean>();
+    protected _onLoadSource = new Subject<boolean>();
     public onLoaded$ = this._onLoadSource.asObservable();
 
     protected _gameObjects: IGameItem[] = [];
@@ -25,11 +26,13 @@ export abstract class Game {
         this._gameObjects.push(item);
     }
 
-    public Load(): void {
-        forkJoin(this._gameObjects.map(item => item.Load()))
-            .subscribe(val => {
-                this._onLoadSource.next(true);
-            });
+    public Load(): Observable<any> {
+        const observables: Observable<boolean>[] = this._gameObjects.map(item => item.Load());
+        console.log(`observable count: ${observables.length}`);
+
+        return zip(
+            observables
+        );
     }
 
     protected Update(): void {

@@ -9,6 +9,12 @@ export class Car implements IGameItem {
     private _sprite: Sprite;
     private _stopped = false;
 
+    private _packageReceievedSource = new Subject<boolean>();
+    public onPackageReceived$ = this._packageReceievedSource.asObservable();
+
+    private _packageDeliveredSource = new Subject<boolean>();
+    public onPackageDelivered$ = this._packageDeliveredSource.asObservable();
+
     itemLoadedSource = new Subject<boolean>();
     onItemLoaded$ = this.itemLoadedSource.asObservable();
 
@@ -45,16 +51,15 @@ export class Car implements IGameItem {
 
     private collide(otherCar: Car): boolean {
 
-        var res = this.Id !== otherCar.Id &&
+        return this.Id !== otherCar.Id &&
             (((this.X + this._speed) < otherCar.Right && (this.X + this._speed) > otherCar.X)
                 || ((this.Right + this._speed) > otherCar.X && (this.Right + this._speed) < otherCar.Right));
-        return res;
     }
 
     Load(): Observable<boolean> {
         setTimeout(() => {
             this.itemLoadedSource.next(true);
-        }, 10);
+        }, 1000);
         return this.onItemLoaded$;
     }
 
@@ -67,9 +72,11 @@ export class Car implements IGameItem {
         this._x += this._speed;
         if (this._x > 1100) {
             this._speed *= -1;
+            this._packageReceievedSource.next(true);
         }
         if (this._x < 60) {
             this._speed *= -1;
+            this._packageDeliveredSource.next(true);
         }
     }
 

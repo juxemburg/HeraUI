@@ -38,7 +38,7 @@ export class Lane implements IGameItem {
     Load(): Observable<boolean> {
         setTimeout(() => {
             this.itemLoadedSource.next(true);
-        }, 10);
+        }, 1000);
         return this.onItemLoaded$;
     }
 

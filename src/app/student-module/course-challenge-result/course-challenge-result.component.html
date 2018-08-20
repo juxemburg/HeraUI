@@ -6,13 +6,8 @@
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="col-sm-12 text-center">
-        <button class="btn btn-round btn-success">
-          <fa-icon icon="play"></fa-icon>
-        </button>
-      </div>
       <div class="col-sm-12">
-        <app-parallel-cars></app-parallel-cars>
+        <app-parallel-cars [threadCount]="model.numScripts"></app-parallel-cars>
       </div>
     </div>
   </div>
