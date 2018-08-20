@@ -14,6 +14,10 @@ import { CreateCourseComponent } from './create-course/create-course.component';
 import { CreateCourseFormComponent } from './create-course-form/create-course-form.component';
 import { ChallengeService } from './services/challenge.service';
 import { ChallengeSelectorComponent } from './challenge-selector/challenge-selector.component';
+import { TeacherCourseComponent } from './teacher-course/teacher-course.component';
+import { TeacherCourseStudentListComponent } from './teacher-course-student-list/teacher-course-student-list.component';
+import { TeacherCourseStudentChallengesComponent } from './teacher-course-student-challenges/teacher-course-student-challenges.component';
+import { TeacherCourseStudentChallengeComponent } from './teacher-course-student-challenge/teacher-course-student-challenge.component';
 
 @NgModule({
   imports: [
@@ -31,7 +35,11 @@ import { ChallengeSelectorComponent } from './challenge-selector/challenge-selec
     CreateChallengeFormComponent,
     CreateCourseComponent,
     CreateCourseFormComponent,
-    ChallengeSelectorComponent
+    ChallengeSelectorComponent,
+    TeacherCourseComponent,
+    TeacherCourseStudentListComponent,
+    TeacherCourseStudentChallengesComponent,
+    TeacherCourseStudentChallengeComponent
   ],
   exports: [
     TeacherCoursesComponent,

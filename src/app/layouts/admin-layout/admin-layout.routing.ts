@@ -14,6 +14,7 @@ import { CreateChallengeComponent } from '../../teacher-module/create-challenge/
 import { IsAuthenticatedGuardService } from '../../shared/services/guards/is-authenticated-guard.service';
 import { IsProfesorRoleGuardService } from '../../shared/services/guards/is-profesor-role-guard.service';
 import { CreateCourseComponent } from '../../teacher-module/create-course/create-course.component';
+import { TeacherCourseComponent } from '../../teacher-module/teacher-course/teacher-course.component';
 
 
 
@@ -29,6 +30,7 @@ export const AdminLayoutRoutes: Routes = [
                 path: 'teacher',
                 children: [
                     { path: 'courses', component: TeacherCoursesComponent },
+                    { path: 'course/:id', component: TeacherCourseComponent },
                     { path: 'courses-create', component: CreateCourseComponent },
                     { path: 'challenges', component: ChallengesComponent },
                     { path: 'challenge-create', component: CreateChallengeComponent }

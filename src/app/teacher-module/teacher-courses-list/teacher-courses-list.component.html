@@ -26,7 +26,9 @@
     <div class="col-sm-12" *ngFor="let item of model">
       <div class="card">
         <div class="card-header">
-          <h4 class="title">{{item.nombre}}</h4>
+          <a [routerLink]="['../course', item.id]">
+            <h4 class="title">{{item.nombre}}</h4>
+          </a>
         </div>
         <div class="card-body">
           <p>
