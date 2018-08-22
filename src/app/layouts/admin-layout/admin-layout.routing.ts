@@ -15,6 +15,8 @@ import { IsAuthenticatedGuardService } from '../../shared/services/guards/is-aut
 import { IsProfesorRoleGuardService } from '../../shared/services/guards/is-profesor-role-guard.service';
 import { CreateCourseComponent } from '../../teacher-module/create-course/create-course.component';
 import { TeacherCourseComponent } from '../../teacher-module/teacher-course/teacher-course.component';
+// tslint:disable-next-line:max-line-length
+import { TeacherCourseStudentChallengesComponent } from '../../teacher-module/teacher-course-student-challenges/teacher-course-student-challenges.component';
 
 
 
@@ -29,11 +31,19 @@ export const AdminLayoutRoutes: Routes = [
             {
                 path: 'teacher',
                 children: [
-                    { path: 'courses', component: TeacherCoursesComponent },
-                    { path: 'course/:id', component: TeacherCourseComponent },
                     { path: 'courses-create', component: CreateCourseComponent },
                     { path: 'challenges', component: ChallengesComponent },
-                    { path: 'challenge-create', component: CreateChallengeComponent }
+                    { path: 'challenge-create', component: CreateChallengeComponent },
+                    { path: 'courses', component: TeacherCoursesComponent },
+                    {
+                        path: 'course/:courseId',
+                        component: TeacherCourseComponent,
+                        children: [
+                            { path: 'student/:studentId', component: TeacherCourseStudentChallengesComponent }
+                        ]
+                    },
+                    { path: 'not-found', component: NotFoundComponent },
+                    { path: '**', redirectTo: 'not-found' }
                 ]
             },
             { path: 'dashboard', component: DashboardComponent },

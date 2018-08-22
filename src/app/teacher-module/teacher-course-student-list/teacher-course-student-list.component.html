@@ -1,3 +1,8 @@
-<p>
-  teacher-course-student-list works!
-</p>
+<ul class="list-group list-group-flush px-0">
+  <li class="list-group-item px-0" *ngFor="let item of model">
+    <a [routerLink]="['student', item.id]">
+      <fa-icon icon="user-graduate"></fa-icon>
+      {{item.name}}
+    </a>
+  </li>
+</ul>

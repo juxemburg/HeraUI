@@ -15,11 +15,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminLayoutComponent } from './admin-layout.component';
 import { SharedModule } from '../../shared/shared.module';
 import { TeacherModule } from '../../teacher-module/teacher.module';
+import { HeraModule } from '../../hera-module/hera.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
+    HeraModule,
     TeacherModule,
     FormsModule,
     ChartsModule,

@@ -19,3 +19,31 @@ export class CourseChallengeModel {
         public profesorId: string
     ) { }
 }
+
+
+export class CourseStudentGradeModel {
+    constructor(
+        public cursoId: number,
+        public estudianteId: number,
+        public desafioId: number,
+        public nombreDesafio: string,
+        public iniciada: boolean,
+        public terminada: boolean,
+        public valorada: boolean,
+        public calificaciones: CourseStudentGradeResultModel[]
+    ) { }
+}
+
+export class CourseStudentGradeResultModel {
+    constructor(
+        public id: number,
+        public cursoId: number,
+        public estudianteId: number,
+        public desafioId: number,
+        public tiempoinicio: Date,
+        public tiempoFinal: Date,
+        public calificacionCualitativaId: number,
+        public duracion: string,
+        public enCurso: boolean
+    ) { }
+}

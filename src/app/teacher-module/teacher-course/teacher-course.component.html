@@ -1,11 +1,82 @@
 <div class="row">
-  <div class="col-sm-12">
+  <!-- loading-div -->
+  <div class="col-sm-12" *ngIf="isLoading">
     <div class="card">
-      <div class="card-body">
-        <p>
-          teacher-course works!
-        </p>
+      <div class="card-body text-center">
+        <app-loading>
+        </app-loading>
       </div>
     </div>
   </div>
+  <!-- /loading-div -->
+  <!-- content-div -->
+  <div class="col-sm-12" *ngIf="!isLoading">
+    <!-- main-card -->
+    <div class="card">
+      <!-- info-body -->
+      <div class="card-body">
+        <div class="row text-center">
+          <div class="form-group col">
+            <label for="" class="control-label">
+              <fa-icon icon="comments"></fa-icon>
+              Descripción del curso
+            </label>
+            <p>{{model.descripcionCurso}}</p>
+          </div>
+          <div class="form-group col">
+            <label for="" class="control-label">
+              <fa-icon icon="lock"></fa-icon>
+              Contraseña del curso
+            </label>
+            <p>{{model.passwordCurso}}</p>
+          </div>
+          <div class="form-group col">
+            <label for="" class="control-label">
+              <fa-icon icon="star"></fa-icon>
+              Desafio inicial
+            </label>
+            <p>
+              {{model.desafioInicial.nombre}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- /info-body -->
+    </div>
+    <!-- /main-card -->
+  </div>
+  <!-- /content-div -->
+  <!-- students-section -->
+  <div class="col-sm-12" *ngIf="!isLoading">
+    <div class="card card-plain">
+      <h4 class="title">Estudiantes del curso</h4>
+    </div>
+    <div class="row">
+      <!-- student-list-div -->
+      <div class="col-sm-3">
+        <!-- student-list-card -->
+        <div class="card">
+          <div class="card-body">
+            <app-teacher-course-student-list [modelList]="model.estudiantes">
+            </app-teacher-course-student-list>
+          </div>
+        </div>
+        <!-- /student-list-card -->
+      </div>
+      <!-- /student-list-div -->
+      
+      <!-- router-div -->
+      <div class="col-sm-9">
+        <!-- router-card -->
+        <div class="card">
+          <div class="card-body">
+              <router-outlet></router-outlet>
+          </div>
+        </div>
+        <!-- /router-card -->
+      </div>
+      <!-- /router-div -->
+    </div>
+  </div>
+  <!-- /students-section -->
 </div>
