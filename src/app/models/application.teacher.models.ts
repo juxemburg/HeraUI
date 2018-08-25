@@ -1,3 +1,5 @@
+import { ScratchGeneralResult, ScratchSpriteResult } from '../hera-module/models/hera.models';
+
 export class TeacherCourseModel {
     constructor(
         public id: number,
@@ -44,6 +46,8 @@ export class CourseStudentGradeResultModel {
         public tiempoFinal: Date,
         public calificacionCualitativaId: number,
         public duracion: string,
-        public enCurso: boolean
+        public enCurso: boolean,
+        public resultadoGeneral: ScratchGeneralResult,
+        public resultadoSprites: ScratchSpriteResult[]
     ) { }
 }

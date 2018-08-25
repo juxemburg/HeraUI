@@ -1,0 +1,6 @@
+<label for="" class="label-control">
+  {{name}} ({{value}} / {{total}})
+</label>
+<div class="progress">
+  <div class="progress-bar" [ngClass]="progressClass" role="progressbar" [ngStyle]="progresStyle" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{percentage}}%</div>
+</div>

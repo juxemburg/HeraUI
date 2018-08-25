@@ -3,8 +3,43 @@
     <h5>Resultados</h5>
   </div>
   <div class="col-sm-12">
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+    <!-- general-info-row -->
+    <div class="row text-center">
+      <div class="col form-group">
+        <label for="" class="control-label">
+          <fa-icon icon="skull">
+          </fa-icon>
+          Scripts muertos:
+        </label>
+        <small class="ml-1">{{generalResult.deadCodeCount}}</small>
+      </div>
+      <div class="col form-group">
+        <label for="" class="control-label">
+          <fa-icon icon="clone"></fa-icon>
+          Scripts duplicados:
+        </label>
+        <small class="ml-1">{{generalResult.duplicateScriptsCount}}</small>
+      </div>
+      <div class="col form-group">
+        <label for="" class="control-label">
+          <fa-icon icon="th-large"></fa-icon>
+          Total bloques:
+        </label>
+        <small class="ml-1">{{generalResult.numBloques}}</small>
+      </div>
+      <div class="col form-group">
+        <label for="" class="control-label">
+          <fa-icon icon="file-code"></fa-icon>
+          Total sprites:
+        </label>
+        <small class="ml-1">{{generalResult.numScripts}}</small>
+      </div>
     </div>
+    <app-general-info-results [model]="generalResult.iInfoScratch_General">
+    </app-general-info-results>
+    <!-- /general-info-row -->
+    <!-- <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+    </div> -->
   </div>
 </div>

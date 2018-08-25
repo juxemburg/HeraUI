@@ -1,3 +1,117 @@
-<p>
-  general-info-results works!
-</p>
+<!-- progress-results-div -->
+<div class="row mt-4 p-3">
+    <!-- Abstracción y reconocimiento de patrones -->
+  <div class="col-sm-12 col-md-6 p-1">
+    <h6>Abstracción y reconocimiento de patrones</h6>
+    <div class="row p-1 pr-4">
+      <div class="col-sm-12 from-group">
+        <app-item-progress [name]="'Se usan todos los bloques'" [value]="model.nonUnusedBlocks" [total]="model.spriteCount">
+        </app-item-progress>
+      </div>
+      <div class="col-sm-12 form-group mt-3">
+        <app-item-progress [name]="'Uso de bloques propios'" [value]="model.userDefinedBlocks" [total]="model.spriteCount">
+        </app-item-progress>
+      </div>
+      <div class="col-sm-12 form-group mt-3">
+        <app-item-progress [name]="'Uso de clones'" [value]="model.cloneUse" [total]="model.spriteCount">
+        </app-item-progress>
+      </div>
+    </div>
+  </div>
+  <!-- /Abstracción y reconocimiento de patrones -->
+  <!-- Control de flujo -->
+  <div class="col-sm-12 col-md-6 p-1">
+    <h6>Control de flujo</h6>
+    <div class="p-1 pr-4">
+      <div class="col-sm-12 from-group">
+        <app-item-progress [name]="'Uso de bloques simples'" [value]="model.useSimpleBlocks" [total]="model.spriteCount">
+        </app-item-progress>
+      </div>
+      <div class="col-sm-12 form-group mt-3">
+        <app-item-progress [name]="'Uso de bloques complejos'" [value]="model.useMediumBlocks" [total]="model.spriteCount">
+        </app-item-progress>
+      </div>
+      <div class="col-sm-12 form-group mt-3">
+        <app-item-progress [name]="'Uso de bloques anidados'" [value]="model.useNestedControl" [total]="model.spriteCount">
+        </app-item-progress>
+      </div>
+    </div>
+  </div>
+  <!-- /Control de flujo -->
+  <!-- Recolección de información -->
+  <div class="col-sm-12 col-md-6 p-1">
+    <h6>Recolección de información</h6>
+    <div class="p-1 pr-4">
+      <div class="col-sm-12 from-group">
+        <app-item-progress [name]="'Uso de bloques de entrada de datos'" [value]="model.basicInputUse" [total]="model.spriteCount">
+        </app-item-progress>
+      </div>
+      <div class="col-sm-12 form-group mt-3">
+        <app-item-progress [name]="'Uso de variables no creadas'" [value]="model.variableUse" [total]="model.spriteCount">
+        </app-item-progress>
+      </div>
+      <div class="col-sm-12 form-group mt-3">
+        <app-item-progress [name]="'Uso de sensores de sprite'" [value]="model.spriteSensing" [total]="model.spriteCount">
+        </app-item-progress>
+      </div>
+    </div>
+  </div>
+  <!-- /Recolección de información -->
+  <!-- Análisis de información -->
+  <div class="col-sm-12 col-md-6 p-1">
+      <h6>Análisis de información</h6>
+      <div class="p-1 pr-4">
+        <div class="col-sm-12 from-group">
+          <app-item-progress [name]="'Operadores lógicos básicos'" [value]="model.basicOperators" [total]="model.spriteCount">
+          </app-item-progress>
+        </div>
+        <div class="col-sm-12 form-group mt-3">
+          <app-item-progress [name]="'Operadores lógicos complejos'" [value]="model.mediumOperators" [total]="model.spriteCount">
+          </app-item-progress>
+        </div>
+        <div class="col-sm-12 form-group mt-3">
+          <app-item-progress [name]="'Operadores lógicos anidados'" [value]="model.advancedOperators" [total]="model.spriteCount">
+          </app-item-progress>
+        </div>
+      </div>
+  </div>
+  <!-- /Análisis de información -->
+  <!-- Paralelismo y sincronización -->
+  <div class="col-sm-12 col-md-6 p-1">
+      <h6>Paralelismo y sincronización</h6>
+      <div class="p-1 pr-4">
+        <div class="col-sm-12 from-group">
+          <app-item-progress [name]="'Dos hilos inciando con bandera verde'" [value]="model.twoGreenFlagTrhead" [total]="model.spriteCount">
+          </app-item-progress>
+        </div>
+        <div class="col-sm-12 form-group mt-3">
+          <app-item-progress [name]="'Usa más de un tipo de evento'" [value]="model.advancedEventUse" [total]="model.spriteCount">
+          </app-item-progress>
+        </div>
+      </div>
+  </div>
+  <!-- /Paralelismo y sincronización -->
+  <!-- Descomposición de Prolemas -->
+  <div class="col-sm-12 col-md-12 p-1">
+      <h6>Descomposición de Prolemas</h6>
+      <div class="p-1 pr-4">
+        <div class="col-sm-12 from-group">
+          <app-item-progress [name]="'Dos hilos por sprite'" [value]="model.multipleThreads" [total]="model.spriteCount">
+          </app-item-progress>
+        </div>
+      </div>
+  </div>
+  <!-- /Descomposición de Prolemas -->
+  <!-- Descomposición de Prolemas -->
+  <div class="col-sm-12 col-md-12 p-1">
+      <h6>Pensamiento algorítmico</h6>
+      <div class="p-1 pr-4">
+        <div class="col-sm-12 form-group mt-3">
+          <app-item-progress [name]="'Uso de secuencias'" [value]="model.secuenceUse" [total]="model.spriteCount">
+          </app-item-progress>
+        </div>
+      </div>
+  </div>
+  <!-- /Descomposición de Prolemas -->
+</div>
+<!-- /progress-results-div -->

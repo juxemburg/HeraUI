@@ -4,6 +4,7 @@ import { ScratchResultsComponent } from './scratch-results/scratch-results.compo
 import { GeneralInfoResultsComponent } from './general-info-results/general-info-results.component';
 import { SpriteInfoResultsComponent } from './sprite-info-results/sprite-info-results.component';
 import { SharedModule } from '../shared/shared.module';
+import { ItemProgressComponent } from './item-progress/item-progress.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     ScratchResultsComponent,
     GeneralInfoResultsComponent,
-    SpriteInfoResultsComponent
+    SpriteInfoResultsComponent,
+    ItemProgressComponent
   ],
   exports: [
     ScratchResultsComponent,
