@@ -1,77 +1,77 @@
-<div class="card card-plain">
-
-  <!-- card-body -->
-  <div class="card-body px-0">
-    <div class="row">
-      <div class="col-sm-12">
-        <h6 class="px-0">{{model.nombreDesafio}}
-          <button class="btn btn-info btn-round float-right" (click)="toggleGrades()">
-            <fa-icon [icon]="gradesButtonIcon"></fa-icon> {{gradesButtonText}}
-          </button>
-        </h6>
-
-        <hr>
-      </div>
-    </div>
+<!-- title-card -->
+<div class="card">
+  <!-- card-header -->
+  <div class="card-header">
+    <h6 class="float-left">{{model.nombreDesafio}}
+    </h6>
+    <button class="btn btn-info btn-round float-right mt-0" (click)="toggleGrades()">
+      <fa-icon [icon]="gradesButtonIcon"></fa-icon> {{gradesButtonText}}
+    </button>
   </div>
-  <!-- /card-body -->
-  <!-- grades-body -->
-  <div class="card-body pr-0" *ngIf="showGrades">
-    <div class="row">
-      <!-- grade-div -->
-      <div class="col-sm-12" *ngFor="let grade of model.calificaciones; let i = index">
-        <h6>Intento #{{i+1}}</h6>
-        <!-- info-row -->
+  <!-- /card-header -->
+</div>
+<!-- /title-card -->
+<div class="row" *ngIf="showGrades">
+  <div class="col-sm-12">
+    <!-- result-card -->
+    <div class="card" *ngFor="let grade of model.calificaciones; let i = index">
+      <div class="card-body">
         <div class="row">
-          <!-- start-time -->
-          <div class="col-sm-4 form-group">
-            <label for="" class="control-label">
-              <fa-icon icon="hourglass-start"></fa-icon>
-              Tiempo inicio
-            </label>
-            <p>
-              {{grade.tiempoinicio | date}}
-            </p>
+          <!-- grade-div -->
+          <div class="col-sm-12">
+            <h6>Intento #{{i+1}}</h6>
+            <!-- info-row -->
+            <div class="row">
+              <!-- start-time -->
+              <div class="col-sm-4 form-group">
+                <label for="" class="control-label">
+                  <fa-icon icon="hourglass-start"></fa-icon>
+                  Tiempo inicio
+                </label>
+                <p>
+                  {{grade.tiempoinicio | date}}
+                </p>
+              </div>
+              <!-- /start-time -->
+              <!-- end-time -->
+              <div class="col-sm-4 form-group">
+                <label for="" class="control-label">
+                  <fa-icon icon="hourglass-end"></fa-icon>
+                  Tiempo fin
+                </label>
+                <p>
+                  {{grade.tiempoFinal | date}}
+                </p>
+              </div>
+              <!-- /end-time -->
+              <!-- elapsed-time -->
+              <div class="col form-group">
+                <label for="" class="control-label">
+                  <fa-icon icon="stopwatch"></fa-icon>
+                  Duración
+                </label>
+                <p>
+                  {{grade.duracion}}
+                </p>
+              </div>
+              <!-- /elapsed-time -->
+            </div>
+            <!-- /info-row -->
+            <!-- scratch-valoration-row -->
+            <app-scratch-results>
+            </app-scratch-results>
+            <!-- /scratch-valoration-row -->
+            <!-- valoration-row -->
+            <div class="col-sm-12 mt-5 px-5">
+              <app-teacher-course-student-valoration>
+              </app-teacher-course-student-valoration>
+            </div>
+            <!-- /valoration-row -->
           </div>
-          <!-- /start-time -->
-          <!-- end-time -->
-          <div class="col-sm-4 form-group">
-            <label for="" class="control-label">
-              <fa-icon icon="hourglass-end"></fa-icon>
-              Tiempo fin
-            </label>
-            <p>
-              {{grade.tiempoFinal | date}}
-            </p>
-          </div>
-          <!-- /end-time -->
-          <!-- elapsed-time -->
-          <div class="col form-group">
-            <label for="" class="control-label">
-              <fa-icon icon="stopwatch"></fa-icon>
-              Duración
-            </label>
-            <p>
-              {{grade.duracion}}
-            </p>
-          </div>
-          <!-- /elapsed-time -->
+          <!-- /grade-div -->
         </div>
-        <!-- /info-row -->
-        <!-- scratch-valoration-row -->
-        <app-scratch-results>
-        </app-scratch-results>
-        <!-- /scratch-valoration-row -->
-        <!-- valoration-row -->
-        <div class="col-sm-12 mt-5 px-5">
-          <app-teacher-course-student-valoration>
-          </app-teacher-course-student-valoration>
-        </div>
-        <!-- /valoration-row -->
-        <hr>
       </div>
-      <!-- /grade-div -->
     </div>
+    <!-- /result-card -->
   </div>
-  <!-- /grades-body -->
 </div>

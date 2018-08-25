@@ -49,31 +49,23 @@
   <!-- students-section -->
   <div class="col-sm-12" *ngIf="!isLoading">
     <div class="card card-plain">
-      <h4 class="title">Estudiantes del curso</h4>
+      <h4 class="title">Detalle del curso</h4>
     </div>
     <div class="row">
       <!-- student-list-div -->
       <div class="col-sm-3">
         <!-- student-list-card -->
-        <div class="card">
-          <div class="card-body">
-            <app-teacher-course-student-list [modelList]="model.estudiantes">
-            </app-teacher-course-student-list>
-          </div>
-        </div>
+        <app-teacher-course-student-list [modelList]="model.estudiantes">
+        </app-teacher-course-student-list>
+
         <!-- /student-list-card -->
       </div>
       <!-- /student-list-div -->
-      
+
       <!-- router-div -->
       <div class="col-sm-9">
-        <!-- router-card -->
-        <div class="card">
-          <div class="card-body">
-              <router-outlet></router-outlet>
-          </div>
-        </div>
-        <!-- /router-card -->
+        <router-outlet>
+        </router-outlet>
       </div>
       <!-- /router-div -->
     </div>

@@ -12,17 +12,17 @@
   <!-- /loading-section -->
   <!-- challenges-section -->
   <div class="col-sm-12" *ngIf="!isLoading">
+    <!-- title-card -->
     <div class="card card-plain">
       <div class="card-header">
         <h6 class="text-center">
           Desafíos completados
         </h6>
       </div>
-      <div class="card-body px-0">
-        <app-teacher-course-student-challenge [model]="item" *ngFor="let item of model">
-        </app-teacher-course-student-challenge>
-      </div>
     </div>
+    <!-- /title-card -->
+    <app-teacher-course-student-challenge [model]="item" *ngFor="let item of model">
+    </app-teacher-course-student-challenge>
   </div>
   <!-- /challenges-section -->
 </div>
