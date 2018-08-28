@@ -3,12 +3,36 @@ import { CourseListModel } from '../../models/application.models';
 import { NavbarPanelService } from '../../shared/navbar-panel/navbar-panel.service';
 import { StudentCoursesService } from '../services/student-courses.service';
 import { NotificationService } from '../../shared/services/notification.service';
+import { trigger, state, transition, animate, style, query, stagger } from '@angular/animations';
 
 
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.scss']
+  styleUrls: ['./courses.component.scss'],
+  animations: [
+    trigger('listAnimation', [
+      transition('* <=> *', [
+        query(
+          ':enter',
+          [
+            style({ opacity: 0, top: '110px', position: 'relative' }),
+            stagger(
+              '20ms',
+              animate(
+                '600ms cubic-bezier(.51,.33,.35,1.48)',
+                style({ opacity: 1, top: '0px', position: 'relative' })
+              )
+            )
+          ],
+          { optional: true }
+        ),
+        query(':leave', animate('50ms', style({ opacity: 0, transform: 'translateX(100%)' })), {
+          optional: true
+        })
+      ])
+    ])
+  ]
 })
 export class CoursesComponent implements OnInit {
 

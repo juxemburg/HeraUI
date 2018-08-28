@@ -15,8 +15,10 @@
 <!-- cards-row -->
 <div class="row" *ngIf="!isLoading">
   <div class="col-sm-12 offset-md-1 col-md-10">
-    <div class="col-sm-6 col-md-4" *ngFor="let course of modelList">
-      <app-course-card [model]="course"></app-course-card>
+    <div class="card-columns">
+      <div [@listAnimation]="modelList.length">
+          <app-course-card  [model]="course" *ngFor="let course of modelList"></app-course-card>
+      </div>
     </div>
   </div>
 </div>

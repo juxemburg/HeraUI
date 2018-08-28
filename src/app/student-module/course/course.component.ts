@@ -4,17 +4,21 @@ import { NavbarPanelService } from '../../shared/navbar-panel/navbar-panel.servi
 import { StudentCoursesService } from '../services/student-courses.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
+import { fadeAnimation } from 'assets/animations/fade.animation';
 
 
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
-  styleUrls: ['./course.component.scss']
+  styleUrls: ['./course.component.scss'],
+  animations: [fadeAnimation]
 })
 export class CourseComponent implements OnInit {
 
   public model: StudentCourseDetailModel;
   public isLoading = true;
+
+  public animationState = '';
 
   constructor(
     private _panelService: NavbarPanelService,
@@ -33,6 +37,7 @@ export class CourseComponent implements OnInit {
     this.isLoading = true;
     this._courseService.GetCourse(courseId)
       .subscribe(data => {
+        this.animationState = 'in';
         this.isLoading = false;
         this.model = data;
         this._panelService.setTitle(`Curso: ${this.model.nombre}`);
