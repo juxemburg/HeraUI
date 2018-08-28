@@ -3,18 +3,22 @@ import { CourseChallengeManagerService } from './course-challenge-manager.servic
 import { ActivatedRoute } from '@angular/router';
 import { CalificacionesDesafioModel } from '../../models/application.student.models';
 import { NavbarPanelService } from '../../shared/navbar-panel/navbar-panel.service';
+import { fadeAnimation } from 'assets/animations/fade.animation';
 
 @Component({
   selector: 'app-course-challenge',
   templateUrl: './course-challenge.component.html',
   styleUrls: ['./course-challenge.component.scss'],
-  providers: [CourseChallengeManagerService]
+  providers: [CourseChallengeManagerService],
+  animations: [fadeAnimation]
 })
 export class CourseChallengeComponent implements OnInit {
 
   public isLoading = true;
 
   public model: CalificacionesDesafioModel;
+
+  public animationState = '';
 
   constructor(
     private _mgrService: CourseChallengeManagerService,
@@ -23,6 +27,7 @@ export class CourseChallengeComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
+    this.animationState = 'in';
 
     this._titleService.setTitle('');
 

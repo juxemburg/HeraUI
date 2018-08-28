@@ -3,16 +3,19 @@ import { StudentChallengeService } from '../services/student-challenge.service';
 import { CalificacionResultadoModel } from '../../models/application.student.models';
 import { ActivatedRoute } from '@angular/router';
 import { NavbarPanelService } from '../../shared/navbar-panel/navbar-panel.service';
+import { fadeAnimation } from 'assets/animations/fade.animation';
 
 @Component({
   selector: 'app-course-challenge-result',
   templateUrl: './course-challenge-result.component.html',
-  styleUrls: ['./course-challenge-result.component.scss']
+  styleUrls: ['./course-challenge-result.component.scss'],
+  animations: [fadeAnimation]
 })
 export class CourseChallengeResultComponent implements OnInit {
 
   public model: CalificacionResultadoModel;
   public isLoading = true;
+  public animationState = '';
 
   private set Model(val: CalificacionResultadoModel) {
     this.model = val;
@@ -25,6 +28,7 @@ export class CourseChallengeResultComponent implements OnInit {
     private _route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.animationState = 'in';
     this._navbarPanelSer.setTitle('Resultados');
     this._route.params.subscribe(params => {
       this.loadModel(

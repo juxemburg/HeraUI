@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NavbarPanelService } from './navbar-panel.service';
+import { fadeInOutAnimation } from 'assets/animations/fade-in-out.animation';
 
 
 @Component({

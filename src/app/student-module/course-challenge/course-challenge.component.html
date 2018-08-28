@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-sm-12">
     <!-- loading-card -->
-    <div class="card" *ngIf="isLoading">
+    <div class="card card-plain mt-4" *ngIf="isLoading">
       <div class="card-body">
         <app-loading></app-loading>
       </div>
@@ -15,7 +15,7 @@
 <div class="row" *ngIf="!isLoading">
   <div class="col-sm-12">
     <!-- /content-card -->
-    <div class="card">
+    <div class="card" [@animationState]="animationState">
       <div class="card-body">
         <!-- row -->
         <div class="row">
