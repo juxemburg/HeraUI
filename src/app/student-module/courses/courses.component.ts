@@ -3,7 +3,6 @@ import { CourseListModel } from '../../models/application.models';
 import { NavbarPanelService } from '../../shared/navbar-panel/navbar-panel.service';
 import { StudentCoursesService } from '../services/student-courses.service';
 import { NotificationService } from '../../shared/services/notification.service';
-import { trigger, state, transition, animate, style, query, stagger } from '@angular/animations';
 import { listAnimation } from 'assets/animations/list-fade-in.animation';
 
 

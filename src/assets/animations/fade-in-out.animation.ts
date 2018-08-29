@@ -8,6 +8,6 @@ export const fadeInOutAnimation =
         state('fade-in', style({
             opacity: 1
         })),
-        transition('fade-in <=> fade-out', animate('100ms ease-in'))
+        transition('fade-in <=> fade-out', animate('300ms ease'))
     ])
 

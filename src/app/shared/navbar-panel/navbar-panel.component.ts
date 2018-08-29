@@ -14,14 +14,19 @@ export class NavbarPanelComponent implements OnInit {
   @Input()
   public dataColor = 'primary';
 
-  public animationState = 'fadeIn';
+  public animationState = 'fade-in';
 
   public title = '';
   constructor(private _cpmService: NavbarPanelService) { }
 
   ngOnInit() {
-    this._cpmService.onTtitleChanged.subscribe(value => {
-      this.title = value;
+    this._cpmService.onTtitleChanged
+    .subscribe(value => {
+      this.animationState = 'fade-out';
+      setTimeout(() => {
+        this.title = value;
+        this.animationState = 'fade-in';
+      }, 300);
     });
   }
 

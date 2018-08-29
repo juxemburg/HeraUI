@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginModel } from '../../models/autentication.models';
 import { LoginService } from '../services/login.service';
 import { NotificationService } from '../../shared/services/notification.service';
+import { NavbarMenuService } from '../../shared/navbar-menu/navbar-menu.service';
 
 
 @Component({
@@ -16,11 +17,13 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _cmpService: LoginService,
-    private _notService: NotificationService
+    private _notService: NotificationService,
+    private _navbarMenuService: NavbarMenuService
   ) { }
 
   ngOnInit() {
     this.reset();
+    this._navbarMenuService.setMenu([]);
   }
 
   public onLogin() {

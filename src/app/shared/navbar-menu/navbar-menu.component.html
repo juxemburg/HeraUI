@@ -1,0 +1,8 @@
+<li class="nav-item" *ngFor="let item of model">
+  <a class="nav-link" [routerLink]="[item.route]">
+    <p>
+      <fa-icon [icon]="item.icon"></fa-icon>
+      {{item.name}}
+    </p>
+  </a>
+</li>

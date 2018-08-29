@@ -21,6 +21,7 @@ import { IsAuthenticatedGuardService } from './services/guards/is-authenticated-
 import { AutocompleteInputComponent } from './autocomplete-input/autocomplete-input.component';
 import { AutocompleteListComponent } from './autocomplete-list/autocomplete-list.component';
 import { IconsModule } from './icons-module/icons.module';
+import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
 
 
 
@@ -45,7 +46,8 @@ import { IconsModule } from './icons-module/icons.module';
     NotFoundComponent,
     SidebarComponent,
     AutocompleteInputComponent,
-    AutocompleteListComponent
+    AutocompleteListComponent,
+    NavbarMenuComponent
   ],
   exports: [
     FormsModule,
