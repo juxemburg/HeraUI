@@ -17,40 +17,44 @@
   </div>
   <!-- /description-body -->
   <!-- input-body -->
-  <div class="card-body" *ngIf="inputVisible">
-    <!-- content-row -->
-    <div class="row" *ngIf="!isLoading">
-      <!-- password-input -->
-      <div class="col-sm-9">
-        <div class="form-group">
-          <label for="" class="control-label">
-            <i class="material-icons">lock</i> Contraseña del curso
-          </label>
-          <input [(ngModel)]="password" type="password" class="form-control">
+  <div class="card-body" [@animationState]="animationState">
+    <div *ngIf="inputVisible">
+      <!-- content-row -->
+      <div class="row" *ngIf="!isLoading">
+        <!-- password-input -->
+        <div class="col-sm-9">
+          <div class="form-group">
+            <label for="" class="control-label">
+              <i class="material-icons">lock</i> Contraseña del curso
+            </label>
+            <input [(ngModel)]="password" type="password" class="form-control">
+          </div>
+        </div>
+        <!-- /password-input -->
+        <!-- submit-button -->
+        <div class="col-sm-3">
+          <div class="mt-4">
+            <button class="btn btn-sm btn-icon btn-success btn-round" [disabled]="!password" (click)="onEnroll()">
+              <i class="material-icons">done_all</i>
+            </button>
+            <button class="btn btn-sm btn-icon btn-danger btn-round float-right" (click)="onEnrollHide()">
+              <i class="material-icons">close</i>
+            </button>
+          </div>
+        </div>
+        <!-- /submit-button -->
+      </div>
+      <!-- /content-row -->
+      <!-- loading-row -->
+      <div class="row" *ngIf="isLoading">
+        <div class="col-sm-12 text-center">
+          <app-loading></app-loading>
         </div>
       </div>
-      <!-- /password-input -->
-      <!-- submit-button -->
-      <div class="col-sm-3">
-        <div class="mt-4">
-          <button class="btn btn-sm btn-icon btn-success btn-round" [disabled]="!password" (click)="onEnroll()">
-            <i class="material-icons">done_all</i>
-          </button>
-          <button class="btn btn-sm btn-icon btn-danger btn-round float-right" (click)="onEnrollHide()">
-            <i class="material-icons">close</i>
-          </button>
-        </div>
-      </div>
-      <!-- /submit-button -->
+      <!-- /loading-row -->
     </div>
-    <!-- /content-row -->
-    <!-- loading-row -->
-    <div class="row" *ngIf="isLoading">
-      <div class="col-sm-12 text-center">
-        <app-loading></app-loading>
-      </div>
-    </div>
-    <!-- /loading-row -->
+    
+
   </div>
   <!-- /input-body -->
 </div>
