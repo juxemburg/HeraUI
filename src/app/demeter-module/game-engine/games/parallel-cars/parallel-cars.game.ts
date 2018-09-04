@@ -3,6 +3,7 @@ import { Game } from '../../game.game';
 import { Lane } from './game-objects/lane.gameobject';
 import { Observable, Subject } from 'rxjs';
 import { Package } from './game-objects/package.gameobject';
+import { LoadCar, LoadPackage } from './parallel-cars.loader';
 
 export class ParallelCarsGame extends Game {
 
@@ -24,11 +25,11 @@ export class ParallelCarsGame extends Game {
     constructor(canvasId: string, threadCount: number) {
         super(canvasId);
         const suggestedThreads = 4;
-        const usedThreads = threadCount;
+        const usedThreads = Math.min(threadCount, 10);
         const boxCount = 20;
 
         for (let i = 0; i < boxCount; i++) {
-            const gamePackage = new Package(1000 + i, 1190, 30 + (i * 20));
+            const gamePackage = LoadPackage(1000 + i, 1165, 0 + (i * 35));
             this.addGameObject(gamePackage);
             this._packages.push(gamePackage);
         }
@@ -39,11 +40,11 @@ export class ParallelCarsGame extends Game {
 
         for (let i = 0; i < usedThreads; i++) {
             const lane = i % suggestedThreads;
-            const car = new Car(
+            const car = LoadCar(
                 100 + i,
                 100 + (60 * i),
                 30 + (120 * (lane)),
-                5 + Math.random() * 2);
+                1 + Math.random() * 3);
 
             this.addGameObject(car);
             this.addCar(lane, car);
@@ -64,9 +65,7 @@ export class ParallelCarsGame extends Game {
 
     public Load(): Observable<any> {
         super.Load();
-        setTimeout(() => {
-            this._onLoadSource.next(true);
-        }, 500);
+        setTimeout(() => this._onLoadSource.next(true), 200);
         return this.onLoaded$;
     }
     protected Update(): void {
@@ -86,7 +85,7 @@ export class ParallelCarsGame extends Game {
     }
 
     private pickUpPackage() {
-        const pkg = this._packages.filter(item => !item.pickedUp)[0];
+        const pkg = this._packages.filter(item => !item.pickedUp && !item.delivered)[0];
         if (pkg) {
             pkg.PickUp();
         }

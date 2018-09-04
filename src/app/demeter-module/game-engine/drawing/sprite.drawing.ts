@@ -20,4 +20,8 @@ export class Sprite {
         this._textures.forEach(texture =>
             texture.Draw(context, absoluteX + this.relativeX, absoluteY + this.relativeY));
     }
+
+    public Flip() {
+        this._textures.forEach(texture => texture.Flip());
+    }
 }

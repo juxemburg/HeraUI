@@ -6,10 +6,10 @@ import { SquareTexture } from '../../../drawing/textures.drawing';
 
 export class Package implements IGameItem {
 
-    private _sprite: Sprite;
     private _visible = true;
 
     public pickedUp = false;
+    public delivered = false;
 
     itemLoadedSource = new Subject<boolean>();
     onItemLoaded$ = this.itemLoadedSource.asObservable();
@@ -34,10 +34,8 @@ export class Package implements IGameItem {
         private _id: number,
         private _x: number,
         private _y: number,
-        private _speed: number = 2) {
-        this._sprite = new Sprite(
-            0, 0, [new SquareTexture(10, 10)]);
-    }
+        private _sprite: Sprite,
+        private _speed: number = 2) { }
 
 
     Load(): Observable<boolean> {
@@ -64,6 +62,7 @@ export class Package implements IGameItem {
     public Deliver() {
         this.pickedUp = false;
         this._visible = true;
+        this.delivered = true;
         this._x = 10;
     }
 }

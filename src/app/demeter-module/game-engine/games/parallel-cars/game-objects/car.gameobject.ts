@@ -6,7 +6,6 @@ import { SquareTexture } from '../../../drawing/textures.drawing';
 
 export class Car implements IGameItem {
 
-    private _sprite: Sprite;
     private _stopped = false;
 
     private _packageReceievedSource = new Subject<boolean>();
@@ -38,10 +37,10 @@ export class Car implements IGameItem {
         private _id: number,
         private _x: number,
         private _y: number,
+        private _sprite: Sprite,
         private _speed: number = 2) {
-        this._sprite = new Sprite(
-            0, 0, [new SquareTexture(50, 50)]);
     }
+
 
     public CheckCollision(cars: Car[]): void {
         if (cars.some(item => this.collide(item))) {

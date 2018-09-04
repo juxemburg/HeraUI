@@ -20,13 +20,16 @@
       <!-- /card-plain -->
     </div>
     <!-- no-content-card -->
-    <!-- content-div -->
-    <div class="card-columns pb-5" [@listAnimation]="model.length">
-      <!-- course-card -->
-      <app-course-search-card [model]='item' *ngFor="let item of model">
-      </app-course-search-card>
-      <!-- /course-card -->
+    <div class="row" [@listAnimation]="model.length">
+      <!-- content-div -->
+      <div class="col-sm-12 col-md-4" *ngFor="let item of model">
+        <!-- course-card -->
+        <app-course-search-card [model]='item'>
+        </app-course-search-card>
+        <!-- /course-card -->
+      </div>
+      <!-- /content-div -->
     </div>
-    <!-- /content-div -->
+
   </div>
 </div>

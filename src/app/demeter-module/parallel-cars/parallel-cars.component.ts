@@ -1,7 +1,8 @@
 import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { ParallelCarsGame } from '../game-engine/games/parallel-cars/parallel-cars.game';
-import { interval, timer } from '../../../../node_modules/rxjs';
+import { interval, timer, forkJoin, of, zip } from 'rxjs';
 import { takeUntil } from '../../../../node_modules/rxjs/operators';
+import { textureLoader } from '../game-engine/games/parallel-cars/parallel-cars.loader';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class ParallelCarsComponent implements OnInit, AfterViewInit {
 
   public gameScore = 0;
 
-  public seconds = 10;
+  public seconds = 20;
 
   constructor() {
   }
@@ -29,11 +30,18 @@ export class ParallelCarsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.game = new ParallelCarsGame('game-canvas', this.threadCount);
-    this.game.Load()
-      .subscribe(_ => this.isLoading = false);
+    textureLoader.clear();
+    zip(textureLoader.LoadTexture('car'),
+      textureLoader.LoadTexture('package'))
+      .subscribe(_ => {
+        console.log('Textures loaded');
+        this.game = new ParallelCarsGame('game-canvas', this.threadCount);
+        // tslint:disable-next-line:no-shadowed-variable
+        this.game.Load().subscribe(_ => this.isLoading = false);
+        this.game.onScoreChanged$.subscribe(val => this.gameScore = val);
+      });
 
-    interval(1000).pipe(takeUntil(timer(11500)))
+    interval(1000).pipe(takeUntil(timer(21500)))
       .subscribe(_ => {
         this.seconds--;
         if (this.seconds <= 0) {
@@ -41,8 +49,6 @@ export class ParallelCarsComponent implements OnInit, AfterViewInit {
           this.seconds = 0;
         }
       });
-
-    this.game.onScoreChanged$.subscribe(val => this.gameScore = val);
   }
 
   public start() {

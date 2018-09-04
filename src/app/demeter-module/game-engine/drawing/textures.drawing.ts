@@ -1,6 +1,7 @@
 export interface ITexture {
     Draw(context: any, x: number, y: number);
     Update(context: any);
+    Flip();
 }
 
 export class SquareTexture implements ITexture {
@@ -14,6 +15,8 @@ export class SquareTexture implements ITexture {
     }
 
     Update(context: any) { }
+
+    Flip() {}
 }
 
 export class LineTexture implements ITexture {
@@ -32,4 +35,43 @@ export class LineTexture implements ITexture {
     }
 
     Update(context: any) { }
+
+    Flip() {}
+}
+
+
+export class ImageTexture implements ITexture {
+
+
+    private _flipped: boolean;
+    public get flipped(): boolean {
+        return this._flipped;
+    }
+    public set flipped(v: boolean) {
+        this._flipped = v;
+    }
+
+
+    constructor(
+        private _x: number,
+        private _y: number,
+        private image: HTMLImageElement
+    ) { }
+
+    Draw(context: any, x: number, y: number) {
+        if (this._flipped) {
+            context.translate(50, 0);
+            context.scale(-1, 1);
+            context.drawImage(this.image, x + this._x, y + this._y);
+        } else {
+            context.drawImage(this.image, x + this._x, y + this._y);
+        }
+
+    }
+
+    Update(context: any) { }
+
+    Flip() {
+        this.flipped = !this.flipped;
+    }
 }
