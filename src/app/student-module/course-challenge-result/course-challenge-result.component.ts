@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { StudentChallengeService } from '../services/student-challenge.service';
 import { CalificacionResultadoModel } from '../../models/application.student.models';
 import { ActivatedRoute } from '@angular/router';
 import { NavbarPanelService } from '../../shared/navbar-panel/navbar-panel.service';
 import { fadeAnimation } from 'assets/animations/fade.animation';
+import { CourseChallengeResultFinishedComponent } from '../course-challenge-result-finished/course-challenge-result-finished.component';
 
 @Component({
   selector: 'app-course-challenge-result',
@@ -17,6 +18,10 @@ export class CourseChallengeResultComponent implements OnInit {
   public isLoading = true;
   public animationState = '';
 
+  @ViewChild(CourseChallengeResultFinishedComponent)
+  public resultsComponent: CourseChallengeResultFinishedComponent;
+
+
   private set Model(val: CalificacionResultadoModel) {
     this.model = val;
     this.isLoading = false;
@@ -28,6 +33,7 @@ export class CourseChallengeResultComponent implements OnInit {
     private _route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.isLoading = true;
     this.animationState = 'in';
     this._navbarPanelSer.setTitle('Resultados');
     this._route.params.subscribe(params => {
@@ -46,6 +52,10 @@ export class CourseChallengeResultComponent implements OnInit {
       .subscribe(data =>
         this.Model = data,
         _ => this.isLoading = false);
+  }
+
+  public showResults() {
+    this.resultsComponent.Show();
   }
 
 }

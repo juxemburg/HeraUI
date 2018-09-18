@@ -14,6 +14,7 @@ import { CourseChallengeHistoryComponent } from './course-challenge-history/cour
 import { CourseChallengeGradeComponent } from './course-challenge-grade/course-challenge-grade.component';
 import { CourseChallengeResultComponent } from './course-challenge-result/course-challenge-result.component';
 import { DemeterModule } from '../demeter-module/demeter.module';
+import { CourseChallengeResultFinishedComponent } from './course-challenge-result-finished/course-challenge-result-finished.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { DemeterModule } from '../demeter-module/demeter.module';
     CourseChallengeComponent,
     CourseChallengeHistoryComponent,
     CourseChallengeGradeComponent,
-    CourseChallengeResultComponent
+    CourseChallengeResultComponent,
+    CourseChallengeResultFinishedComponent
   ],
   exports: [
     CourseComponent,

@@ -1,6 +1,6 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, EventEmitter, Output } from '@angular/core';
 import { ParallelCarsGame } from '../game-engine/games/parallel-cars/parallel-cars.game';
-import { interval, timer, forkJoin, of, zip } from 'rxjs';
+import { interval, timer, forkJoin, of, zip, Subject } from 'rxjs';
 import { takeUntil } from '../../../../node_modules/rxjs/operators';
 import { textureLoader } from '../game-engine/games/parallel-cars/parallel-cars.loader';
 
@@ -14,6 +14,9 @@ export class ParallelCarsComponent implements OnInit, AfterViewInit {
 
   @Input()
   public threadCount = 0;
+
+  @Output()
+  public onFinished = new EventEmitter<boolean>();
 
   private game: ParallelCarsGame;
   public isLoading = true;
@@ -31,7 +34,9 @@ export class ParallelCarsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     textureLoader.clear();
-    zip(textureLoader.LoadTexture('car'),
+    zip(
+      textureLoader.LoadTexture('car_left'),
+      textureLoader.LoadTexture('car_right'),
       textureLoader.LoadTexture('package'))
       .subscribe(_ => {
         console.log('Textures loaded');
@@ -47,6 +52,7 @@ export class ParallelCarsComponent implements OnInit, AfterViewInit {
         if (this.seconds <= 0) {
           this.game.End();
           this.seconds = 0;
+          this.onFinished.emit(true);
         }
       });
   }

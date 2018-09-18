@@ -1,14 +1,22 @@
 <div class="card" [@animationState]="animationState">
+  <!-- card-header -->
   <div class="card-header">
     <h4 class="title">
       ¡Haz click para observar el resultado del desafío!
     </h4>
   </div>
+  <!-- /card-header -->
+  <!-- card-body -->
   <div class="card-body">
     <div class="row">
       <div class="col-sm-12">
-        <app-parallel-cars [threadCount]="model.numScripts"></app-parallel-cars>
+        <app-parallel-cars [threadCount]="model.numScripts" (onFinished)="showResults()"></app-parallel-cars>
       </div>
     </div>
   </div>
+  <!-- /card-body -->
+</div>
+<div>
+  <app-course-challenge-result-finished #results>
+  </app-course-challenge-result-finished>
 </div>

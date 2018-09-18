@@ -39,6 +39,7 @@ export class Car implements IGameItem {
         private _y: number,
         private _sprite: Sprite,
         private _speed: number = 2) {
+            this.flip();
     }
 
 
@@ -53,6 +54,12 @@ export class Car implements IGameItem {
         return this.Id !== otherCar.Id &&
             (((this.X + this._speed) < otherCar.Right && (this.X + this._speed) > otherCar.X)
                 || ((this.Right + this._speed) > otherCar.X && (this.Right + this._speed) < otherCar.Right));
+    }
+
+    private flip() {
+        const left = this._speed > 0;
+        this._sprite.Show(1, left);
+        this._sprite.Show(0, !left);
     }
 
     Load(): Observable<boolean> {
@@ -72,14 +79,18 @@ export class Car implements IGameItem {
         if (this._x > 1100) {
             this._speed *= -1;
             this._packageReceievedSource.next(true);
+            this.flip();
         }
         if (this._x < 60) {
             this._speed *= -1;
             this._packageDeliveredSource.next(true);
+            this.flip();
         }
     }
 
     Draw(context: any): void {
         this._sprite.Draw(context, this.X, this.Y);
     }
+
+
 }

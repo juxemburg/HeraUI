@@ -9,9 +9,9 @@ export let textureLoader = new TextureLoader();
 
 export function LoadCar(
     id: number, x: number, y: number, speed: number) {
-
     const carSprite = new Sprite(0, 0, [
-        new ImageTexture(0, 0, textureLoader.GetTexture('car'))
+        new ImageTexture(0, 0, textureLoader.GetTexture('car_left')),
+        new ImageTexture(0, 0, textureLoader.GetTexture('car_right'))
     ]);
     return new Car(id, x, y, carSprite, speed);
 }

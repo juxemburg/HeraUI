@@ -2,6 +2,7 @@ export interface ITexture {
     Draw(context: any, x: number, y: number);
     Update(context: any);
     Flip();
+    Show(val: boolean);
 }
 
 export class SquareTexture implements ITexture {
@@ -16,7 +17,9 @@ export class SquareTexture implements ITexture {
 
     Update(context: any) { }
 
-    Flip() {}
+    Flip() { }
+
+    Show(val: boolean) { }
 }
 
 export class LineTexture implements ITexture {
@@ -36,11 +39,23 @@ export class LineTexture implements ITexture {
 
     Update(context: any) { }
 
-    Flip() {}
+    Flip() { }
+
+    Show(val: boolean) { }
 }
 
 
 export class ImageTexture implements ITexture {
+
+
+
+    private _visible: boolean;
+    public get visible(): boolean {
+        return this._visible;
+    }
+    public set visible(v: boolean) {
+        this._visible = v;
+    }
 
 
     private _flipped: boolean;
@@ -55,10 +70,15 @@ export class ImageTexture implements ITexture {
     constructor(
         private _x: number,
         private _y: number,
-        private image: HTMLImageElement
-    ) { }
+        private image: HTMLImageElement) {
+        this.visible = true;
+    }
 
     Draw(context: any, x: number, y: number) {
+        if (!this._visible) {
+            return;
+        }
+
         if (this._flipped) {
             context.translate(50, 0);
             context.scale(-1, 1);
@@ -73,5 +93,9 @@ export class ImageTexture implements ITexture {
 
     Flip() {
         this.flipped = !this.flipped;
+    }
+
+    Show(val: boolean) {
+        this.visible = val;
     }
 }

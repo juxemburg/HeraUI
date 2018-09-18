@@ -24,4 +24,10 @@ export class Sprite {
     public Flip() {
         this._textures.forEach(texture => texture.Flip());
     }
+
+    public Show(index: number, val: boolean) {
+        if (this._textures[index]) {
+            this._textures[index].Show(val);
+        }
+    }
 }
