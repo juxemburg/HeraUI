@@ -3,7 +3,12 @@
     <h6 class="title">Estudiantes del curso</h6>
   </div>
 </div>
-<div class="card" data-background-color="red">
+<div class="card card-plain">
+  <div class="card-body">
+    <p class="text-justify text-muted">Sin estudiantes. ):</p>
+  </div>
+</div>
+<div class="card" data-background-color="red" *ngIf="model.length">
   <div class="card-body pt-0 px-0">
     <ul class="nav flex-column">
       <li routerLinkActive="active" class="nav-item" *ngFor="let item of model">
