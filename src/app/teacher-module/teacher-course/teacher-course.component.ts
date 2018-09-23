@@ -4,6 +4,7 @@ import { NavbarPanelService } from '../../shared/navbar-panel/navbar-panel.servi
 import { TeacherCourseService } from './teacher-course.service';
 import { NotificationService } from '../../shared/services/notification.service';
 import { TeacherCourseModel } from '../../models/application.teacher.models';
+import { CourseChallengeListService } from '../services/course-challenge-list.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class TeacherCourseComponent implements OnInit {
     private _panelService: NavbarPanelService,
     private _courseService: TeacherCourseService,
     private _notService: NotificationService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private _courseChallengesService: CourseChallengeListService
   ) { }
 
   ngOnInit() {
@@ -34,6 +36,7 @@ export class TeacherCourseComponent implements OnInit {
     this._courseService.GetCourse(courseId)
       .subscribe(data => {
         this.model = data;
+        this._courseChallengesService.model = this.model.desafios;
         this._panelService.setTitle(`Curso: ${this.model.nombreCurso}`);
         this.isLoading = false;
       }, err => {

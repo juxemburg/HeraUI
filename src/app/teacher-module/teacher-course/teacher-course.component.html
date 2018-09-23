@@ -57,17 +57,21 @@
         <!-- student-list-card -->
         <app-teacher-course-student-list [modelList]="model.estudiantes">
         </app-teacher-course-student-list>
-
         <!-- /student-list-card -->
       </div>
       <!-- /student-list-div -->
-
       <!-- router-div -->
       <div class="col-sm-9">
         <router-outlet>
         </router-outlet>
       </div>
       <!-- /router-div -->
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <app-teacher-course-challenge-list [courseId]="model.id">
+        </app-teacher-course-challenge-list>
+      </div>
     </div>
   </div>
   <!-- /students-section -->

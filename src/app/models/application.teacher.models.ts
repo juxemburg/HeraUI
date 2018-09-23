@@ -7,6 +7,7 @@ export class TeacherCourseModel {
         public descripcionCurso: string,
         public passwordCurso: string,
         public desafioInicial: CourseChallengeModel,
+        public desafios: CourseChallengeModel[],
         public estudiantes: Map<number, string>
     ) { }
 }
@@ -18,7 +19,8 @@ export class CourseChallengeModel {
         public descripcion: string,
         public dirDesafioInicial: string,
         public dirSolucion: string,
-        public profesorId: string
+        public profesorId: string,
+        public inicial: boolean
     ) { }
 }
 

@@ -1,0 +1,19 @@
+<div class="card card-plain">
+  <div class="card-header">
+    <h6 class="title">
+      Desafios del curso
+      <app-toggle-button name="sf" [(ngModel)]="showForm" [btnClass]="'btn-info btn-icon btn-round btn-sm'" [btnIconOn]="'times'" [btnIconOff]="'plus'">
+      </app-toggle-button>
+    </h6>
+    <div *ngIf="showForm">
+      <app-teacher-course-add-challenge [courseId]="courseId">
+      </app-teacher-course-add-challenge>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-columns">
+      <app-teacher-course-challenge-list-item [model]="item" *ngFor='let item of items'>
+      </app-teacher-course-challenge-list-item>
+    </div>
+  </div>
+</div>

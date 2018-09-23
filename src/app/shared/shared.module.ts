@@ -22,6 +22,8 @@ import { AutocompleteInputComponent } from './autocomplete-input/autocomplete-in
 import { AutocompleteListComponent } from './autocomplete-list/autocomplete-list.component';
 import { IconsModule } from './icons-module/icons.module';
 import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
+import { SubmitButtonComponent } from './submit-button/submit-button.component';
+import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
 
 
 
@@ -47,7 +49,9 @@ import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
     SidebarComponent,
     AutocompleteInputComponent,
     AutocompleteListComponent,
-    NavbarMenuComponent
+    NavbarMenuComponent,
+    SubmitButtonComponent,
+    ToggleButtonComponent
   ],
   exports: [
     FormsModule,
@@ -60,7 +64,9 @@ import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
     NotFoundComponent,
     SidebarComponent,
     AutocompleteInputComponent,
-    IconsModule
+    IconsModule,
+    SubmitButtonComponent,
+    ToggleButtonComponent
   ],
   providers: [
     HttpErrorService,

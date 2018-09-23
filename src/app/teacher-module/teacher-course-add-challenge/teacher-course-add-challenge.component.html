@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-12 col-md-10">
+        <app-challenge-selector name="challengeId" [(ngModel)]="challengeId">
+        </app-challenge-selector>
+      </div>
+      <div class="col-sm-12 col-md-2 mt-3">
+        <div class="form-group">
+          <label for="" class="control-label"></label>
+          <app-submit-button [disabled]="challengeId <= 0" [btnClass]="'btn-success btn-round btn-block'" [submitted]="onSubmitting$" (onSubmitted)="Submitted()">
+          </app-submit-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../../shared/services/http.service';
-import { TeacherCourseModel, CourseStudentGradeModel } from '../../models/application.teacher.models';
+import { TeacherCourseModel, CourseStudentGradeModel, CourseChallengeModel } from '../../models/application.teacher.models';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -18,5 +18,9 @@ export class TeacherCourseService {
 
   public GetStudentChallenges(courseId: number, studentId: number): Observable<CourseStudentGradeModel[]> {
     return this._http.get(`${this._uri}/${courseId}/Student/${studentId}/Grades`);
+  }
+
+  public AddChallenge(courseId: number, challengeId: number): Observable<CourseChallengeModel> {
+    return this._http.post(`${this._uri}/${courseId}/Challenge/${challengeId}`);
   }
 }
