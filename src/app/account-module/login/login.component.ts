@@ -3,6 +3,7 @@ import { LoginModel } from '../../models/autentication.models';
 import { LoginService } from '../services/login.service';
 import { NotificationService } from '../../shared/services/notification.service';
 import { NavbarMenuService } from '../../shared/navbar-menu/navbar-menu.service';
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -13,6 +14,10 @@ import { NavbarMenuService } from '../../shared/navbar-menu/navbar-menu.service'
 export class LoginComponent implements OnInit {
 
   public model: LoginModel;
+
+  private _onIsLoadingSource = new Subject<boolean>();
+  public onIsLoading$ = this._onIsLoadingSource.asObservable();
+
   public isLoading = false;
 
   constructor(
@@ -27,14 +32,14 @@ export class LoginComponent implements OnInit {
   }
 
   public onLogin() {
-    this.isLoading = true;
+    this._onIsLoadingSource.next(true);
     this._cmpService.Login(this.model)
       .subscribe(
         () => {
           this._notService.showNotification('Login exitoso', 'success');
         },
         err => {
-          this.isLoading = false;
+          this._onIsLoadingSource.next(false);
           this._notService.showError('Login fallido');
           console.error(err);
         });

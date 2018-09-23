@@ -18,12 +18,16 @@ export class SubmitButtonComponent implements OnInit {
   public btnIcon = 'check';
 
   @Input()
+  public btnText = '';
+
+  @Input()
   public btnSpinner = 'sync-alt';
 
   @Input()
   public btnColor = 'btn-success';
 
   public icon = '';
+  public text = '';
 
   @Input()
   public submitted: Observable<boolean>;
@@ -36,13 +40,15 @@ export class SubmitButtonComponent implements OnInit {
   public set loading(val: boolean) {
     this.isLoading = val;
     this.icon = this.isLoading ? this.btnSpinner : this.btnIcon;
+    this.text = this.isLoading ? '' : this.btnText;
   }
 
   constructor() {
-    this.icon = this.btnIcon;
   }
 
   ngOnInit() {
+    this.icon = this.btnIcon;
+    this.text = this.btnText;
     this.submitted
       .subscribe(val => {
         this.loading = val;

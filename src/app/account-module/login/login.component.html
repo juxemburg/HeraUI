@@ -1,55 +1,48 @@
-<!-- loading -->
-<div *ngIf="isLoading">
+<form #loginForm="ngForm">
+  <!-- email -->
   <div class="col-sm-12">
-    <app-loading></app-loading>
+    <div class="form-group" [ngClass]="{'has-success': email.valid, 'has-danger': !email.valid && !email.pristine}">
+      <label class="control-label" for="email">
+        <i class="material-icons">email</i> Email
+      </label>
+      <input type="email" #email="ngModel" name="email" [(ngModel)]="model.email" class="form-control form-control-success"
+        required email>
+    </div>
   </div>
-</div>
-<!-- /loading -->
-<!-- content -->
-<div *ngIf="!isLoading">
-  <form #loginForm="ngForm" (ngSubmit)="onLogin()">
-    <!-- email -->
-    <div class="col-sm-12">
-      <div class="form-group" [ngClass]="{'has-success': email.valid, 'has-danger': !email.valid && !email.pristine}">
-        <label class="control-label" for="email">
-          <i class="material-icons">email</i> Email
-        </label>
-        <input type="email" #email="ngModel" name="email" [(ngModel)]="model.email" class="form-control form-control-success" required
-          email>
-      </div>
+  <!-- email -->
+  <!-- password -->
+  <div class="col-sm-12">
+    <div class="form-group" [ngClass]="{'has-success': password.valid, 'has-danger': !password.valid && !password.pristine}">
+      <label for="">
+        <i class="material-icons">lock</i> Contraseña
+      </label>
+      <input #password="ngModel" type="password" name="password" class="form-control" [(ngModel)]="model.password"
+        required>
     </div>
-    <!-- email -->
-    <!-- password -->
-    <div class="col-sm-12">
-      <div class="form-group" [ngClass]="{'has-success': password.valid, 'has-danger': !password.valid && !password.pristine}">
-        <label for="">
-          <i class="material-icons">lock</i> Contraseña
-        </label>
-        <input #password="ngModel" type="password" name="password" class="form-control" [(ngModel)]="model.password" required>
-      </div>
+  </div>
+  <!-- /password -->
+  <!-- remember me -->
+  <div class="col-sm-12">
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" name="rememberme" type="checkbox" [(ngModel)]="model.rememberMe"> ¿Recuérdame?
+        <span class="form-check-sign"></span>
+      </label>
     </div>
-    <!-- /password -->
-    <!-- remember me -->
-    <div class="col-sm-12">
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" name="rememberme" type="checkbox" [(ngModel)]="model.rememberMe"> ¿Recuérdame?
-          <span class="form-check-sign"></span>
-        </label>
-      </div>
+  </div>
+  <!-- /remember me -->
+  <!-- submit -->
+  <div class="col-sm-12 mt-4">
+    <div class="form-group text-center">
+      <!-- <button class="btn btn-round btn-primary btn-lg btn-block" [disabled]="!loginForm.form.valid">
+        Ingresa en el sitio
+      </button> -->
+      <app-submit-button btnColor="btnPrimary" btnText="Iniciar sesión" [btnIcon]="'sign-in-alt'" btnClass='btn btn-round btn-primary btn-lg btn-block'
+        [disabled]="!loginForm.form.valid" [submitted]="onIsLoading$" (onSubmitted)="onLogin()">
+      </app-submit-button>
+      <a [routerLink]="['../register']" class="btn btn-info btn-link btn-block">¿Nuevo en el sitio? Regístrate</a>
+      <a href="" class="btn btn-info btn-link btn-block">¿Olvidáste tu contraseña?</a>
     </div>
-    <!-- /remember me -->
-    <!-- submit -->
-    <div class="col-sm-12 mt-4">
-      <div class="form-group text-center">
-        <button class="btn btn-round btn-primary btn-lg btn-block" [disabled]="!loginForm.form.valid">
-          Ingresa en el sitio
-        </button>
-        <a [routerLink]="['../register']" class="btn btn-info btn-link btn-block">¿Nuevo en el sitio? Regístrate</a>
-        <a href="" class="btn btn-info btn-link btn-block">¿Olvidáste tu contraseña?</a>
-      </div>
-    </div>
-    <!-- /submit -->
-  </form>
-</div>
-<!-- /content -->
+  </div>
+  <!-- /submit -->
+</form>

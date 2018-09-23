@@ -1,4 +1,5 @@
 <button class="btn" [ngClass]="[btnClass, btnColor]" (click)="onClicked()" [disabled]="isLoading || disabled">
+  {{text}}
   <fa-icon [icon]="['fas', icon]" [spin]="isLoading">
   </fa-icon>
 </button>
