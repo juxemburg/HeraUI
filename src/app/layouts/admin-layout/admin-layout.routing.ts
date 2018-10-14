@@ -17,6 +17,7 @@ import { CreateCourseComponent } from '../../teacher-module/create-course/create
 import { TeacherCourseComponent } from '../../teacher-module/teacher-course/teacher-course.component';
 // tslint:disable-next-line:max-line-length
 import { TeacherCourseStudentChallengesComponent } from '../../teacher-module/teacher-course-student-challenges/teacher-course-student-challenges.component';
+import { CourseStudentTracesComponent } from 'app/teacher-module/course-student-traces/course-student-traces.component';
 
 
 
@@ -39,7 +40,8 @@ export const AdminLayoutRoutes: Routes = [
                         path: 'course/:courseId',
                         component: TeacherCourseComponent,
                         children: [
-                            { path: 'student/:studentId', component: TeacherCourseStudentChallengesComponent }
+                            { path: 'student/:studentId', component: TeacherCourseStudentChallengesComponent },
+                            { path: 'student/:studentId/traces', component: CourseStudentTracesComponent }
                         ]
                     },
                     { path: 'not-found', component: NotFoundComponent },

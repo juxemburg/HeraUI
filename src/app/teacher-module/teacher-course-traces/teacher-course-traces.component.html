@@ -1,0 +1,75 @@
+<!-- title-card -->
+<div class="card card-plain">
+  <div class="card-header">
+    <h6 class="title">
+      Huellas del curso
+      <fa-icon icon="paw"></fa-icon>
+    </h6>
+  </div>
+</div>
+<!-- /title-card -->
+<!-- chart1-card -->
+<div class="card" data-color="black">
+  <div class="card-body">
+    <div class="chart-area">
+      <app-line-chart title="Desafíos completados" category="Últimos 30 días" [chartInfo]="model.courseActivity">
+      </app-line-chart>
+    </div>
+  </div>
+</div>
+<!-- /chart1-card -->
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="card card-chart">
+      <div class="card-header">
+        <h4 class="card-title">Desafios fallidos</h4>
+      </div>
+      <div class="card-body">
+        <app-line-chart title="Desafíos fallidos" category="Últimos 30 días" [chartInfo]="model.failedChallenges">
+        </app-line-chart>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="now-ui-icons arrows-1_refresh-69"></i> Actualizado hace un momento.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="card card-chart">
+      <div class="card-header">
+        <h4 class="card-title">All desafíos exitosos</h4>
+      </div>
+      <div class="card-body">
+        <div class="chart-area">
+          <app-line-chart title="Desafíos completados" category="Últimos 30 días" [chartInfo]="model.completedChallenges">
+          </app-line-chart>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="now-ui-icons arrows-1_refresh-69"></i> Actualizado hace un momento.
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col-lg-4 col-md-6">
+    <div class="card card-chart">
+      <div class="card-header">
+        <h4 class="card-title">Frecuencia de bloques</h4>
+      </div>
+      <div class="card-body">
+        <div class="chart-area">
+          <canvas baseChart id="barChartSimpleGradientsNumbers" [datasets]="lineChartGradientsNumbersData" [labels]="lineChartGradientsNumbersLabels"
+            [colors]="lineChartGradientsNumbersColors" [options]="lineChartGradientsNumbersOptions" [chartType]="lineChartGradientsNumbersType"
+            (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <fa-icon icon="clock"></fa-icon> Durante los últimos 7 días
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>

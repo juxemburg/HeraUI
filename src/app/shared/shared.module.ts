@@ -24,6 +24,9 @@ import { IconsModule } from './icons-module/icons.module';
 import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
 import { SubmitButtonComponent } from './submit-button/submit-button.component';
 import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
+import { ChartsModule } from 'ng2-charts';
+import { LineChartComponent } from './line-chart/line-chart.component';
+import { MultiLineChartComponent } from './multi-line-chart/multi-line-chart.component';
 
 
 
@@ -37,7 +40,8 @@ import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
     JWBootstrapSwitchModule,
     HttpClientModule,
     RouterModule,
-    IconsModule
+    IconsModule,
+    ChartsModule,
   ],
   declarations: [
     LoadingComponent,
@@ -51,7 +55,9 @@ import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
     AutocompleteListComponent,
     NavbarMenuComponent,
     SubmitButtonComponent,
-    ToggleButtonComponent
+    ToggleButtonComponent,
+    LineChartComponent,
+    MultiLineChartComponent
   ],
   exports: [
     FormsModule,
@@ -66,7 +72,10 @@ import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
     AutocompleteInputComponent,
     IconsModule,
     SubmitButtonComponent,
-    ToggleButtonComponent
+    ToggleButtonComponent,
+    ChartsModule,
+    LineChartComponent,
+    MultiLineChartComponent
   ],
   providers: [
     HttpErrorService,

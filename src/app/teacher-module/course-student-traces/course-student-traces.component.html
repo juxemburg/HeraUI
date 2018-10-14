@@ -1,0 +1,35 @@
+<!-- loading-card -->
+<div class="card card-plain" *ngIf="isLoading">
+  <div class="card-body">
+    <!-- card-row -->
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <app-loading></app-loading>
+      </div>
+    </div>
+    <!-- /card-row -->
+  </div>
+</div>
+<!-- /loading-card -->
+<!-- content-card -->
+<div class="card card-plain" *ngIf="!isLoading">
+  <div class="card-body">
+    <!-- card-row -->
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- general-traces-chart -->
+        <div class="card" data-color="gray">
+          <div class="card-body">
+            <div class="chart-area">
+              <app-multi-line-chart [chartInfo]="model.generalTraces">
+              </app-multi-line-chart>
+            </div>
+          </div>
+        </div>
+        <!-- /general-traces-chart -->
+      </div>
+    </div>
+    <!-- /card-row -->
+  </div>
+</div>
+<!-- /content-card -->

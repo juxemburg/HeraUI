@@ -1,4 +1,5 @@
 import { ScratchGeneralResult, ScratchSpriteResult } from '../hera-module/models/hera.models';
+import { ChartInfoModel, MultiChartInfoModel } from './common.models';
 
 export class TeacherCourseModel {
     constructor(
@@ -8,7 +9,8 @@ export class TeacherCourseModel {
         public passwordCurso: string,
         public desafioInicial: CourseChallengeModel,
         public desafios: CourseChallengeModel[],
-        public estudiantes: Map<number, string>
+        public estudiantes: Map<number, string>,
+        public info: CourseInfoModel
     ) { }
 }
 
@@ -51,5 +53,22 @@ export class CourseStudentGradeResultModel {
         public enCurso: boolean,
         public resultadoGeneral: ScratchGeneralResult,
         public resultadoSprites: ScratchSpriteResult[]
+    ) { }
+}
+
+export class CourseInfoModel {
+    constructor(
+        public sexDistribution: any,
+        public courseActivity: ChartInfoModel,
+        public completedChallenges: ChartInfoModel,
+        public failedChallenges: ChartInfoModel
+    ) { }
+}
+
+export class CourseStudentTracesModel {
+    constructor(
+        public studentId: number,
+        public studentName: string,
+        public generalTraces: MultiChartInfoModel
     ) { }
 }

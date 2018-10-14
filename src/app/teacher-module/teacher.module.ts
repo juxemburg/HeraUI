@@ -23,6 +23,8 @@ import { HeraModule } from '../hera-module/hera.module';
 import { TeacherCourseChallengeListComponent } from './teacher-course-challenge-list/teacher-course-challenge-list.component';
 import { TeacherCourseChallengeListItemComponent } from './teacher-course-challenge-list-item/teacher-course-challenge-list-item.component';
 import { TeacherCourseAddChallengeComponent } from './teacher-course-add-challenge/teacher-course-add-challenge.component';
+import { TeacherCourseTracesComponent } from './teacher-course-traces/teacher-course-traces.component';
+import { CourseStudentTracesComponent } from './course-student-traces/course-student-traces.component';
 
 @NgModule({
   imports: [
@@ -49,7 +51,9 @@ import { TeacherCourseAddChallengeComponent } from './teacher-course-add-challen
     TeacherCourseStudentValorationComponent,
     TeacherCourseChallengeListComponent,
     TeacherCourseChallengeListItemComponent,
-    TeacherCourseAddChallengeComponent
+    TeacherCourseAddChallengeComponent,
+    TeacherCourseTracesComponent,
+    CourseStudentTracesComponent
   ],
   exports: [
     TeacherCoursesComponent,
