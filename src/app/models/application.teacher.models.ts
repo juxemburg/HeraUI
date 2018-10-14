@@ -69,6 +69,15 @@ export class CourseStudentTracesModel {
     constructor(
         public studentId: number,
         public studentName: string,
-        public generalTraces: MultiChartInfoModel
+        public generalTraces: MultiChartInfoModel,
+        public challengeTraces: CourseStudentChallengeTracesModel[]
+    ) { }
+}
+
+export class CourseStudentChallengeTracesModel {
+    constructor(
+        public challengeId: number,
+        public challengeName: string,
+        public chartModel: MultiChartInfoModel
     ) { }
 }

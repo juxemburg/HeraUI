@@ -28,6 +28,21 @@
         </div>
         <!-- /general-traces-chart -->
       </div>
+      <!-- challenge-traces-charts -->
+      <div class="col-sm-12" *ngFor="let challengeTrace of model.challengeTraces">
+        <div class="card">
+          <div class="card-header">
+            <h6 class="title">{{challengeTrace.challengeName}}</h6>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <app-multi-line-chart [chartInfo]="challengeTrace.chartModel">
+              </app-multi-line-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /challenge-traces-charts -->
     </div>
     <!-- /card-row -->
   </div>
