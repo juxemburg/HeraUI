@@ -54,7 +54,7 @@ export class CourseSearchCardComponent implements OnInit {
       .EnrollStudent(new EnrollStudentModel(this.model.id, this.password))
       .subscribe(_ => {
         this._notService.showSuccess('Te has matriculado con éxito');
-        this._router.navigate(['../courses']);
+        this._router.navigate(['/student/course/', this.model.id]);
       }, err => {
         this._notService.showError(err);
         this.isLoading = false;

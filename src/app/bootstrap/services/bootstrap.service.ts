@@ -15,7 +15,6 @@ export class BootstrapService {
   public initializeApp(): Promise<any> {
     return new Promise((resolve, reject) => {
       this.setAuthToken();
-      console.log('app initialized');
       resolve();
     });
   }
@@ -24,6 +23,13 @@ export class BootstrapService {
     if (this._cookieService.check('authCookie')) {
       configVariables.authToken
         = this._cookieService.get('authCookie');
+    }
+
+    if (this._cookieService.check('userInfo')) {
+      configVariables.userInfo
+        = this._cookieService.get('userInfo');
+    } else {
+      configVariables.userInfo = '';
     }
   }
 }

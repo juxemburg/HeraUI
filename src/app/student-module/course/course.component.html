@@ -8,8 +8,10 @@
     </div>
   </div>
   <!-- /loading-card -->
+  <!-- main-card -->
   <div class="col-sm-12" *ngIf="!isLoading">
     <div class="card" [@animationState]="animationState">
+      <!-- card-header -->
       <div class="card-header">
         <h4 class="card-title title">
           <h5 class="title category">
@@ -18,34 +20,36 @@
           Portales del curso
         </h4>
       </div>
+      <!-- /card-header -->
+      <!-- card-body -->
       <div class="card-body" data-background-color="gray">
         <div class="col-sm-12 offset-md-1 col-md-10">
+          <!-- next-challenge-row -->
           <div class="row">
             <div class="col-sm-6 offset-md-4 col-md-4">
-                <h5 class="title text-center">
-                  Próximo desafío
-                </h5>
-                <app-portal-card [challenge]="model.desafioPendiente">
-                </app-portal-card>
-              </div>
-            <!-- <div class="col-sm-6 col-md-4">
-              <app-portal-card [title]="'Portal 1'" [subtitle]="'El desafío de la colina'">
+              <h5 class="title text-center">
+                Próximo desafío
+              </h5>
+              <app-portal-card [challenge]="model.desafioPendiente">
               </app-portal-card>
             </div>
-
-            <div class="col-sm-6 col-md-4">
-              <app-portal-card [title]="'Portal 2'" [subtitle]="'Paralelismos engañosos'">
-              </app-portal-card>
-            </div>
-
-            <div class="col-sm-6 col-md-4">
-              <app-portal-card [title]="'Portal 3'" [subtitle]="'Condicionales extraviados'">
-              </app-portal-card>
-            </div> -->
-
           </div>
+          <!-- /next-challenge-row -->
+          <!-- completed-challenges-row -->
+          <div class="row">
+            <div class="col-sm-12">
+                <h6 class="title">Desafíos completados</h6>
+            </div>
+            <div class="col-sm-6 col-md-4" *ngFor="let challenge of model.desafiosRealizados">
+              <app-portal-card [challenge]="challenge"> 
+              </app-portal-card>
+            </div>
+          </div>
+          <!-- /completed-challenges-row -->
         </div>
       </div>
+      <!-- /card-body -->
     </div>
   </div>
+  <!-- /main-card -->
 </div>

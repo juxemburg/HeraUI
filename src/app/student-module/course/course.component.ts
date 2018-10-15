@@ -1,9 +1,8 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { CourseListModel, StudentCourseDetailModel } from '../../models/application.models';
+import { Component, OnInit } from '@angular/core';
+import { StudentCourseDetailModel } from '../../models/application.models';
 import { NavbarPanelService } from '../../shared/navbar-panel/navbar-panel.service';
 import { StudentCoursesService } from '../services/student-courses.service';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 import { fadeAnimation } from 'assets/animations/fade.animation';
 
 
