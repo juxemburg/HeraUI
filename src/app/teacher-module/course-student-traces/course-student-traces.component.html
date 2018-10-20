@@ -19,10 +19,21 @@
       <div class="col-sm-12">
         <!-- general-traces-chart -->
         <div class="card" data-color="gray">
+          <div class="card-header">
+            <h6 class="title">
+              Datos generales
+            </h6>
+          </div>
           <div class="card-body">
             <div class="chart-area">
-              <app-multi-line-chart [chartInfo]="model.generalTraces">
+              <app-multi-line-chart [Id]="'chart-general'" [chartInfo]="model.generalTraces">
               </app-multi-line-chart>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-full-width">
+              <app-multi-line-table [model]="model.generalTraces" yaxis="Criterios">
+              </app-multi-line-table>
             </div>
           </div>
         </div>
@@ -36,8 +47,14 @@
           </div>
           <div class="card-body">
             <div class="chart-area">
-              <app-multi-line-chart [chartInfo]="challengeTrace.chartModel">
+              <app-multi-line-chart Id="challenge-{{challengeTrace.challengeId}}" [chartInfo]="challengeTrace.chartModel">
               </app-multi-line-chart>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-full-width">
+              <app-multi-line-table [model]="challengeTrace.chartModel" yaxis="Criterios">
+              </app-multi-line-table>
             </div>
           </div>
         </div>

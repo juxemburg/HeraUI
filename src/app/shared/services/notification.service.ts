@@ -8,7 +8,8 @@ export class NotificationService {
 
   constructor(private _toastr: ToastrService) { }
 
-  public showError(message: string) {
+  public showError(err: any) {
+    const message = err.Message ? err.Message : err;
     this.showNotification(message, 'error');
   }
 

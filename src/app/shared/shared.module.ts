@@ -27,6 +27,7 @@ import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
 import { ChartsModule } from 'ng2-charts';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { MultiLineChartComponent } from './multi-line-chart/multi-line-chart.component';
+import { MultiLineTableComponent } from './multi-line-table/multi-line-table.component';
 
 
 
@@ -57,7 +58,8 @@ import { MultiLineChartComponent } from './multi-line-chart/multi-line-chart.com
     SubmitButtonComponent,
     ToggleButtonComponent,
     LineChartComponent,
-    MultiLineChartComponent
+    MultiLineChartComponent,
+    MultiLineTableComponent
   ],
   exports: [
     FormsModule,
@@ -75,7 +77,8 @@ import { MultiLineChartComponent } from './multi-line-chart/multi-line-chart.com
     ToggleButtonComponent,
     ChartsModule,
     LineChartComponent,
-    MultiLineChartComponent
+    MultiLineChartComponent,
+    MultiLineTableComponent
   ],
   providers: [
     HttpErrorService,

@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>{{yaxis}}</th>
+      <th *ngFor="let label of model.labels">
+        {{label}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let axlabel of model.axisLabels; let ci = index">
+      <td>{{axlabel}}</td>
+      <td class="text-center" *ngFor="let c of model.labels; let li = index">
+        {{model.values[li][ci]}}
+      </td>
+    </tr>
+  </tbody>
+</table>

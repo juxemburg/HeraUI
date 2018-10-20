@@ -61,7 +61,8 @@ export class CourseInfoModel {
         public sexDistribution: any,
         public courseActivity: ChartInfoModel,
         public completedChallenges: ChartInfoModel,
-        public failedChallenges: ChartInfoModel
+        public failedChallenges: ChartInfoModel,
+        public generalTraces: MultiChartInfoModel
     ) { }
 }
 

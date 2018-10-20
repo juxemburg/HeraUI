@@ -18,5 +18,4 @@ export class NavbarLoginComponent implements OnInit {
     this._userService.onUserLoggedIn
       .subscribe(val => this.isLoggedIn = val);
   }
-
 }

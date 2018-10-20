@@ -7,10 +7,7 @@
   </a>
   <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1">
     <div *ngIf="isLoggedIn">
-      <a class="dropdown-item" href="#">
-        Bienvenido
-      </a>
-      <a class="dropdown-item" href="#">
+      <a routerLink="/account/login" class="dropdown-item" href="#">
         Cerrar sesión
       </a>
     </div>

@@ -12,7 +12,7 @@
 <div class="card" data-color="black">
   <div class="card-body">
     <div class="chart-area">
-      <app-line-chart title="Desafíos completados" category="Últimos 30 días" [chartInfo]="model.courseActivity">
+      <app-line-chart [Id]="'chart1'" title="Desafíos completados" category="Últimos 30 días" [chartInfo]="model.courseActivity">
       </app-line-chart>
     </div>
   </div>
@@ -25,7 +25,7 @@
         <h4 class="card-title">Desafios fallidos</h4>
       </div>
       <div class="card-body">
-        <app-line-chart title="Desafíos fallidos" category="Últimos 30 días" [chartInfo]="model.failedChallenges">
+        <app-line-chart [Id]="'chart2'" title="Desafíos fallidos" category="Últimos 30 días" [chartInfo]="model.failedChallenges">
         </app-line-chart>
       </div>
       <div class="card-footer">
@@ -42,7 +42,7 @@
       </div>
       <div class="card-body">
         <div class="chart-area">
-          <app-line-chart title="Desafíos completados" category="Últimos 30 días" [chartInfo]="model.completedChallenges">
+          <app-line-chart [Id]="'chart3'" title="Desafíos completados" category="Últimos 30 días" [chartInfo]="model.completedChallenges">
           </app-line-chart>
         </div>
       </div>
@@ -52,6 +52,29 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="col-sm-12">
+    <!-- general-traces-chart -->
+    <div class="card" data-color="gray">
+      <div class="card-header">
+        <h6 class="title">
+          Datos generales
+        </h6>
+      </div>
+      <div class="card-body">
+        <div class="chart-area">
+          <app-multi-line-chart [Id]="'chart-general'" [chartInfo]="model.generalTraces">
+          </app-multi-line-chart>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-full-width">
+          <app-multi-line-table [model]="model.generalTraces" yaxis="Criterios">
+          </app-multi-line-table>
+        </div>
+      </div>
+    </div>
+    <!-- /general-traces-chart -->
   </div>
   <!-- <div class="col-lg-4 col-md-6">
     <div class="card card-chart">
