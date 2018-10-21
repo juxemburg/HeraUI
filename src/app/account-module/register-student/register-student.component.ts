@@ -32,7 +32,7 @@ export class RegisterStudentComponent implements OnInit {
 
   private initModel() {
     this.model = new RegisterStudentModel(
-      '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0);
+      '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '');
   }
 
   public do_Registration() {

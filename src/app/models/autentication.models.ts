@@ -66,7 +66,8 @@ export class RegisterStudentModel extends IUserData {
         public actividadesPc: number,
         public frecuenciaPc: number,
         public manejoComputador: number,
-        public conocimientoComputador: number
+        public conocimientoComputador: number,
+        public usuarioScratch: string
     ) {
         super(email, password, confirmPassword, nombres, apellidos, edad);
     }

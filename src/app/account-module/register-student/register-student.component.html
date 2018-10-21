@@ -20,7 +20,8 @@
           <label for="">
             <i class="material-icons">email</i> Email
           </label>
-          <input [(ngModel)]="model.email" #email="ngModel" type="email" name="email" class="form-control" required email>
+          <input [(ngModel)]="model.email" #email="ngModel" type="email" name="email" class="form-control" required
+            email>
         </div>
       </div>
       <!-- /email -->
@@ -43,8 +44,8 @@
           <label for="">
             <i class="material-icons">lock</i> Repite la contraseña
           </label>
-          <input [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" type="password" name="confirmPassword" class="form-control"
-            required>
+          <input [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" type="password" name="confirmPassword"
+            class="form-control" required>
         </div>
       </div>
       <!-- /password verify-->
@@ -70,7 +71,8 @@
           <label for="">
             <i class="material-icons">person</i> Apellidos
           </label>
-          <input [(ngModel)]="model.apellidos" #lastName="ngModel" type="text" name="name" class="form-control" required>
+          <input [(ngModel)]="model.apellidos" #lastName="ngModel" type="text" name="name" class="form-control"
+            required>
         </div>
       </div>
       <!-- /last name -->
@@ -132,7 +134,7 @@
             <i class="material-icons">computer</i>
             Actividad favorita del pc
           </label>
-          <select [(ngModel)]="model.actividadesPc" name="pcActivity"  class="form-control">
+          <select [(ngModel)]="model.actividadesPc" name="pcActivity" class="form-control">
             <option value="{{option.value}}" *ngFor="let option of metadata.pcActivitiesOptions">{{option.text}}</option>
           </select>
         </div>
@@ -146,7 +148,7 @@
             <i class="material-icons">computer</i>
             Frecuencia del uso del pc
           </label>
-          <select [(ngModel)]="model.frecuenciaPc" name="pcFrecuency"  class="form-control">
+          <select [(ngModel)]="model.frecuenciaPc" name="pcFrecuency" class="form-control">
             <option value="{{option.value}}" *ngFor="let option of metadata.pcFrecuencyOptions">{{option.text}}</option>
           </select>
         </div>
@@ -158,9 +160,10 @@
         <div class="form-group">
           <label for="">
             <i class="material-icons">computer</i>
-            Manejo del pc
+            ¿Qué tanto consideras que conoces de los computadores?
           </label>
-          <input name="manejoComputador" [(ngModel)]="model.manejoComputador" type="number" class="form-control" required>
+          <input name="manejoComputador" [(ngModel)]="model.manejoComputador" type="number" class="form-control"
+            required>
         </div>
       </div>
       <!-- /pcUsage -->
@@ -169,10 +172,23 @@
       <div class="col-sm-12 col-md-4">
         <div class="form-group">
           <label for="">
-            <i class="material-icons">computer</i>
-            Manejo del pc
+            <fa-icon icon="laptop-code"></fa-icon>
+            ¿Qué tan seguro te sientes al usar un computador?
           </label>
-          <input name="conocimientoComputador" [(ngModel)]="model.conocimientoComputador" type="number" class="form-control" required>
+          <input name="conocimientoComputador" [(ngModel)]="model.conocimientoComputador" type="number" class="form-control"
+            required>
+        </div>
+      </div>
+      <!-- /psKnowledge -->
+      <!-- psKnowledge -->
+      <div class="col-sm-12 col-md-4">
+        <div class="form-group">
+          <label for="">
+            <fa-icon icon="code"></fa-icon>
+            Usuario de Scratch
+          </label>
+          <input name="usuarioScratch" [(ngModel)]="model.usuarioScratch" type="text" class="form-control"
+            required>
         </div>
       </div>
       <!-- /psKnowledge -->
