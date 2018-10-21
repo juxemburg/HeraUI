@@ -10,14 +10,40 @@
     <!-- /loading-card -->
   </div>
   <!-- /loading-section -->
-  <!-- challenges-section -->
+  <div class="col-sm-12" *ngIf="!isLoading">
+    <div class="card card-plain">
+      <div class="card-title">
+        <h6 class="text-center">Datos del siguiente desafío</h6>
+      </div>
+      <div class="card-body">
+        <app-teacher-course-challenge-list-item [model]="nextChallenge">
+        </app-teacher-course-challenge-list-item>
+      </div>
+      <div class="card-body">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="title text-center">Elige el siguiente desafío</h6>
+            <div class="col-sm-12">
+              <app-challenge-selector [(ngModel)]="nextChallengeId">
+              </app-challenge-selector>
+            </div>
+            <div class="col-sm-12 text-center">
+              <app-submit-button btnClass="btn-round" [submitted]="isSettingChallenge$" (onSubmitted)="setNextChallenge()">
+              </app-submit-button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
   <div class="col-sm-12" *ngIf="!isLoading">
     <!-- title-card -->
     <div class="card card-plain">
       <div class="card-header">
         <h6 class="text-center">
           Desafíos completados
-          <a [routerLink]="['traces']" routerLinkActive="router-link-active"  class="btn btn-info btn-round pull-right">
+          <a [routerLink]="['traces']" routerLinkActive="router-link-active" class="btn btn-info btn-round pull-right">
             <fa-icon icon="paw"></fa-icon>
           </a>
         </h6>
