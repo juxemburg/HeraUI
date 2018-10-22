@@ -34,7 +34,11 @@
             <i class="material-icons">lock</i> Contraseña
           </label>
           <input [(ngModel)]="model.password" #password="ngModel" type="password" type="password" name="password" class="form-control"
-            required>
+            appPasswordValidator required>
+          <small *ngIf="password.dirty && password.invalid" class="form-text text-danger">
+            La contraseña debe tener mínimo 8 caracteres y contener por lo menos una mayúscula, una minúscula y un
+            número.
+          </small>
         </div>
       </div>
       <!-- /password -->
@@ -46,6 +50,9 @@
           </label>
           <input [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" type="password" name="confirmPassword"
             class="form-control" required>
+          <small *ngIf="confirmPassword.dirty && model.password != model.confirmPassword" class="form-text text-danger">
+            Las contraseñas no coinciden.
+          </small>
         </div>
       </div>
       <!-- /password verify-->
@@ -71,12 +78,11 @@
           <label for="">
             <i class="material-icons">person</i> Apellidos
           </label>
-          <input [(ngModel)]="model.apellidos" #lastName="ngModel" type="text" name="name" class="form-control"
+          <input [(ngModel)]="model.apellidos" #lastName="ngModel" type="text" name="lastname" class="form-control"
             required>
         </div>
       </div>
       <!-- /last name -->
-
       <!-- age -->
       <div class="col-sm-5 col-md-4">
         <div class="form-group">
@@ -94,7 +100,7 @@
             <i class="material-icons">timer</i>
             grado
           </label>
-          <input [(ngModel)]="model.grado" type="number" name="age" class="form-control" required>
+          <input [(ngModel)]="model.grado" type="number" name="grade" class="form-control" required>
         </div>
       </div>
       <!-- /course -->
@@ -187,8 +193,7 @@
             <fa-icon icon="code"></fa-icon>
             Usuario de Scratch
           </label>
-          <input name="usuarioScratch" [(ngModel)]="model.usuarioScratch" type="text" class="form-control"
-            required>
+          <input name="usuarioScratch" [(ngModel)]="model.usuarioScratch" type="text" class="form-control" required>
         </div>
       </div>
       <!-- /psKnowledge -->

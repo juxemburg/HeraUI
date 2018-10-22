@@ -8,6 +8,7 @@ import { RegisterTeacherComponent } from './register-teacher/register-teacher.co
 import { SharedModule } from '../shared/shared.module';
 import { RegisterSelectionComponent } from './register-selection/register-selection.component';
 import { RegisterCardComponent } from './register-card/register-card.component';
+import { PasswordValidatorDirective } from './directives/password-validator.directive';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { RegisterCardComponent } from './register-card/register-card.component';
     RegisterStudentComponent,
     RegisterTeacherComponent,
     RegisterSelectionComponent,
-    RegisterCardComponent
+    RegisterCardComponent,
+    PasswordValidatorDirective
   ],
   exports: [
     LoginComponent,
