@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.reset();
     this._navbarMenuService.setMenu([]);
+    this._cmpService.logOut();
   }
 
   public onLogin() {

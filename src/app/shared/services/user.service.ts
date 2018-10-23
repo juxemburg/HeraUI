@@ -34,7 +34,8 @@ export class UserService {
   }
 
   public LogOut() {
-    configVariables.userInfo = '';
+    configVariables.userInfo = null;
+    this._cookieService.delete('userInfo');
     this.onUserLoggedIn.emit(false);
   }
 

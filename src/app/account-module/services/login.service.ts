@@ -86,4 +86,9 @@ export class LoginService {
     }
     this._router.navigate([route]);
   }
+
+  public logOut() {
+    this._http.token = '';
+    this._userService.LogOut();
+  }
 }
