@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CalificacionInfoModel } from '../../models/application.student.models';
 import { CourseChallengeManagerService } from '../course-challenge/course-challenge-manager.service';
+import { Tuple } from 'app/shared/models/shared.models';
 
 @Component({
   selector: 'app-course-challenge-grade',
@@ -12,6 +13,12 @@ export class CourseChallengeGradeComponent implements OnInit {
   @Input()
   public model: CalificacionInfoModel;
 
+  public colabs: Tuple<number, string>[] = [];
+
+  public colab1 = 0;
+  public colab2 = 0;
+
+
   public isLoading = false;
 
   public projectId = 0;
@@ -19,11 +26,14 @@ export class CourseChallengeGradeComponent implements OnInit {
   constructor(private mgrService: CourseChallengeManagerService) { }
 
   ngOnInit() {
+    this.mgrService.GetStudentMetadata()
+      .subscribe(data => this.colabs = data, _ => { });
   }
 
   public onaddGrade() {
     this.isLoading = true;
-    this.mgrService.CreateRecord()
+    const cols = [this.colab1, this.colab2];
+    this.mgrService.CreateRecord(cols.filter(item => item > 0))
       .subscribe(grade => {
         this.model = grade;
         this.isLoading = false;

@@ -4,6 +4,7 @@ import { CalificacionesDesafioModel, CalificacionInfoModel } from '../../models/
 import { Subject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { NotificationService } from '../../shared/services/notification.service';
+import { Tuple } from 'app/shared/models/shared.models';
 
 
 @Injectable({
@@ -45,11 +46,16 @@ export class CourseChallengeManagerService {
       })
   }
 
-  public CreateRecord(): Observable<CalificacionInfoModel> {
+  public GetStudentMetadata(): Observable<Tuple<number, string>[]> {
+    return this._studentChallengeService
+      .GetStudentListMetadata(this.model.cursoId, this.model.estudianteId);
+  }
+
+  public CreateRecord(colabs: number[]): Observable<CalificacionInfoModel> {
     if (!this._model) { return null; }
 
     return this._studentChallengeService
-      .CreateRecord(this._model.cursoId, this._model.desafioId)
+      .CreateRecord(this._model.cursoId, this._model.desafioId, colabs)
       .pipe(
         tap(_ =>
           this.loadModel(this._model.cursoId, this._model.desafioId),

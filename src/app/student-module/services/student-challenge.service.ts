@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpService } from '../../shared/services/http.service';
 import { Observable } from 'rxjs';
 import { CalificacionesDesafioModel, CalificacionInfoModel, CalificacionResultadoModel } from '../../models/application.student.models';
+import { Tuple } from 'app/shared/models/shared.models';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +22,11 @@ export class StudentChallengeService {
       .get(`${this.uri(courseId, challengeId)}/Get`);
   }
 
-  public CreateRecord(courseId: number, challengeId: number)
+  public CreateRecord(courseId: number, challengeId: number, colabs: number[])
     : Observable<CalificacionInfoModel> {
     return this._http.post<any, CalificacionInfoModel>(
-      `${this.uri(courseId, challengeId)}/CreateRecord`
-    );
+      `${this.uri(courseId, challengeId)}/CreateRecord`,
+      colabs);
   }
 
   public StartRecord(courseId: number, challengeId: number,
@@ -47,6 +48,11 @@ export class StudentChallengeService {
     return this._http.get<CalificacionResultadoModel>(
       `${this.uri(courseId, challengeId)}/GetResults/${noteId}`
     );
+  }
+
+  public GetStudentListMetadata(courseId: number, challengeId: number) {
+    return this._http.get<Tuple<number, string>[]>(
+      `${this.uri(courseId, challengeId)}/GetStudents`);
   }
 
 }
