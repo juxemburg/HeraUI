@@ -16,7 +16,7 @@
         </label>
         <select [(ngModel)]="colab1" name="colab1" id="" class="form-control">
           <option value="0">Sin colaborador</option>
-          <option value="item.item1" *ngFor="let item of colabs">
+          <option [value]="item.item1" *ngFor="let item of colabs">
             {{item.item2}}
           </option>
         </select>
@@ -32,7 +32,7 @@
         </label>
         <select [(ngModel)]="colab2" name="colab2" id="" class="form-control">
           <option value="0">Sin colaborador</option>
-          <option value="item.item1" *ngFor="let item of colabs">
+          <option [value]="item.item1" *ngFor="let item of colabs">
             {{item.item2}}
           </option>
         </select>
