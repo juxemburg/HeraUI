@@ -89,7 +89,7 @@
           <label for="">
             <i class="material-icons">timer</i> Edad
           </label>
-          <input [(ngModel)]="model.edad" type="number" name="age" class="form-control" required>
+          <input [(ngModel)]="model.edad" type="number" name="age" appMinValidation appMaxValidation [minValue]="7" [maxValue]="70" class="form-control" required>
         </div>
       </div>
       <!-- /age -->
@@ -100,7 +100,7 @@
             <i class="material-icons">timer</i>
             grado
           </label>
-          <input [(ngModel)]="model.grado" type="number" name="grade" class="form-control" required>
+          <input [(ngModel)]="model.grado" type="number" name="grade" appMinValidation appMaxValidation [minValue]="1" [maxValue]="11" class="form-control" required>
         </div>
       </div>
       <!-- /course -->
@@ -168,7 +168,7 @@
             <i class="material-icons">computer</i>
             ¿Qué tanto consideras que conoces de los computadores?
           </label>
-          <input name="manejoComputador" [(ngModel)]="model.manejoComputador" type="number" class="form-control"
+          <input name="manejoComputador" [(ngModel)]="model.manejoComputador" type="number" appMinValidation appMaxValidation [minValue]="1" [maxValue]="10" class="form-control"
             required>
         </div>
       </div>
@@ -181,7 +181,7 @@
             <fa-icon icon="laptop-code"></fa-icon>
             ¿Qué tan seguro te sientes al usar un computador?
           </label>
-          <input name="conocimientoComputador" [(ngModel)]="model.conocimientoComputador" type="number" class="form-control"
+          <input name="conocimientoComputador" [(ngModel)]="model.conocimientoComputador" type="number" appMinValidation appMaxValidation [minValue]="1" [maxValue]="10" class="form-control"
             required>
         </div>
       </div>

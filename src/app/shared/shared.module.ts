@@ -28,6 +28,8 @@ import { ChartsModule } from 'ng2-charts';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { MultiLineChartComponent } from './multi-line-chart/multi-line-chart.component';
 import { MultiLineTableComponent } from './multi-line-table/multi-line-table.component';
+import { MinValidationDirective } from './directives/min-validation.directive';
+import { MaxValidationDirective } from './directives/max-validation.directive';
 
 
 
@@ -59,7 +61,9 @@ import { MultiLineTableComponent } from './multi-line-table/multi-line-table.com
     ToggleButtonComponent,
     LineChartComponent,
     MultiLineChartComponent,
-    MultiLineTableComponent
+    MultiLineTableComponent,
+    MinValidationDirective,
+    MaxValidationDirective
   ],
   exports: [
     FormsModule,
@@ -78,7 +82,9 @@ import { MultiLineTableComponent } from './multi-line-table/multi-line-table.com
     ChartsModule,
     LineChartComponent,
     MultiLineChartComponent,
-    MultiLineTableComponent
+    MultiLineTableComponent,
+    MinValidationDirective,
+    MaxValidationDirective
   ],
   providers: [
     HttpErrorService,

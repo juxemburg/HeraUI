@@ -22,17 +22,17 @@ export class StudentChallengeService {
       .get(`${this.uri(courseId, challengeId)}/Get`);
   }
 
-  public CreateRecord(courseId: number, challengeId: number, colabs: number[])
+  public CreateRecord(courseId: number, challengeId: number)
     : Observable<CalificacionInfoModel> {
     return this._http.post<any, CalificacionInfoModel>(
-      `${this.uri(courseId, challengeId)}/CreateRecord`,
-      colabs);
+      `${this.uri(courseId, challengeId)}/CreateRecord`);
   }
 
   public StartRecord(courseId: number, challengeId: number,
-    noteId: number): Observable<CalificacionInfoModel> {
+    noteId: number, colabs: number[]): Observable<CalificacionInfoModel> {
     return this._http.post<any, CalificacionInfoModel>(
-      `${this.uri(courseId, challengeId)}/Start/${noteId}`
+      `${this.uri(courseId, challengeId)}/Start/${noteId}`,
+      colabs
     );
   }
 

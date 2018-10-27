@@ -1,9 +1,7 @@
 <li class="nav-item" ngbDropdown>
   <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
-    <i class="material-icons">account_circle</i>
-    <p>
-      <span class="d-lg-none d-md-block">Cuenta de usuario</span>
-    </p>
+    <span class="mr-2" *ngIf="userModel">¡Hola {{userModel.username}}!</span>
+    <fa-icon size="lg" icon="user-astronaut"></fa-icon>
   </a>
   <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1">
     <div *ngIf="isLoggedIn">

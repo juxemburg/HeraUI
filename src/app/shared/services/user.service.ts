@@ -26,7 +26,8 @@ export class UserService {
   }
 
   public getUserInfo(): UserInfoViewModel {
-    return this._user.map();
+    return new UserInfoViewModel(this._user.username,
+      this._user.role, this._user.userId);
   }
 
   public isUserLoggedIn(): boolean {

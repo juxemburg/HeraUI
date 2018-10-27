@@ -51,11 +51,11 @@ export class CourseChallengeManagerService {
       .GetStudentListMetadata(this.model.cursoId, this.model.estudianteId);
   }
 
-  public CreateRecord(colabs: number[]): Observable<CalificacionInfoModel> {
+  public CreateRecord(): Observable<CalificacionInfoModel> {
     if (!this._model) { return null; }
 
     return this._studentChallengeService
-      .CreateRecord(this._model.cursoId, this._model.desafioId, colabs)
+      .CreateRecord(this._model.cursoId, this._model.desafioId)
       .pipe(
         tap(_ =>
           this.loadModel(this._model.cursoId, this._model.desafioId),
@@ -66,11 +66,11 @@ export class CourseChallengeManagerService {
       );
   }
 
-  public StartRecord(noteId: number): Observable<CalificacionInfoModel> {
+  public StartRecord(noteId: number, colabs: number[]): Observable<CalificacionInfoModel> {
     if (!this._model) { return null; }
 
     return this._studentChallengeService
-      .StartRecord(this._model.cursoId, this._model.desafioId, noteId)
+      .StartRecord(this._model.cursoId, this._model.desafioId, noteId, colabs)
       .pipe(
         tap(_ =>
           this.loadModel(this._model.cursoId, this._model.desafioId),
