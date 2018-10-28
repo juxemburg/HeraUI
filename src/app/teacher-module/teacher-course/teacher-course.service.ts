@@ -23,4 +23,8 @@ export class TeacherCourseService {
   public AddChallenge(courseId: number, challengeId: number): Observable<CourseChallengeModel> {
     return this._http.post(`${this._uri}/${courseId}/Challenge/${challengeId}`);
   }
+
+  public SortChallenges(courseId: number, challenges: number[]): Observable<boolean> {
+    return this._http.post(`${this._uri}/${courseId}/SortChallenges`, challenges);
+  }
 }

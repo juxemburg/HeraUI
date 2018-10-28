@@ -45,4 +45,15 @@ export class CourseChallengeListService {
       });
   }
 
+  public sortChallenges(courseId: number, challenges: number[]) {
+    this._teacherCourseService.SortChallenges(courseId, challenges)
+      .subscribe(
+        res => this._notificationService.showSuccess('Cambios actualizados'),
+        err => {
+          this._notificationService.showError('Error al guardar los cambios');
+          this._notificationService.showError(err);
+          this._onModelChangedSource.next(this.model);
+        });
+  }
+
 }

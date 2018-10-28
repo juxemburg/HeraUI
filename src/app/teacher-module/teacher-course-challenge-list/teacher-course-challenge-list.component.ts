@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { CourseChallengeModel } from '../../models/application.teacher.models';
 import { CourseChallengeListService } from '../services/course-challenge-list.service';
 
@@ -24,5 +25,11 @@ export class TeacherCourseChallengeListComponent implements OnInit {
 
     this._challengesMgr.onModelChanged$
       .subscribe(val => this.items = val);
+  }
+
+  public itemDropped(event) {
+    moveItemInArray(this.items, event.previousIndex, event.currentIndex);
+    this._challengesMgr.sortChallenges(this.courseId,
+      this.items.map(item => item.id));
   }
 }

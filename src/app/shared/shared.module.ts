@@ -14,6 +14,7 @@ import { NavbarPanelComponent } from './navbar-panel/navbar-panel.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarLoginComponent } from './navbar-login/navbar-login.component';
 import { RouterModule } from '@angular/router';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { IsEstudianteRoleGuardService } from './services/guards/is-estudiante-role-guard.service';
 import { IsProfesorRoleGuardService } from './services/guards/is-profesor-role-guard.service';
 import { IsAuthenticatedGuardService } from './services/guards/is-authenticated-guard.service';
@@ -39,6 +40,7 @@ import { MaxValidationDirective } from './directives/max-validation.directive';
     FormsModule,
     NgbModule,
     FormsModule,
+    DragDropModule,
     HttpClientModule,
     RouterModule,
     IconsModule,
@@ -66,6 +68,7 @@ import { MaxValidationDirective } from './directives/max-validation.directive';
   exports: [
     FormsModule,
     RouterModule,
+    DragDropModule,
     LoadingComponent,
     FooterComponent,
     NavbarComponent,

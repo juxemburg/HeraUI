@@ -2,7 +2,8 @@
   <div class="card-header">
     <h6 class="title">
       Desafios del curso
-      <app-toggle-button name="sf" [(ngModel)]="showForm" [btnClass]="'btn-info btn-icon btn-round btn-sm'" [btnIconOn]="'times'" [btnIconOff]="'plus'">
+      <app-toggle-button name="sf" [(ngModel)]="showForm" [btnClass]="'btn-info btn-icon btn-round btn-sm'" [btnIconOn]="'times'"
+        [btnIconOff]="'plus'">
       </app-toggle-button>
     </h6>
     <div *ngIf="showForm">
@@ -11,9 +12,13 @@
     </div>
   </div>
   <div class="card-body">
-    <div class="card-columns">
-      <app-teacher-course-challenge-list-item [model]="item" *ngFor='let item of items'>
-      </app-teacher-course-challenge-list-item>
+    <div class="">
+      <div cdkDropList class="example-list" (cdkDropListDropped)="itemDropped($event)">
+        <div class="item-draggable" *ngFor='let item of items' cdkDrag>
+          <app-teacher-course-challenge-list-item [model]="item">
+          </app-teacher-course-challenge-list-item>
+        </div>
+      </div>
     </div>
   </div>
 </div>
