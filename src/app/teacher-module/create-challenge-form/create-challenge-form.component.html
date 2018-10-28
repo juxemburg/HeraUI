@@ -15,7 +15,7 @@
         <textarea name="description" [(ngModel)]="model.descripcion" cols="30" rows="10" class="form-control" required>
         </textarea>
       </div>
-    </div>
+    </div>}
     <!-- /description -->
   </div>
   <div class="row">
@@ -91,7 +91,7 @@
           <!-- check-variableUse -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.variableUse" name="variableUse" class="form-check-input" type="checkbox" value=""> Uso, y creación, de variables
+              <input [(ngModel)]="model.variableUse" name="variableUse" class="form-check-input" type="checkbox" value=""> Uso, y creación, de variables compartidas
               <span class="form-check-sign"></span>
             </label>
           </div>
@@ -265,7 +265,7 @@
           <!-- check-twoGreenFlagThread -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.twoGreenFlagThread" name="twoGreenFlagThread" class="form-check-input" type="checkbox" value=""> Uso de operadores básicos
+              <input [(ngModel)]="model.twoGreenFlagThread" name="twoGreenFlagThread" class="form-check-input" type="checkbox" value=""> Dos hilos iniciando con bandera verde
               <span class="form-check-sign"></span>
             </label>
           </div>
@@ -273,7 +273,7 @@
           <!-- check-advancedEventUse -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.advancedEventUse" name="advancedEventUse" class="form-check-input" type="checkbox" value=""> Uso de operadores complejos
+              <input [(ngModel)]="model.advancedEventUse" name="advancedEventUse" class="form-check-input" type="checkbox" value=""> Uso de más de un tipo de evento
               <span class="form-check-sign"></span>
             </label>
           </div>
