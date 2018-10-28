@@ -8,6 +8,7 @@ export class CalificacionesDesafioModel {
         public iniciada: boolean,
         public terminada: boolean,
         public urlEscenarioInicial: string,
+        public siguienteDesafioId: number,
         public calificaciones: CalificacionInfoModel[],
         public calificacionPendiente: CalificacionInfoModel) { }
 }

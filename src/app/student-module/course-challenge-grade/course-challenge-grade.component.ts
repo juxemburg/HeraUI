@@ -18,6 +18,9 @@ export class CourseChallengeGradeComponent implements OnInit {
   @Input()
   public sceneUrl: string;
 
+  @Input()
+  public nextChallenge: number;
+
   public user: UserInfoViewModel;
 
   public colabs: Tuple<number, string>[] = [];

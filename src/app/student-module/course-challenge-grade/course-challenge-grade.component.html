@@ -7,7 +7,11 @@
 <div *ngIf="!model && !isLoading; else contentTemplate">
   <p class="text-muted text-center">No tienes calificaciones pendientes</p>
   <div class="text-center">
-    <button class="btn btn-info btn-round" (click)="onaddGrade()">
+    <a [routerLink]='["../", nextChallenge]' *ngIf="nextChallenge" class="btn btn-success btn-round">
+      Siguiente desafío
+      <fa-icon icon="share"></fa-icon>
+    </a>
+    <button class="ml-1 btn btn-info btn-simple btn-round" (click)="onaddGrade()">
       Nueva calificación
       <fa-icon icon="plus-square"></fa-icon>
     </button>
@@ -20,53 +24,53 @@
   <div *ngIf="!model.iniciada && !isLoading">
     <h6 class="title text-center">Comenzar desafío</h6>
     <div class="row">
-        <!-- div-colab1 -->
-        <div class="col-sm-12">
-          <p class="text-muted text-center">Integrantes del equipo</p>
-        </div>
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="" class="control-label">
-              <fa-icon icon="user-friends"></fa-icon>
-              Integrante
-            </label>
-            <p class="text-muted pl-4">
-              {{user.username}}
-            </p>
-          </div>
-        </div>
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="" class="control-label">
-              <fa-icon icon="user-friends"></fa-icon>
-              Integrante
-            </label>
-            <select [(ngModel)]="colab1" name="colab1" id="" class="form-control">
-              <option value="0">Sin colaborador</option>
-              <option [value]="item.item1" *ngFor="let item of colabs">
-                {{item.item2}}
-              </option>
-            </select>
-          </div>
-        </div>
-        <!-- /div-colab1 -->
-        <!-- div-colab2 -->
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="" class="control-label">
-              <fa-icon icon="user-friends"></fa-icon>
-              Integrante
-            </label>
-            <select [(ngModel)]="colab2" name="colab2" id="" class="form-control">
-              <option value="0">Sin colaborador</option>
-              <option [value]="item.item1" *ngFor="let item of colabs">
-                {{item.item2}}
-              </option>
-            </select>
-          </div>
-        </div>
-        <!-- /div-colab2 -->
+      <!-- div-colab1 -->
+      <div class="col-sm-12">
+        <p class="text-muted text-center">Integrantes del equipo</p>
       </div>
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="" class="control-label">
+            <fa-icon icon="user-friends"></fa-icon>
+            Integrante
+          </label>
+          <p class="text-muted pl-4">
+            {{user.username}}
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="" class="control-label">
+            <fa-icon icon="user-friends"></fa-icon>
+            Integrante
+          </label>
+          <select [(ngModel)]="colab1" name="colab1" id="" class="form-control">
+            <option value="0">Sin colaborador</option>
+            <option [value]="item.item1" *ngFor="let item of colabs">
+              {{item.item2}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <!-- /div-colab1 -->
+      <!-- div-colab2 -->
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="" class="control-label">
+            <fa-icon icon="user-friends"></fa-icon>
+            Integrante
+          </label>
+          <select [(ngModel)]="colab2" name="colab2" id="" class="form-control">
+            <option value="0">Sin colaborador</option>
+            <option [value]="item.item1" *ngFor="let item of colabs">
+              {{item.item2}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <!-- /div-colab2 -->
+    </div>
     <div class="text-center">
       <button class="btn btn-primary btn-round" (click)="onStartGrade()">
         <fa-icon icon="play"></fa-icon>
