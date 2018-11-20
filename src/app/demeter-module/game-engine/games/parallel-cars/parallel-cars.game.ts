@@ -43,7 +43,7 @@ export class ParallelCarsGame extends Game {
             const car = LoadCar(
                 100 + i,
                 100 + (60 * i),
-                30 + (120 * (lane)),
+                10 + (120 * (lane)),
                 1 + Math.random() * 3);
 
             this.addGameObject(car);

@@ -37,7 +37,8 @@ export class ParallelCarsComponent implements OnInit, AfterViewInit {
     zip(
       textureLoader.LoadTexture('car_left'),
       textureLoader.LoadTexture('car_right'),
-      textureLoader.LoadTexture('package'))
+      textureLoader.LoadTexture('package'),
+      textureLoader.LoadTexture('cars_spritesheet'))
       .subscribe(_ => {
         console.log('Textures loaded');
         this.game = new ParallelCarsGame('game-canvas', this.threadCount);
