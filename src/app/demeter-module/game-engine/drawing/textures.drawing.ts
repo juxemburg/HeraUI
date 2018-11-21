@@ -1,6 +1,6 @@
 export interface ITexture {
   Draw(context: any, x: number, y: number);
-  Update(context: any);
+  Update?(elapsedGameTime: number);
   Flip();
   Show(val: boolean);
 }
@@ -11,8 +11,6 @@ export class SquareTexture implements ITexture {
   Draw(context: any, x: number, y: number) {
     context.fillRect(x, y, this._width, this._height);
   }
-
-  Update(context: any) {}
 
   Flip() {}
 
@@ -33,8 +31,6 @@ export class LineTexture implements ITexture {
     context.lineTo(x + this._x2, y + this._y2);
     context.stroke();
   }
-
-  Update(context: any) {}
 
   Flip() {}
 
@@ -58,7 +54,10 @@ export class ImageTexture implements ITexture {
     this._flipped = v;
   }
 
+  private _frameTimer = 0;
+  private _frameTime = 60 * (1000 / 60);
   private _frameCount = 0;
+  private _imageX = 0;
 
   constructor(
     private _x: number,
@@ -70,21 +69,21 @@ export class ImageTexture implements ITexture {
     private image: HTMLImageElement,
     private _frameWidth: number,
     private _frameHeight: number,
-    private _frames = 1
+    private _frames = 1,
+    frameTime = 60
   ) {
     this.visible = true;
+    this._frameTime = frameTime * (1000 / 60);
   }
 
   Draw(context: any, x: number, y: number) {
     if (!this._visible) {
       return;
     }
-    const imageX = this._frameCount % this._frames;
-    this._frameCount++;
 
     context.drawImage(
       this.image,
-      this._sx + imageX * this._frameWidth,
+      this._sx + this._imageX * this._frameWidth,
       this._sy,
       this._swidth,
       this._sheight,
@@ -95,7 +94,14 @@ export class ImageTexture implements ITexture {
     );
   }
 
-  Update(context: any) {}
+  Update(elapsedGameTime: number) {
+    this._frameTimer += elapsedGameTime;
+    if (this._frameTimer > this._frameTime) {
+      this._imageX = this._frameCount % this._frames;
+      this._frameCount++;
+      this._frameTimer = 0;
+    }
+  }
 
   Flip() {
     this.flipped = !this.flipped;

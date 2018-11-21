@@ -18,19 +18,21 @@ export function LoadCar(id: number, x: number, y: number, speed: number) {
       textureLoader.GetTexture('cars_spritesheet'),
       100,
       100,
-      2
+      2,
+      12
     ),
     new ImageTexture(
       0,
       0,
       2,
-      2,
+      102,
       95,
       95,
       textureLoader.GetTexture('cars_spritesheet'),
       100,
       100,
-      2
+      2,
+      12
     )
   ]);
   return new Car(id, x, y, carSprite, speed);
@@ -42,7 +44,7 @@ export function LoadPackage(id: number, x: number, y: number) {
       0,
       0,
       2,
-      102,
+      202,
       95,
       95,
       textureLoader.GetTexture('cars_spritesheet'),

@@ -86,6 +86,7 @@ export class Car implements IGameItem {
             this._packageDeliveredSource.next(true);
             this.flip();
         }
+        this._sprite.Update(elapsedGameTime);
     }
 
     Draw(context: any): void {
