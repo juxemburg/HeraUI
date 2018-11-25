@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CreateChallengeModel } from '../../models/application.models';
 import { ChallengeService } from '../services/challenge.service';
 import { NotificationService } from '../../shared/services/notification.service';
+import { OptionModel } from 'app/models/common.models';
 
 @Component({
   selector: 'app-create-challenge-form',
@@ -9,15 +10,17 @@ import { NotificationService } from '../../shared/services/notification.service'
   styleUrls: ['./create-challenge-form.component.scss']
 })
 export class CreateChallengeFormComponent implements OnInit {
-
   public model: CreateChallengeModel;
+  public metadata: OptionModel[] = [];
   public isLoading = false;
 
   constructor(
     private _cmpService: ChallengeService,
-    private _notService: NotificationService) { }
+    private _notService: NotificationService
+  ) {}
 
   ngOnInit() {
+    this.loadMetadata();
     this.resetModel();
   }
 
@@ -29,6 +32,11 @@ export class CreateChallengeFormComponent implements OnInit {
       '',
       'dir',
       '',
+      0,
+      '',
+      '',
+      '',
+      '',
       false,
       false,
       false,
@@ -48,7 +56,14 @@ export class CreateChallengeFormComponent implements OnInit {
       false,
       false,
       false,
-      false);
+      false
+    );
+  }
+
+  private loadMetadata() {
+    this._cmpService
+      .getMetadata()
+      .subscribe(data => (this.metadata = data), _ => {});
   }
 
   public onProjectUrlChanged() {
@@ -68,32 +83,34 @@ export class CreateChallengeFormComponent implements OnInit {
 
   private createChallenge() {
     this.isLoading = true;
-    this._cmpService.createChallenge(this.model)
-      .subscribe( _ => {
+    this._cmpService.createChallenge(this.model).subscribe(
+      _ => {
         this.resetModel();
         this.isLoading = false;
         this._notService.showSuccess('Desafío creado exitosamente');
-      }, err => {
+      },
+      err => {
         this.isLoading = false;
         console.log(err);
         this._notService.showError(err);
-      });
+      }
+    );
   }
 
   private loadValoration(projectId: number) {
     this.isLoading = true;
-    this._cmpService.getValoration(projectId)
-      .subscribe(data => this.model.mapInfo(data),
-        _ => {
-          this._notService.showError('id de projecto inválido');
-          this.model.idSolucion = 0;
-          this.model.urlSolucion = '';
-          this.isLoading = false;
-        },
-        () => {
-          this.isLoading = false;
-          console.log('finished');
-        });
+    this._cmpService.getValoration(projectId).subscribe(
+      data => this.model.mapInfo(data),
+      _ => {
+        this._notService.showError('id de projecto inválido');
+        this.model.idSolucion = 0;
+        this.model.urlSolucion = '';
+        this.isLoading = false;
+      },
+      () => {
+        this.isLoading = false;
+        console.log('finished');
+      }
+    );
   }
-
 }

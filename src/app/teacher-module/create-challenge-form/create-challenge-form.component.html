@@ -2,9 +2,22 @@
   <div class="row">
     <!-- challenge name -->
     <div class="col-sm-12 col-md-4 col-lg-6">
-      <div class="form-group" [ngClass]="{'has-success': nombre.valid, 'has-danger': !nombre.valid && !nombre.pristine}">
+      <div
+        class="form-group"
+        [ngClass]="{
+          'has-success': nombre.valid,
+          'has-danger': !nombre.valid && !nombre.pristine
+        }"
+      >
         <label for="">Nombre del desafío:</label>
-        <input type="text" name="name" [(ngModel)]="model.nombre" #nombre="ngModel" class="form-control" required>
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="model.nombre"
+          #nombre="ngModel"
+          class="form-control"
+          required
+        />
       </div>
     </div>
     <!-- /challenge name -->
@@ -12,7 +25,14 @@
     <div class="col-sm-12 col-md-12">
       <div class="form-group">
         <label for="" class="control-label">Descripción:</label>
-        <textarea name="description" [(ngModel)]="model.descripcion" cols="30" rows="10" class="form-control" required>
+        <textarea
+          name="description"
+          [(ngModel)]="model.descripcion"
+          cols="30"
+          rows="10"
+          class="form-control"
+          required
+        >
         </textarea>
       </div>
     </div>
@@ -21,31 +41,65 @@
   <div class="row">
     <!-- scenario url -->
     <div class="col-sm-12 col-md-6 col-lg-4">
-      <div class="form-group" [ngClass]="{'has-success': urlEscenarioInicial.valid, 'has-danger': !urlEscenarioInicial.valid && !urlEscenarioInicial.pristine}">
-        <label for="" class="control-label">
-          Url escenario inicial
-        </label>
-        <input [(ngModel)]="model.urlEscenarioInicial" #urlEscenarioInicial="ngModel" name="urlEscenarioInicial" url type="text"
-          pattern="https?://.+" class="form-control" required>
+      <div
+        class="form-group"
+        [ngClass]="{
+          'has-success': urlEscenarioInicial.valid,
+          'has-danger':
+            !urlEscenarioInicial.valid && !urlEscenarioInicial.pristine
+        }"
+      >
+        <label for="" class="control-label"> Url escenario inicial </label>
+        <input
+          [(ngModel)]="model.urlEscenarioInicial"
+          #urlEscenarioInicial="ngModel"
+          name="urlEscenarioInicial"
+          url
+          type="text"
+          pattern="https?://.+"
+          class="form-control"
+          required
+        />
       </div>
     </div>
     <!-- /scenario url -->
     <!-- solution url -->
     <div class="col-sm-12 col-md-6 col-lg-4">
-      <div class="form-group" [ngClass]="{'has-success': urlSolucion.valid, 'has-danger': !urlSolucion.valid && !urlSolucion.pristine}">
-        <label for="" class="control-label">
-          Url solución
-        </label>
-        <input [(ngModel)]="model.urlSolucion" #urlSolucion="ngModel" name="urlSolucion" type="text" class="form-control" pattern="https?://.+"
-          required (change)="onProjectUrlChanged()">
+      <div
+        class="form-group"
+        [ngClass]="{
+          'has-success': urlSolucion.valid,
+          'has-danger': !urlSolucion.valid && !urlSolucion.pristine
+        }"
+      >
+        <label for="" class="control-label"> Url solución </label>
+        <input
+          [(ngModel)]="model.urlSolucion"
+          #urlSolucion="ngModel"
+          name="urlSolucion"
+          type="text"
+          class="form-control"
+          pattern="https?://.+"
+          required
+          (change)="onProjectUrlChanged()"
+        />
       </div>
     </div>
     <!-- solution url -->
     <!-- solution id -->
     <div class="col-sm-12 col-md-6 col-lg-4">
       <div class="form-group">
-        <label for="" class="control-label">Id solución</label>
-        <input [(ngModel)]="model.idSolucion" name="idSolucion" type="number" class="form-control" required min="10" required disabled>
+        <label for="" class="control-label"> Id solución </label>
+        <input
+          [(ngModel)]="model.idSolucion"
+          name="idSolucion"
+          type="number"
+          class="form-control"
+          required
+          min="10"
+          required
+          disabled
+        />
       </div>
     </div>
     <!-- /solution id -->
@@ -53,9 +107,7 @@
 
   <!-- loading-row -->
   <div class="row" *ngIf="isLoading">
-    <div class="col-sm-12 text center">
-      <app-loading></app-loading>
-    </div>
+    <div class="col-sm-12 text center"><app-loading></app-loading></div>
   </div>
   <!-- /loading-row -->
 
@@ -63,27 +115,27 @@
   <div *ngIf="!isLoading">
     <!-- title-row -->
     <div class="row">
+      <div class="col-sm-12"><hr /></div>
       <div class="col-sm-12">
-        <hr>
-      </div>
-      <div class="col-sm-12">
-        <h4 class="text-center title">
-          Valoración de la solución
-        </h4>
+        <h4 class="title">Valoración de la solución</h4>
       </div>
     </div>
     <!-- /title-row -->
     <!-- row-1 -->
     <div class="row">
       <div class="col-sm-6 col-md-6">
-        <h5 class="title">
-
-        </h5>
+        <h5 class="title"></h5>
         <div class="form-group">
           <!-- check-multipleSpriteEvents -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.multipleSpriteEvents" name="multipleSpriteEvents" class="form-check-input" type="checkbox"> Más de un sprite tiene eventos
+              <input
+                [(ngModel)]="model.multipleSpriteEvents"
+                name="multipleSpriteEvents"
+                class="form-check-input"
+                type="checkbox"
+              />
+              Más de un sprite tiene eventos
               <span class="form-check-sign"></span>
             </label>
           </div>
@@ -91,7 +143,14 @@
           <!-- check-variableUse -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.variableUse" name="variableUse" class="form-check-input" type="checkbox" value=""> Uso, y creación, de variables compartidas
+              <input
+                [(ngModel)]="model.variableUse"
+                name="variableUse"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso, y creación, de variables compartidas
               <span class="form-check-sign"></span>
             </label>
           </div>
@@ -103,16 +162,28 @@
           <!-- check-messageUse -->
           <div class="form-check">
             <label class="form-check-label">
-              <input name="messageUse" [(ngModel)]="model.messageUse" class="form-check-input" type="checkbox" value=""> Uso correcto de mensajes
-              <span class="form-check-sign"></span>
+              <input
+                name="messageUse"
+                [(ngModel)]="model.messageUse"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso correcto de mensajes <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-messageUse -->
           <!-- check-listUse -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.listUse" name="listUse" class="form-check-input" type="checkbox" value=""> Uso y creación de listas
-              <span class="form-check-sign"></span>
+              <input
+                [(ngModel)]="model.listUse"
+                name="listUse"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso y creación de listas <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-listUse -->
@@ -127,24 +198,42 @@
           <!-- check-nonUnusedBlocks -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.nonUnusedBlocks" name="nonUnusedBlocks" class="form-check-input" type="checkbox" value=""> Se usan todos los bloques
-              <span class="form-check-sign"></span>
+              <input
+                [(ngModel)]="model.nonUnusedBlocks"
+                name="nonUnusedBlocks"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Se usan todos los bloques <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-nonUnusedBlocks -->
           <!-- check-userDefinedBlocks -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.userDefinedBlocks" name="userDefinedBlocks" class="form-check-input" type="checkbox" value=""> Creación de bloques propios
-              <span class="form-check-sign"></span>
+              <input
+                [(ngModel)]="model.userDefinedBlocks"
+                name="userDefinedBlocks"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Creación de bloques propios <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-userDefinedBlocks -->
           <!-- check-cloneUse -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.cloneUse" name="cloneUse" class="form-check-input" type="checkbox" value=""> Uso de clones
-              <span class="form-check-sign"></span>
+              <input
+                [(ngModel)]="model.cloneUse"
+                name="cloneUse"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso de clones <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-cloneUse -->
@@ -156,24 +245,42 @@
           <!-- check-basicInputUse -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.basicInputUse" name="basicInputUse" class="form-check-input" type="checkbox" value=""> Uso de bloques de entrada
-              <span class="form-check-sign"></span>
+              <input
+                [(ngModel)]="model.basicInputUse"
+                name="basicInputUse"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso de bloques de entrada <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-basicInputUse -->
           <!-- check-nonCreatedVariableUse -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.nonCreatedVariableUse" name="nonCreatedVariableUse" class="form-check-input" type="checkbox" value=""> Uso de variables no creadas
-              <span class="form-check-sign"></span>
+              <input
+                [(ngModel)]="model.nonCreatedVariableUse"
+                name="nonCreatedVariableUse"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso de variables no creadas <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-nonCreatedVariableUse -->
           <!-- check-spriteSensisng -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.spriteSensisng" name="spriteSensisng" class="form-check-input" type="checkbox" value=""> Uso de sensores de sprite
-              <span class="form-check-sign"></span>
+              <input
+                [(ngModel)]="model.spriteSensisng"
+                name="spriteSensisng"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso de sensores de sprite <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-spriteSensisng -->
@@ -184,24 +291,42 @@
           <!-- check-twoGreenFlagThread -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.twoGreenFlagThread" name="twoGreenFlagThread" class="form-check-input" type="checkbox" value=""> Uso de operadores básicos
-              <span class="form-check-sign"></span>
+              <input
+                [(ngModel)]="model.twoGreenFlagThread"
+                name="twoGreenFlagThread"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso de operadores básicos <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-twoGreenFlagThread -->
           <!-- check-mediumOperators -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.mediumOperators" name="mediumOperators" class="form-check-input" type="checkbox" value=""> Uso de operadores complejos
-              <span class="form-check-sign"></span>
+              <input
+                [(ngModel)]="model.mediumOperators"
+                name="mediumOperators"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso de operadores complejos <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-mediumOperators -->
           <!-- check-nestedOperators -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.nestedOperators" name="nestedOperators" class="form-check-input" type="checkbox" value=""> Uso de operadores anidados
-              <span class="form-check-sign"></span>
+              <input
+                [(ngModel)]="model.nestedOperators"
+                name="nestedOperators"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso de operadores anidados <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-nestedOperators -->
@@ -216,24 +341,42 @@
           <!-- check-useSimpleBlocks -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.useSimpleBlocks" name="useSimpleBlocks" class="form-check-input" type="checkbox" value=""> Uso de bloques simples
-              <span class="form-check-sign"></span>
+              <input
+                [(ngModel)]="model.useSimpleBlocks"
+                name="useSimpleBlocks"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso de bloques simples <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-useSimpleBlocks -->
           <!-- check-useMediumBlocks -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.useMediumBlocks" name="useMediumBlocks" class="form-check-input" type="checkbox" value=""> Uso de bloques complejos
-              <span class="form-check-sign"></span>
+              <input
+                [(ngModel)]="model.useMediumBlocks"
+                name="useMediumBlocks"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso de bloques complejos <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-useMediumBlocks -->
           <!-- check-useNestedControl -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.useNestedControl" name="useNestedControl" class="form-check-input" type="checkbox" value=""> Uso de bloques anidados
-              <span class="form-check-sign"></span>
+              <input
+                [(ngModel)]="model.useNestedControl"
+                name="useNestedControl"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso de bloques anidados <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-useNestedControl -->
@@ -245,15 +388,28 @@
           <!-- check-secuenceUse -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.secuenceUse" name="secuenceUse" class="form-check-input" type="checkbox" value=""> Uso de secuencias
-              <span class="form-check-sign"></span>
+              <input
+                [(ngModel)]="model.secuenceUse"
+                name="secuenceUse"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso de secuencias <span class="form-check-sign"></span>
             </label>
           </div>
           <!-- /check-secuenceUse -->
           <!-- check-multipleThreads -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.multipleThreads" name="multipleThreads" class="form-check-input" type="checkbox" value=""> Usa más de un hilo por sprite
+              <input
+                [(ngModel)]="model.multipleThreads"
+                name="multipleThreads"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Usa más de un hilo por sprite
               <span class="form-check-sign"></span>
             </label>
           </div>
@@ -265,7 +421,14 @@
           <!-- check-twoGreenFlagThread -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.twoGreenFlagThread" name="twoGreenFlagThread" class="form-check-input" type="checkbox" value=""> Dos hilos iniciando con bandera verde
+              <input
+                [(ngModel)]="model.twoGreenFlagThread"
+                name="twoGreenFlagThread"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Dos hilos iniciando con bandera verde
               <span class="form-check-sign"></span>
             </label>
           </div>
@@ -273,7 +436,14 @@
           <!-- check-advancedEventUse -->
           <div class="form-check">
             <label class="form-check-label">
-              <input [(ngModel)]="model.advancedEventUse" name="advancedEventUse" class="form-check-input" type="checkbox" value=""> Uso de más de un tipo de evento
+              <input
+                [(ngModel)]="model.advancedEventUse"
+                name="advancedEventUse"
+                class="form-check-input"
+                type="checkbox"
+                value=""
+              />
+              Uso de más de un tipo de evento
               <span class="form-check-sign"></span>
             </label>
           </div>
@@ -282,20 +452,83 @@
       </div>
     </div>
     <!-- /row-3 -->
-    <!-- submit-row -->
-    <div class="row mt-4">
-      <div class="col-sm-12">
-        <div class="form-group text-center">
-          <button type="button" class="btn btn-success" [disabled]="!createChallengeForm.form.valid" (click)="onFormSubmit()">
-            ¡Crear desafío!
-            <i class="material-icons">check</i>
-          </button>
-        </div>
-      </div>
-    </div>
-    <!-- /submit-row -->
   </div>
   <!-- /check-content -->
-
-
+  <div class="row mt-4">
+    <div class="col-sm-12">
+      <hr>
+    </div>
+    <div class="col-sm-12">
+      <h4 class="title">Tipo de evaluación</h4>
+    </div>
+    <!-- Assessment type -->
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="form-group">
+        <label for="" class="control-label">Tipo evaluación</label>
+        <select [(ngModel)]="model.tipoEvaluacion" name="tipoEval" class="form-control">
+          <option *ngFor="let option of metadata" value="{{option.value}}">{{
+            option.text
+          }}</option>
+        </select>
+      </div>
+    </div>
+    <!-- /Assessment type -->
+    <!-- Param 1 -->
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="form-group">
+        <label for="" class="control-label">
+          Param 1
+        </label>
+        <input [(ngModel)]="model.param1" type="text" class="form-control" name="param2">
+      </div>
+    </div>
+    <!-- /Param 1 -->
+    <!-- Param 2 -->
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="form-group">
+        <label for="" class="control-label">
+          Param 2
+        </label>
+        <input [(ngModel)]="model.param2" type="text" class="form-control" name="param2">
+      </div>
+    </div>
+    <!-- /Param 2 -->
+    <!-- Param 3 -->
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="form-group">
+        <label for="" class="control-label">
+          Param 3
+        </label>
+        <input [(ngModel)]="model.param3" type="text" class="form-control" name="param3">
+      </div>
+    </div>
+    <!-- /Param 3 -->
+    <!-- Param 4 -->
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="form-group">
+        <label for="" class="control-label">
+          Param 4
+        </label>
+        <input [(ngModel)]="model.param4" type="text" class="form-control" name="param4">
+      </div>
+    </div>
+    <!-- /Param 4 -->
+    
+  </div>
+  <!-- submit-row -->
+  <div class="row mt-4">
+    <div class="col-sm-12">
+      <div class="form-group text-center">
+        <button
+          type="button"
+          class="btn btn-success"
+          [disabled]="!createChallengeForm.form.valid"
+          (click)="onFormSubmit()"
+        >
+          ¡Crear desafío! <i class="material-icons">check</i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- /submit-row -->
 </form>

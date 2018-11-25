@@ -29,7 +29,6 @@ export abstract class Game {
     public Load(): Observable<any> {
         const observables: Observable<boolean>[] = this._gameObjects.map(item => item.Load());
         console.log(`observable count: ${observables.length}`);
-
         return zip(
             observables
         );
