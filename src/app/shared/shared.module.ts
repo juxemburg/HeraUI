@@ -30,9 +30,7 @@ import { MultiLineChartComponent } from './multi-line-chart/multi-line-chart.com
 import { MultiLineTableComponent } from './multi-line-table/multi-line-table.component';
 import { MinValidationDirective } from './directives/min-validation.directive';
 import { MaxValidationDirective } from './directives/max-validation.directive';
-
-
-
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 @NgModule({
   imports: [
@@ -44,7 +42,7 @@ import { MaxValidationDirective } from './directives/max-validation.directive';
     HttpClientModule,
     RouterModule,
     IconsModule,
-    ChartsModule,
+    ChartsModule
   ],
   declarations: [
     LoadingComponent,
@@ -63,7 +61,8 @@ import { MaxValidationDirective } from './directives/max-validation.directive';
     MultiLineChartComponent,
     MultiLineTableComponent,
     MinValidationDirective,
-    MaxValidationDirective
+    MaxValidationDirective,
+    StarRatingComponent
   ],
   exports: [
     FormsModule,
@@ -84,7 +83,8 @@ import { MaxValidationDirective } from './directives/max-validation.directive';
     MultiLineChartComponent,
     MultiLineTableComponent,
     MinValidationDirective,
-    MaxValidationDirective
+    MaxValidationDirective,
+    StarRatingComponent
   ],
   providers: [
     HttpErrorService,
@@ -95,4 +95,4 @@ import { MaxValidationDirective } from './directives/max-validation.directive';
     IsProfesorRoleGuardService
   ]
 })
-export class SharedModule { }
+export class SharedModule {}

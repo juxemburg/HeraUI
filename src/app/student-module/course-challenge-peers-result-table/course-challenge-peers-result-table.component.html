@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Estudiante</th>
+      <th>Puntuación</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="!isloading">
+    <tr *ngFor="let item of model">
+      <td>{{ item.nombreEstudiante }}</td>
+      <td><app-star-rating [(ngModel)]="item.puntuacion"></app-star-rating></td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="isloading">
+    <tr>
+      <td class="text-center" colspan="2">
+        <app-loading></app-loading>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { baseUrl, configVariables } from 'assets/config/http.config';
+import { configVariables } from 'assets/config/http.config';
 import { HttpErrorService } from './http-error.service';
 import { Observable } from 'rxjs/Observable';
 import { catchError, retry, map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-  private _baseUri: string = baseUrl;
+  private _baseUri: string = environment.baseUrl;
   private _authToken: string;
   public set token(value: string) {
     this._authToken = value;

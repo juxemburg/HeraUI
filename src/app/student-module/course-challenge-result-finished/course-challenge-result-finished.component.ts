@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-course-challenge-result-finished',
@@ -6,14 +6,14 @@ import { Component, OnInit, Output } from '@angular/core';
   styleUrls: ['./course-challenge-result-finished.component.scss']
 })
 export class CourseChallengeResultFinishedComponent implements OnInit {
-
   public isVisible = false;
 
-  constructor() { }
+  @Input()
+  public result = 0;
 
-  ngOnInit() {
-  }
+  constructor() {}
 
+  ngOnInit() {}
 
   @Output()
   public Show() {

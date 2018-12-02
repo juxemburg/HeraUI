@@ -2,21 +2,52 @@
   <!-- card-header -->
   <div class="card-header">
     <h4 class="title">
-      ¡Haz click para observar el resultado del desafío!
+      {{
+        isLoading
+          ? 'Cargando tu resultado...'
+          : '¡Haz click para observar el resultado del desafío!'
+      }}
     </h4>
   </div>
   <!-- /card-header -->
-  <!-- card-body -->
-  <div class="card-body">
+  <div *ngIf="isLoading" class="card-body">
     <div class="row">
-      <div class="col-sm-12">
-        <app-parallel-cars [threadCount]="model.numScripts" (onFinished)="showResults()"></app-parallel-cars>
+      <div class="col-sm-12 text-center"><app-loading></app-loading></div>
+    </div>
+  </div>
+  <!-- card-body -->
+  <div *ngIf="!isLoading" class="card-body">
+    <div class="row" [ngSwitch]="model.assessmentType">
+      <div *ngSwitchCase="0" class="col-sm-12">
+        <app-parallel-cars
+          [threadCount]="model.numScripts"
+          [param1]="+model.param1"
+          (onFinished)="showResults()"
+        ></app-parallel-cars>
       </div>
+      <div class="col-sm-12" *ngSwitchDefault>Sin evaluación :(</div>
     </div>
   </div>
   <!-- /card-body -->
 </div>
-<div>
+
+<div *ngIf="!isLoading">
   <app-course-challenge-result-finished #results>
+    <div *ngIf="!isLoading" class="row">
+      <div class="col-sm-12">
+        <h4 class="title">Tu puntaje:</h4>
+        <div class="text-center">
+          <app-star-rating size="3x" [(ngModel)]="model.puntuacion">
+          </app-star-rating>
+        </div>
+      </div>
+      <div class="col-sm-12 mt-4">
+        <app-course-challenge-peers-result-table
+          [courseId]="courseId"
+          [challengeId]="challengeId"
+        >
+        </app-course-challenge-peers-result-table>
+      </div>
+    </div>
   </app-course-challenge-result-finished>
 </div>

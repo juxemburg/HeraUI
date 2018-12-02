@@ -13,14 +13,14 @@ import { CourseChallengeResultFinishedComponent } from '../course-challenge-resu
   animations: [fadeAnimation]
 })
 export class CourseChallengeResultComponent implements OnInit {
-
   public model: CalificacionResultadoModel;
   public isLoading = true;
   public animationState = '';
+  public courseId = 0;
+  public challengeId = 0;
 
   @ViewChild(CourseChallengeResultFinishedComponent)
   public resultsComponent: CourseChallengeResultFinishedComponent;
-
 
   private set Model(val: CalificacionResultadoModel) {
     this.model = val;
@@ -30,7 +30,8 @@ export class CourseChallengeResultComponent implements OnInit {
   constructor(
     private _studentChallengeSer: StudentChallengeService,
     private _navbarPanelSer: NavbarPanelService,
-    private _route: ActivatedRoute) { }
+    private _route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.isLoading = true;
@@ -40,22 +41,21 @@ export class CourseChallengeResultComponent implements OnInit {
       this.loadModel(
         +params['courseId'],
         +params['challengeId'],
-        +params['gradeId']);
+        +params['gradeId']
+      );
     });
   }
 
-  private loadModel(courseId: number,
-    challengeId: number, gradeId: number) {
+  private loadModel(courseId: number, challengeId: number, gradeId: number) {
     this.isLoading = true;
+    this.courseId = courseId;
+    this.challengeId = challengeId;
     this._studentChallengeSer
       .GetResult(courseId, challengeId, gradeId)
-      .subscribe(data =>
-        this.Model = data,
-        _ => this.isLoading = false);
+      .subscribe(data => (this.Model = data), _ => (this.isLoading = false));
   }
 
   public showResults() {
     this.resultsComponent.Show();
   }
-
 }

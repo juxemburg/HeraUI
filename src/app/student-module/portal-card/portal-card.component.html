@@ -11,9 +11,8 @@
       <img src="assets/img/portal.svg.svg" alt="">
     </div>
     <div class="col-sm-12 text-center mt-3">
-      <i class="material-icons">star</i>
-      <i class="material-icons">star</i>
-      <i class="material-icons">star</i>
+      <app-star-rating [(ngModel)]="model.puntuacionMax" size="2x">
+      </app-star-rating>
     </div>
     <div class="col-sm-12 text-center">
       <a [routerLink]="['challenge/', model.id]" class="btn btn-primary btn-round">

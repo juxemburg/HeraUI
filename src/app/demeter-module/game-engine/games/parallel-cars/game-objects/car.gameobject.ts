@@ -1,8 +1,6 @@
 import { Observable, Subject } from 'rxjs';
 import { Sprite } from '../../../drawing/sprite.drawing';
 import { IGameItem } from '../../../game-objects/game-item.interface';
-import { SquareTexture } from '../../../drawing/textures.drawing';
-
 
 export class Car implements IGameItem {
 
@@ -76,12 +74,12 @@ export class Car implements IGameItem {
         }
 
         this._x += this._speed;
-        if (this._x > 1100) {
+        if (this._x > 1000) {
             this._speed *= -1;
             this._packageReceievedSource.next(true);
             this.flip();
         }
-        if (this._x < 60) {
+        if (this._x < 80) {
             this._speed *= -1;
             this._packageDeliveredSource.next(true);
             this.flip();
