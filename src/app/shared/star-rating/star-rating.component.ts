@@ -25,8 +25,9 @@ export class StarRatingComponent implements OnInit, ControlValueAccessor {
     this.stars = [...Array.from(Array(v).keys())];
   }
 
-  @Input()
-  public size = 'md';
+  @Input() size = 'md';
+
+  @Input() color = 'text-warning';
 
   public selectedValue = 0;
 

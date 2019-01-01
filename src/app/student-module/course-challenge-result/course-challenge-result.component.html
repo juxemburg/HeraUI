@@ -25,6 +25,28 @@
           (onFinished)="showResults()"
         ></app-parallel-cars>
       </div>
+      <div *ngSwitchCase="3" class="col-sm-12">
+        <app-cloning-trouble
+          [cloneCount]="model.cloneCount"
+          [cloneRemovalCount]="model.cloneRemovalCount"
+          [param1]="+model.param1"
+          [param2]="+model.param2"
+          [param3]="+model.param3"
+          (onFinished)="showResults()"
+        >
+        </app-cloning-trouble>
+      </div>
+      <div *ngSwitchCase="4" class="col-sm-12">
+        <app-repeating-rains
+          [usedLoops]="model.sequentialLoopsCount"
+          [duplicateScripts]="model.duplicateScriptCount"
+          [param1]="+model.param1"
+          [param2]="+model.param2"
+          [param3]="+model.param3"
+          (onFinished)="showResults()"
+        >
+        </app-repeating-rains>
+      </div>
       <div class="col-sm-12" *ngSwitchDefault>Sin evaluación :(</div>
     </div>
   </div>

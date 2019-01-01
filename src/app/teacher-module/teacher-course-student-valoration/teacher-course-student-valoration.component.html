@@ -1,17 +1,55 @@
 <div class="row">
-  <div class="col-sm-12 form-group text-left">
-    <div class="form-check px-0">
-      <label class="form-check-label">
-        <input class="form-check-input" name="rememberme" type="checkbox"> ¿El estudiante completó satisfactoriamente los objetivos del desafío en éste intento?
-        <span class="form-check-sign"></span>
-      </label>
+  <form #valForm="ngForm">
+    <div class="col-sm-12 form-group text-left">
+      <div class="form-check px-0">
+        <label class="form-check-label">
+          <input
+            [(ngModel)]="model.completada"
+            class="form-check-input"
+            name="completed"
+            type="checkbox"
+          />
+          ¿El estudiante completó satisfactoriamente los objetivos del desafío
+          en éste intento? <span class="form-check-sign"></span>
+        </label>
+      </div>
     </div>
-  </div>
-  <div class="col-sm-12 form-group mt-4">
-    <label for="" class="control-label">¿Por qué?</label>
-    <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-  </div>
-  <div class="col-sm-12 text-center">
-    <button class="btn btn-success">Calificar</button>
-  </div>
+    <div class="col-sm-12 form-group mt-4">
+      <label for="" class="control-label">¿Por qué?</label>
+      <textarea
+        [(ngModel)]="model.descripcion"
+        name="description"
+        id=""
+        cols="30"
+        rows="10"
+        class="form-control"
+        required
+      ></textarea>
+    </div>
+    <div class="col-sm-12 my-2">
+      <label for="">Calificación del estudiante</label>
+      <select
+        [(ngModel)]="model.valoracion"
+        name="valoration"
+        id=""
+        class="form-control"
+      >
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+    <div class="col-sm-12 text-center">
+      <app-submit-button
+        btnClass="btn btn-success btn-round"
+        [submitted]="onSubmitting$"
+        (onSubmitted)="formSubmit()"
+        [disabled]="!valForm.form.valid"
+      >
+      </app-submit-button>
+    </div>
+  </form>
 </div>

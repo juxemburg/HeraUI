@@ -36,7 +36,6 @@ export class TeacherCourseStudentChallengesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     combineLatest(this._route.parent.params, this._route.params)
       .subscribe(([parentParams, params]) => {
         this.loadModel(+parentParams['courseId'], +params['studentId']);

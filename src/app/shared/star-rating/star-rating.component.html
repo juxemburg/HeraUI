@@ -1,4 +1,4 @@
-<div class="star-rating text-warning">
+<div class="star-rating" [ngClass]="[color]">
   <span *ngFor="let star of stars">
     <fa-icon [size]="size" [icon]="[outline(star), 'star']"></fa-icon>
   </span>

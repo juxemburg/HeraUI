@@ -1,84 +1,96 @@
-import { ScratchGeneralResult, ScratchSpriteResult } from '../hera-module/models/hera.models';
+import {
+  ScratchGeneralResult,
+  ScratchSpriteResult
+} from '../hera-module/models/hera.models';
 import { ChartInfoModel, MultiChartInfoModel } from './common.models';
 
 export class TeacherCourseModel {
-    constructor(
-        public id: number,
-        public nombreCurso: string,
-        public descripcionCurso: string,
-        public passwordCurso: string,
-        public desafioInicial: CourseChallengeModel,
-        public desafios: CourseChallengeModel[],
-        public estudiantes: Map<number, string>,
-        public info: CourseInfoModel
-    ) { }
+  constructor(
+    public id: number,
+    public nombreCurso: string,
+    public descripcionCurso: string,
+    public passwordCurso: string,
+    public desafioInicial: CourseChallengeModel,
+    public desafios: CourseChallengeModel[],
+    public estudiantes: Map<number, string>,
+    public info: CourseInfoModel
+  ) {}
 }
 
 export class CourseChallengeModel {
-    constructor(
-        public id: number,
-        public nombre: string,
-        public descripcion: string,
-        public dirDesafioInicial: string,
-        public dirSolucion: string,
-        public profesorId: string,
-        public inicial: boolean
-    ) { }
+  constructor(
+    public id: number,
+    public nombre: string,
+    public descripcion: string,
+    public dirDesafioInicial: string,
+    public dirSolucion: string,
+    public profesorId: string,
+    public inicial: boolean
+  ) {}
 }
 
-
 export class CourseStudentGradeModel {
-    constructor(
-        public cursoId: number,
-        public estudianteId: number,
-        public desafioId: number,
-        public nombreDesafio: string,
-        public iniciada: boolean,
-        public terminada: boolean,
-        public valorada: boolean,
-        public calificaciones: CourseStudentGradeResultModel[]
-    ) { }
+  constructor(
+    public cursoId: number,
+    public estudianteId: number,
+    public desafioId: number,
+    public nombreDesafio: string,
+    public iniciada: boolean,
+    public terminada: boolean,
+    public valorada: boolean,
+    public calificaciones: CourseStudentGradeResultModel[]
+  ) {}
 }
 
 export class CourseStudentGradeResultModel {
-    constructor(
-        public id: number,
-        public cursoId: number,
-        public estudianteId: number,
-        public desafioId: number,
-        public tiempoinicio: Date,
-        public tiempoFinal: Date,
-        public calificacionCualitativaId: number,
-        public duracion: string,
-        public enCurso: boolean,
-        public resultadoGeneral: ScratchGeneralResult,
-        public resultadoSprites: ScratchSpriteResult[]
-    ) { }
+  constructor(
+    public id: number,
+    public cursoId: number,
+    public estudianteId: number,
+    public desafioId: number,
+    public tiempoinicio: Date,
+    public tiempoFinal: Date,
+    public calificacionCualitativaId: number,
+    public duracion: string,
+    public enCurso: boolean,
+    public resultadoGeneral: ScratchGeneralResult,
+    public resultadoSprites: ScratchSpriteResult[]
+  ) {}
 }
 
 export class CourseInfoModel {
-    constructor(
-        public sexDistribution: any,
-        public courseActivity: ChartInfoModel,
-        public completedChallenges: ChartInfoModel,
-        public failedChallenges: ChartInfoModel,
-        public generalTraces: MultiChartInfoModel
-    ) { }
+  constructor(
+    public sexDistribution: any,
+    public courseActivity: ChartInfoModel,
+    public completedChallenges: ChartInfoModel,
+    public failedChallenges: ChartInfoModel,
+    public generalTraces: MultiChartInfoModel
+  ) {}
 }
 
 export class CourseStudentTracesModel {
-    constructor(
-        public studentId: number,
-        public studentName: string,
-        public generalTraces: MultiChartInfoModel,
-        public challengeTraces: CourseStudentChallengeTracesModel[]
-    ) { }
+  constructor(
+    public studentId: number,
+    public studentName: string,
+    public generalTraces: MultiChartInfoModel,
+    public challengeTraces: CourseStudentChallengeTracesModel[]
+  ) {}
 }
 
 export class CourseStudentChallengeTracesModel {
-    constructor(
-        public challengeId: number,
-        public challengeName: string,
-        public chartModel: MultiChartInfoModel
-    ) { }
+  constructor(
+    public challengeId: number,
+    public challengeName: string,
+    public chartModel: MultiChartInfoModel
+  ) {}
+}
+
+export class AddStudentValorationViewModel {
+  constructor(
+    public calificacionId: number,
+    public valoracion: number,
+    public completada: boolean,
+    public descripcion: string,
+    public calificacion: number
+  ) {}
 }

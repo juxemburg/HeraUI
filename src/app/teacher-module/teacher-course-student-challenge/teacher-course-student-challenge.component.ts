@@ -8,8 +8,7 @@ import { CourseStudentGradeModel } from '../../models/application.teacher.models
 })
 export class TeacherCourseStudentChallengeComponent implements OnInit {
 
-  @Input()
-  public model: CourseStudentGradeModel;
+  @Input() model: CourseStudentGradeModel;
 
   public showGrades = false;
   public gradesButtonText = 'Ver intentos';

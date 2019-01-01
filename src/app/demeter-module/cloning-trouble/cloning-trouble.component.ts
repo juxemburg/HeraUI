@@ -1,34 +1,35 @@
 import {
   Component,
   OnInit,
-  AfterViewInit,
   Input,
+  Output,
   EventEmitter,
-  Output
+  AfterViewInit
 } from '@angular/core';
+import { Observable, zip, timer, interval } from 'rxjs';
 import { ParallelCarsGame } from '../game-engine/games/parallel-cars/parallel-cars.game';
-import { interval, timer, zip, Observable } from 'rxjs';
-import { takeUntil, filter, tap, map } from 'rxjs/operators';
+import { map, takeUntil } from 'rxjs/operators';
 import { textureLoader } from '../game-engine/games/parallel-cars/parallel-cars.loader';
+import { CloningTroubleGame } from '../game-engine/games/cloning-trouble/cloning-trouble.game';
 
 @Component({
-  selector: 'app-parallel-cars',
-  templateUrl: './parallel-cars.component.html',
-  styleUrls: ['./parallel-cars.component.scss']
+  selector: 'app-cloning-trouble',
+  templateUrl: './cloning-trouble.component.html',
+  styleUrls: ['./cloning-trouble.component.scss']
 })
-export class ParallelCarsComponent implements OnInit, AfterViewInit {
-  @Input()
-  public threadCount = 0;
+export class CloningTroubleComponent implements OnInit, AfterViewInit {
+  @Input() cloneCount = 0;
+  @Input() cloneRemovalCount = 0;
 
-  @Input()
-  public param1 = 4;
+  @Input() param1 = 0;
+  @Input() param2 = 0;
+  @Input() param3 = 0;
 
-  @Output()
-  public onFinished = new EventEmitter<number>();
+  @Output() onFinished = new EventEmitter<number>();
 
   private _gameTimer$: Observable<any>;
   private _remainingTime$: Observable<number>;
-  private game: ParallelCarsGame;
+  private game: CloningTroubleGame;
   public isLoading = true;
   public started = false;
 
@@ -47,19 +48,18 @@ export class ParallelCarsComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     textureLoader.clear();
     zip(
-      textureLoader.LoadTexture('car_left'),
-      textureLoader.LoadTexture('car_right'),
-      textureLoader.LoadTexture('package'),
-      textureLoader.LoadTexture('cars_spritesheet')
+      textureLoader.LoadTexture('cars_spritesheet'),
+      textureLoader.LoadTexture('mouses_spritesheet')
     ).subscribe(_ => {
-      this.game = new ParallelCarsGame(
+      this.game = new CloningTroubleGame(
         'game-canvas',
-        this.threadCount,
-        this.param1
+        this.param1, // required clones
+        this.param2, // max alllowed clones
+        this.param3, // variable count
+        this.cloneCount, // used clones
+        this.cloneRemovalCount // closed clones
       );
-      // tslint:disable-next-line:no-shadowed-variable
-      this.game.Load().subscribe(_ => (this.isLoading = false));
-      this.game.onScoreChanged$.subscribe(val => (this.gameScore = val));
+      this.game.Load().subscribe(val => (this.isLoading = false));
     });
   }
 
@@ -72,7 +72,7 @@ export class ParallelCarsComponent implements OnInit, AfterViewInit {
       .pipe(map(time => time + 1))
       .subscribe(time => (this._remainingTime = this.seconds / 1000 - time));
     this._remainingTime$.subscribe(_ => {
-      const finalScore = (this.gameScore / (3 * this.param1)) * 5;
+      const finalScore = (this.gameScore / (3 * 4)) * 5;
       this.onFinished.emit(finalScore);
       this._remainingTime = 0;
       this.game.End();

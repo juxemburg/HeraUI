@@ -65,7 +65,11 @@
             <!-- /scratch-valoration-row -->
             <!-- valoration-row -->
             <div class="col-sm-12 mt-5 px-5">
-              <app-teacher-course-student-valoration>
+              <app-teacher-course-student-valoration
+              [courseId]="model.cursoId"
+              [studentId]="model.estudianteId"
+              [challengeId]="model.desafioId"
+              [calificacionId]="grade.id">
               </app-teacher-course-student-valoration>
             </div>
             <!-- /valoration-row -->

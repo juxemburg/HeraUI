@@ -1,0 +1,59 @@
+<div class="col-sm-12 text-center" *ngIf="isLoading">
+  <app-loading> </app-loading>
+</div>
+
+<div class="col-sm-12" *ngIf="!isLoading && !started">
+  <h5 class="title">¡Ratones dramáticos!</h5>
+  <p class="col-sm-12 text-justify">
+    El mago ha sido elegido como el bufón de la corte real. Como su vida
+    depepende del espectáculo, ha decidido montar una obra de teatro. Tieniendo
+    en cuenta el escaso personal disponible para la obra, el mago decide clonar
+    a su fiel mascota, la rata estornudos, para interpretar a la gran variedad
+    de personajes necesarios en la obra. Debes ayudar al mago haciendo el
+    hechizo de clonación, de la siguiente manera:
+  </p>
+  <ul class="offset-lg-2 col-lg-8">
+    <li>Inst 1</li>
+    <li>Inst 2</li>
+    <li>Inst 3</li>
+  </ul>
+  <div class="col-sm-12">
+    <!-- TODO: Replace image -->
+    <img src="assets/demeter/parallel-cars/demo.gif" alt="" />
+  </div>
+</div>
+<div class="col-sm-12 text-center" *ngIf="!isLoading && !started">
+  <button class="btn btn-round btn-success" (click)="start()">
+    <fa-icon icon="play"></fa-icon>
+  </button>
+</div>
+
+<div [hidden]="!started">
+  <!-- inputs-div -->
+  <!-- <div class="col-sm-12">
+      <div class="form-group">
+        <label for="" class="control-label">
+          <h6>
+            <fa-icon icon="cubes"></fa-icon>
+            Paquetes transportados:
+          </h6>
+        </label>
+        <span class="text-muted ml-2">{{ gameScore }}</span>
+      </div>
+    </div> -->
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label for="" class="control-label">
+        <h6>
+          <fa-icon icon="clock"></fa-icon>
+          Tiempo restante:
+        </h6>
+      </label>
+      <span class="text-muted ml-2">{{ remainingTime }}</span>
+    </div>
+  </div>
+  <!-- /inputs-div -->
+  <!-- game-canvas -->
+  <div><canvas id="game-canvas"> </canvas></div>
+  <!-- /game-canvas -->
+</div>

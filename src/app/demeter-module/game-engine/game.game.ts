@@ -15,10 +15,10 @@ export abstract class Game {
 
     protected _gameObjects: IGameItem[] = [];
 
-    constructor(private canvasId: string) {
+    constructor(private canvasId: string, width = 1200, height = 720) {
         this._canvas = document.getElementById(this.canvasId);
-        this._canvas.width = 1200;
-        this._canvas.height = 720;
+        this._canvas.width = width;
+        this._canvas.height = height;
         this._context = this._canvas.getContext('2d');
     }
 

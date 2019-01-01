@@ -56,8 +56,10 @@ export class ImageTexture implements ITexture {
 
   private _frameTimer = 0;
   private _frameTime = 60 * (1000 / 60);
-  private _frameCount = 0;
+  private _xframeCount = 0;
+  private _yframeCount = 0;
   private _imageX = 0;
+  private _imageY = 0;
 
   constructor(
     private _x: number,
@@ -69,7 +71,8 @@ export class ImageTexture implements ITexture {
     private image: HTMLImageElement,
     private _frameWidth: number,
     private _frameHeight: number,
-    private _frames = 1,
+    private _xframes = 1,
+    private _yframes = 1,
     frameTime = 60
   ) {
     this.visible = true;
@@ -84,7 +87,7 @@ export class ImageTexture implements ITexture {
     context.drawImage(
       this.image,
       this._sx + this._imageX * this._frameWidth,
-      this._sy,
+      this._sy + this._imageY * this._frameHeight,
       this._swidth,
       this._sheight,
       x + this._x,
@@ -97,8 +100,12 @@ export class ImageTexture implements ITexture {
   Update(elapsedGameTime: number) {
     this._frameTimer += elapsedGameTime;
     if (this._frameTimer > this._frameTime) {
-      this._imageX = this._frameCount % this._frames;
-      this._frameCount++;
+      this._imageX = this._xframeCount % this._xframes;
+      this._xframeCount++;
+      if (this._imageX === 0) {
+        this._imageY = this._yframeCount % this._yframes;
+        this._yframeCount++;
+      }
       this._frameTimer = 0;
     }
   }

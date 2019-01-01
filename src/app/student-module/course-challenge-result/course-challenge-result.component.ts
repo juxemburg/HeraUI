@@ -24,6 +24,7 @@ export class CourseChallengeResultComponent implements OnInit {
 
   private set Model(val: CalificacionResultadoModel) {
     this.model = val;
+    console.log(this.model);
     this.isLoading = false;
   }
 

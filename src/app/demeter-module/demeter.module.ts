@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ParallelCarsComponent } from './parallel-cars/parallel-cars.component';
 import { SharedModule } from '../shared/shared.module';
+import { CloningTroubleComponent } from './cloning-trouble/cloning-trouble.component';
+import { RepeatingRainsComponent } from './repeating-rains/repeating-rains.component';
 
 @NgModule({
   imports: [
@@ -9,10 +11,14 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   declarations: [
-    ParallelCarsComponent
+    ParallelCarsComponent,
+    CloningTroubleComponent,
+    RepeatingRainsComponent
   ],
   exports: [
-    ParallelCarsComponent
+    ParallelCarsComponent,
+    CloningTroubleComponent,
+    RepeatingRainsComponent
   ]
 })
 export class DemeterModule { }
