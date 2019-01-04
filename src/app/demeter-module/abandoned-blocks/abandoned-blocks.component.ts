@@ -9,26 +9,23 @@ import {
 import { Observable, zip, timer, interval } from 'rxjs';
 import { textureLoader } from '../game-engine/games/parallel-cars/parallel-cars.loader';
 import { takeUntil, map } from 'rxjs/operators';
-import { RepeatingRains } from '../game-engine/games/repeating-rains/repeating-rains.game';
+import { AbandonedBlocks } from '../game-engine/games/abandoned-blocks/abandoned-blocks.game';
 
 @Component({
-  selector: 'app-repeating-rains',
-  templateUrl: './repeating-rains.component.html',
-  styleUrls: ['./repeating-rains.component.scss']
+  selector: 'app-abandoned-blocks',
+  templateUrl: './abandoned-blocks.component.html',
+  styleUrls: ['./abandoned-blocks.component.scss']
 })
-export class RepeatingRainsComponent implements OnInit, AfterViewInit {
-  @Input() usedLoops = 0;
-  @Input() duplicateScripts = 0;
+export class AbandonedBlocksComponent implements OnInit, AfterViewInit {
+  @Input() totalScripts: number;
 
-  @Input() param1 = 0;
-  @Input() param2 = 0;
-  @Input() param3 = 0;
+  @Input() unusedScripts: number;
 
   @Output() onFinished = new EventEmitter<number>();
 
   private _gameTimer$: Observable<any>;
   private _remainingTime$: Observable<number>;
-  private game: RepeatingRains;
+  private game: AbandonedBlocks;
   public isLoading = true;
   public started = false;
 
@@ -46,18 +43,11 @@ export class RepeatingRainsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     textureLoader.clear();
-    zip(
-      textureLoader.LoadTexture('cars_spritesheet'),
-      textureLoader.LoadTexture('mouses_spritesheet'),
-      textureLoader.LoadTexture('cicles_spritesheet')
-    ).subscribe(_ => {
-      this.game = new RepeatingRains(
+    zip(textureLoader.LoadTexture('houses_spritesheet')).subscribe(_ => {
+      this.game = new AbandonedBlocks(
         'game-canvas',
-        this.param1, // required loops
-        this.param2, // max alllowed loops
-        this.param3, // min allowed loops
-        this.usedLoops, // used loops
-        this.duplicateScripts // closed invalid loops
+        this.totalScripts,
+        this.unusedScripts
       );
       this.game.Load().subscribe(val => (this.isLoading = false));
     });

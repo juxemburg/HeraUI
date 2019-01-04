@@ -47,6 +47,13 @@
         >
         </app-repeating-rains>
       </div>
+      <div *ngSwitchCase="5" class="col-sm-12">
+        <app-abandoned-blocks
+          [totalScripts]="model.numScripts"
+          [unusedScripts]="model.deadCodeCount"
+        >
+        </app-abandoned-blocks>
+      </div>
       <div class="col-sm-12" *ngSwitchDefault>Sin evaluación :(</div>
     </div>
   </div>

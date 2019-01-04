@@ -29,6 +29,10 @@ export class StarRatingComponent implements OnInit, ControlValueAccessor {
 
   @Input() color = 'text-warning';
 
+  @Input() icon = 'star';
+
+  @Input() spacing = 'mx-0';
+
   public selectedValue = 0;
 
   public onChanged = (val: number) => {};

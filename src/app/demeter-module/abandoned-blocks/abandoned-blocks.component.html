@@ -1,0 +1,43 @@
+<div class="col-sm-12 text-center" *ngIf="isLoading">
+  <app-loading> </app-loading>
+</div>
+
+<div class="col-sm-12" *ngIf="!isLoading && !started">
+  <h5 class="title">¡LLuvias repetitivas!</h5>
+  <p class="col-sm-12 text-justify">
+    adasdasdasdas asdasd sd asd asdas d
+  </p>
+  <ul class="offset-lg-2 col-lg-8">
+    <li>Inst 1</li>
+    <li>Inst 2</li>
+    <li>Inst 3</li>
+  </ul>
+  <div class="col-sm-12">
+    <!-- TODO: Replace image -->
+    <img src="assets/demeter/parallel-cars/demo.gif" alt="" />
+  </div>
+</div>
+<div class="col-sm-12 text-center" *ngIf="!isLoading && !started">
+  <button class="btn btn-round btn-success" (click)="start()">
+    <fa-icon icon="play"></fa-icon>
+  </button>
+</div>
+
+<div [hidden]="!started">
+  <!-- inputs-div -->
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label for="" class="control-label">
+        <h6>
+          <fa-icon icon="clock"></fa-icon>
+          Tiempo restante:
+        </h6>
+      </label>
+      <span class="text-muted ml-2">{{ remainingTime }}</span>
+    </div>
+  </div>
+  <!-- /inputs-div -->
+  <!-- game-canvas -->
+  <div><canvas id="game-canvas"> </canvas></div>
+  <!-- /game-canvas -->
+</div>

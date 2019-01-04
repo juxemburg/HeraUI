@@ -1,21 +1,29 @@
 <!-- content-card -->
 <div class="card" [@animationState]="animationState">
   <div class="card-header text-center">
-    <h3 class="card-title">
-      {{model.nombre}}
+    <h3 class="card-title d-flex justify-content-between">
+      <span class="flex-fill"> {{ model.nombre }} </span>
+      <span *ngIf="model.completado" class="text-success"
+        ><fa-icon icon="check-circle"></fa-icon
+      ></span>
     </h3>
-    <h6 class="card-subtitle">{{model.descripcion}}</h6>
+    <h6 class="card-subtitle">{{ model.descripcion }}</h6>
   </div>
   <div class="card-body">
-    <div class="image">
-      <img src="assets/img/portal.svg.svg" alt="">
-    </div>
+    <div class="image"><img src="assets/img/portal.svg.svg" alt="" /></div>
     <div class="col-sm-12 text-center mt-3">
       <app-star-rating [(ngModel)]="model.puntuacionMax" size="2x">
       </app-star-rating>
     </div>
+    <div class="col-sm-12 text-center mt-3">
+      <app-star-rating spacing="mr-1" size="lg" icon="heart" color="text-danger" [(ngModel)]="model.valoracion">
+      </app-star-rating>
+    </div>
     <div class="col-sm-12 text-center">
-      <a [routerLink]="['challenge/', model.id]" class="btn btn-primary btn-round">
+      <a
+        [routerLink]="['challenge/', model.id]"
+        class="btn btn-primary btn-round"
+      >
         <fa-icon icon="play"></fa-icon>
         <span class="ml-2">Iniciar desafío</span>
       </a>

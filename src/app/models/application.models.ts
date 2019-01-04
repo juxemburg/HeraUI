@@ -31,7 +31,8 @@ export class StudentChallengeListModel {
     public nombre: string,
     public descripcion: string,
     public puntuacionMax: number,
-    public completado: boolean
+    public completado: boolean,
+    public valoracion: number
   ) {}
 }
 

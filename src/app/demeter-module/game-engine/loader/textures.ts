@@ -4,5 +4,6 @@ export const TextureMap = {
     package: 'assets/demeter/parallel-cars/package.png',
     cars_spritesheet: 'assets/demeter/parallel-cars/cars_spritesheet.png',
     mouses_spritesheet: 'assets/demeter/cloning-trouble/mouses_spritesheet.png',
-    cicles_spritesheet: 'assets/demeter/repeating-rains/cicles_spritesheet.png'
+    cicles_spritesheet: 'assets/demeter/repeating-rains/cicles_spritesheet.png',
+    houses_spritesheet: 'assets/demeter/abandoned-blocks/houses_spritesheet.png'
 }
