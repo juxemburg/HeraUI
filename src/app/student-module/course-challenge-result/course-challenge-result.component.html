@@ -51,6 +51,7 @@
         <app-abandoned-blocks
           [totalScripts]="model.numScripts"
           [unusedScripts]="model.deadCodeCount"
+          (onFinished)="showResults()"
         >
         </app-abandoned-blocks>
       </div>

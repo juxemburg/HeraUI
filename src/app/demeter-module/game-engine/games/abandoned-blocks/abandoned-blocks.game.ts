@@ -1,6 +1,10 @@
 import { Game } from '../../game.game';
 import { Observable } from 'rxjs';
-import { LoadHouse, LoadZombieHorde } from './abandoned-blocks.loader';
+import {
+  LoadHouse,
+  LoadZombieHorde,
+  LoadSafeHouse
+} from './abandoned-blocks.loader';
 
 export class AbandonedBlocks extends Game {
   constructor(
@@ -8,15 +12,27 @@ export class AbandonedBlocks extends Game {
     private _usedBlocks: number,
     private _abandonedBlocks: number
   ) {
-    super(canvasId, 1200, 300);
+    super(canvasId, 1200, (_usedBlocks / 6) * 130 + 100);
 
+    const safeHouseCount = this._usedBlocks - this._abandonedBlocks;
+
+    let y = 100;
     for (let i = 0; i < this._usedBlocks; i++) {
-      const house = LoadHouse(1000 + i, 100 + i * 160, 100);
-      this.addGameObject(house);
-    }
-    for (let i = 0; i < this._abandonedBlocks; i++) {
-      const horde = LoadZombieHorde(1000 + i, 100 + i * 160, 45);
-      this.addGameObject(horde);
+      const x = 100 + (i % 6) * 160;
+
+      if (i < this._abandonedBlocks) {
+        const house = LoadHouse(1000 + i, x, y);
+        const horde = LoadZombieHorde(100000 + i, x, y + 35);
+        this.addGameObject(house);
+        this.addGameObject(horde);
+      } else {
+        const house = LoadSafeHouse(1 + i, x, y);
+        this.addGameObject(house);
+      }
+
+      if (i % 6 === 5) {
+        y += 120;
+      }
     }
   }
 

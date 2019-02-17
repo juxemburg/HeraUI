@@ -47,9 +47,6 @@ export class ParallelCarsComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     textureLoader.clear();
     zip(
-      textureLoader.LoadTexture('car_left'),
-      textureLoader.LoadTexture('car_right'),
-      textureLoader.LoadTexture('package'),
       textureLoader.LoadTexture('cars_spritesheet')
     ).subscribe(_ => {
       this.game = new ParallelCarsGame(

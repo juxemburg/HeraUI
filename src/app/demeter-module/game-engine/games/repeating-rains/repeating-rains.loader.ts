@@ -19,8 +19,8 @@ export function LoadGarden(id: number, x: number, y: number) {
       textureLoader.GetTexture('cicles_spritesheet'),
       100,
       100,
-      3,
-      2,
+      8,
+      1,
       12
     )
   ]);
@@ -29,18 +29,18 @@ export function LoadGarden(id: number, x: number, y: number) {
 
 export function LoadCloud(id: number, x: number, y: number) {
   const cloudSprite = new Sprite(0, 0, [
-    new ImageTexture( 
+    new ImageTexture(
       0,
       0,
       2,
-      202,
+      102,
       96,
       96,
       textureLoader.GetTexture('cicles_spritesheet'),
       100,
       100,
-      3,
-      2,
+      8,
+      1,
       60
     )
   ]);

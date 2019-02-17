@@ -31,7 +31,7 @@ export class AbandonedBlocksComponent implements OnInit, AfterViewInit {
 
   public gameScore = 0;
 
-  public seconds = 30000;
+  public seconds = 10000;
   private _remainingTime = 30;
   public get remainingTime(): number {
     return this._remainingTime;
